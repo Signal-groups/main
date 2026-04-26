@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메타리치 시그널그룹 | 통합 메인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;700;900&family=Black+Han+Sans&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nanumfont@1.0.0/NanumSquareRound.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        /* ════════ 기본 본문 폰트 설정 ════════ */
+        body { font-family: 'Pretendard Variable', 'NanumSquareRound', 'Noto Sans KR', sans-serif; background-color: #ffffff; color: #1c1c1c; overflow-x: hidden; }
+        
+        .font-serif { font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif; }
+        
+        .main-title { 
+            font-family: 'Black Han Sans', sans-serif; 
+            color: #1a1a1a; 
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            font-weight: normal;
+            white-space: nowrap;
+            word-break: keep-all;
+        }
+        .main-title-sub {
+            font-family: 'Noto Serif KR', serif;
+            color: #4A4A4A;
+            font-weight: 700;
+            word-break: keep-all;
+        }
+
+        /* ════════ 메인 히어로 영역 ════════ */
+        .panorama-hero {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            height: 550px; 
+            overflow: hidden;
+        }
+        .panorama-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center center; 
+        }
+        
+        .hero-logo-overlay {
+            position: absolute;
+            top: 40px;
+            right: 60px;
+            background: rgba(255,255,255,0.9);
+            padding: 15px 25px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-family: 'Pretendard Variable', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border-left: 5px solid #2563eb;
+        }
+
+        /* ════════ 지도 애니메이션 복구 ════════ */
+        .map-base {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .map-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #3b82f6;
+        }
+        .map-point::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400%;
+            height: 400%;
+            border: 1px solid #3b82f6;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: map-ping 2.5s infinite;
+        }
+        @keyframes map-ping {
+            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+
+        /* ════════ 임직원 카드 스타일 ════════ */
+        .expert-card { width: 100%; position: relative; cursor: pointer; display: block; }
+        .expert-card.large { max-width: 320px; margin: 0 auto; }
+        .expert-card.basic { max-width: 240px; margin: 0 auto; }
+
+        .expert-image { 
+            filter: grayscale(100%); 
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            border-radius: 20px; 
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border: 1px solid #eee;
+            width: 100%;
+        }
+        .expert-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(37, 99, 235, 0.2); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 20px;
+            color: white;
+            font-weight: 800;
+            font-size: 14px;
+            backdrop-filter: blur(2px);
+        }
+        .expert-card:hover .expert-image { filter: grayscale(0%); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .expert-card:hover .expert-overlay { opacity: 1; }
+
+        /* ════════ 제휴사 박스 스타일 ════════ */
+        .partner-box { 
+            background: #fdfdfd; 
+            border: 1px solid #eeeeee; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-family: 'NanumSquareRound', sans-serif;
+            font-size: 14px; 
+            font-weight: 800; 
+            color: #333333; 
+            border-radius: 8px; 
+            height: 52px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .partner-box:hover { border-color: #2563eb; color: #2563eb; transform: translateY(-2px); }
+
+        /* ════════ 센터 카드 디자인 ════════ */
+        .center-link-card {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid #eee;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+        .center-link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: #2563eb;
+        }
+
+        /* ════════ 업데이트: 하단 버튼 및 폰트 ════════ */
+        .btn-action { 
+            width: 240px; 
+            height: 64px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px; 
+            font-weight: 900;
+            font-family: 'Noto Sans KR', sans-serif;
+            letter-spacing: -0.05em;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 16px;
+            text-decoration: none;
+        }
+        .btn-action span { position: relative; z-index: 2; }
+        .btn-action:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2); }
+
+        /* ════════ 드롭다운 메뉴 스타일 ════════ */
+        .nav-item { position: relative; padding: 10px 0; }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white;
+            min-width: 180px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border: 1px solid #f1f1f1;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            padding: 8px;
+        }
+        .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-group { position: relative; }
+        .sub-dropdown {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            min-width: 140px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f1f1f1;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            padding: 6px;
+            margin-left: 5px;
+        }
+        .dropdown-group:hover .sub-dropdown { opacity: 1; visibility: visible; }
+        .dropdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #444;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .dropdown-item:hover { background: #f5f8ff; color: #2563eb; }
+
+        /* ════════ 모바일 최적화 ════════ */
+        @media (max-width: 768px) {
+            .main-title { white-space: normal; word-break: keep-all; font-size: 2.2rem; }
+            .panorama-hero { height: 350px; }
+            .hero-logo-overlay { right: 20px; top: 20px; font-size: 0.9rem; padding: 10px 15px; }
+            .mobile-menu-active { display: flex !important; }
+            #mobile-menu-btn { cursor: pointer; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 py-4 bg-white/95 backdrop-blur-md border-b border-stone-100">
+        <a href="index.html" class="text-xl font-black tracking-tighter text-stone-900 hover:text-blue-600 transition" style="font-family: 'Pretendard Variable', sans-serif;">
+            METARICH <span class="text-blue-600">SIGNAL</span>
+        </a>
+        
+        <div id="mobile-menu-btn" class="md:hidden text-stone-900 font-bold text-sm border px-3 py-1 rounded">MENU</div>
+
+        <div class="hidden md:flex gap-8 text-[13px] font-bold text-stone-600 items-center">
+            <div class="nav-item cursor-pointer hover:text-blue-600 transition">
+                지점선택
+                <div class="dropdown">
+                    <div class="dropdown-group">
+                        <div class="dropdown-item">강원 네트워크 <span class="text-[10px]">▶</span></div>
+                        <div class="sub-dropdown">
+                            <a href="./wonju/index.html" class="dropdown-item">원주 본부</a>
+                            <a href="./chuncheon/index.html" class="dropdown-item">춘천 센터</a>
+                            <a href="./gangneung/index.html" class="dropdown-item">강릉 센터</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-group">
+                        <div class="dropdown-item">경기 네트워크 <span class="text-[10px]">▶</span></div>
+                        <div class="sub-dropdown">
+                            <a href="./icheon/index.html" class="dropdown-item">이천 센터</a>
+                            <a href="./seongnam/index.html" class="dropdown-item">성남 센터</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#experts" class="hover:text-blue-600 transition">임직원소개</a>
+            <a href="#partners" class="hover:text-blue-600 transition">제휴보험사</a>
+            <a href="https://display.cjonstyle.com" target="_blank" class="text-orange-600 hover:text-orange-700 transition">CJ온스타일</a>
+            <div class="h-3 w-[1px] bg-stone-200"></div>
+            <a href="./consult.html" class="text-blue-600 hover:text-blue-700 transition">보험상담 및 청구</a>
+            <a href="./recruit.html" class="hover:text-blue-600 transition">입사지원</a>
+        </div>
+        <a href="https://metarich-signal.vercel.app/login" target="_blank" class="hidden md:block text-[12px] font-bold border border-stone-800 px-4 py-1.5 rounded-full hover:bg-stone-800 hover:text-white transition">임직원 로그인</a>
+    </nav>
+
+    <div id="mobile-nav" class="hidden flex-col bg-stone-50 border-b md:hidden px-6 py-6 gap-3 text-sm font-bold shadow-inner">
+        <a href="./consult.html" class="bg-blue-600 text-white p-4 rounded-xl text-center shadow-lg shadow-blue-100">보험상담 및 청구</a>
+        <div class="grid grid-cols-2 gap-2 mt-2">
+            <a href="#network" class="bg-white border p-3 rounded-lg text-center" onclick="document.getElementById('mobile-nav').classList.add('hidden')">지점안내</a>
+            <a href="#experts" class="bg-white border p-3 rounded-lg text-center" onclick="document.getElementById('mobile-nav').classList.add('hidden')">임직원소개</a>
+            <a href="#partners" class="bg-white border p-3 rounded-lg text-center" onclick="document.getElementById('mobile-nav').classList.add('hidden')">제휴보험사</a>
+            <a href="./recruit.html" class="bg-stone-900 text-white p-3 rounded-lg text-center">입사지원</a>
+        </div>
+        <a href="https://metarich-signal.vercel.app/login" target="_blank" class="mt-2 text-stone-400 text-xs text-center font-medium">임직원 로그인 (Portal)</a>
+    </div>
+
+    <header class="max-w-7xl mx-auto px-6 pt-20 text-center" data-aos="fade-up">
+        <h1 class="main-title text-5xl md:text-7xl mb-12">
+            생애 전반에 걸친 금융설계<br>
+            <span class="main-title-sub text-2xl md:text-4xl block mt-6">최고의 전문가와 함께합니다.</span>
+        </h1>
+
+        <div class="panorama-hero mb-24 shadow-2xl overflow-hidden relative rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" alt="메타리치 시그널그룹 전경" class="w-full h-full object-cover">
+            <div class="hero-logo-overlay">
+                METARICH <span class="text-blue-600">SIGNAL GROUP</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="network" class="max-w-7xl mx-auto px-6 mb-32">
+        <div class="text-center mb-16">
+            <h2 class="font-black text-4xl mb-4" style="font-family: 'Black Han Sans', sans-serif;">SIGNAL NETWORK</h2>
+            <p class="text-stone-500">원하시는 지역의 센터를 선택하여 전문적인 상담을 받아보세요.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="center-link-card bg-white rounded-3xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-56 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8 text-left flex-1 flex flex-col">
+                    <span class="text-blue-600 font-bold text-xs tracking-widest uppercase" style="font-family: 'Pretendard Variable', sans-serif;">Headquarters</span>
+                    <h3 class="font-serif text-2xl font-black mt-2 mb-3">시그널 그룹 원주 본부</h3>
+                    <p class="text-stone-500 mb-6 text-sm leading-relaxed">강원권 금융 서비스의 메카, 원주 본부에서 가장 앞선 보험 솔루션을 만나보세요.</p>
+                    <div class="mt-auto flex gap-3">
+                        <a href="./wonju/index.html" class="flex-1 text-center bg-stone-900 text-white py-3.5 rounded-xl text-sm font-bold hover:bg-blue-600 transition">센터 바로가기</a>
+                        <a href="./consult.html" class="flex-1 text-center border border-stone-200 py-3.5 rounded-xl text-sm font-bold hover:bg-stone-50 transition">상담신청</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-link-card bg-white rounded-3xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-56 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8 text-left flex-1 flex flex-col">
+                    <span class="text-blue-600 font-bold text-xs tracking-widest uppercase" style="font-family: 'Pretendard Variable', sans-serif;">Chuncheon Center</span>
+                    <h3 class="font-serif text-2xl font-black mt-2 mb-3">시그널 그룹 춘천 본부</h3>
+                    <p class="text-stone-500 mb-6 text-sm leading-relaxed">춘천 지역 고객님들을 위한 밀착형 금융 서비스와 전문적인 보상 청구를 지원합니다.</p>
+                    <div class="mt-auto flex gap-3">
+                        <a href="./chuncheon/index.html" class="flex-1 text-center bg-stone-900 text-white py-3.5 rounded-xl text-sm font-bold hover:bg-blue-600 transition">센터 바로가기</a>
+                        <a href="./consult.html" class="flex-1 text-center border border-stone-200 py-3.5 rounded-xl text-sm font-bold hover:bg-stone-50 transition">상담신청</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-link-card bg-white rounded-3xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-56 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8 text-left flex-1 flex flex-col">
+                    <span class="text-blue-600 font-bold text-xs tracking-widest uppercase" style="font-family: 'Pretendard Variable', sans-serif;">Icheon Center</span>
+                    <h3 class="font-serif text-2xl font-black mt-2 mb-3">시그널 그룹 이천 센터</h3>
+                    <p class="text-stone-500 mb-6 text-sm leading-relaxed">경기 동남부권의 핵심 거점, 이천 센터가 신뢰할 수 있는 금융 파트너가 됩니다.</p>
+                    <div class="mt-auto flex gap-3">
+                        <a href="./icheon/index.html" class="flex-1 text-center bg-stone-900 text-white py-3.5 rounded-xl text-sm font-bold hover:bg-blue-600 transition">센터 바로가기</a>
+                        <a href="./consult.html" class="flex-1 text-center border border-stone-200 py-3.5 rounded-xl text-sm font-bold hover:bg-stone-50 transition">상담신청</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experts" class="py-24 bg-stone-50 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="font-black text-4xl mb-4 text-stone-950" style="font-family: 'Black Han Sans', sans-serif;">EXPERT GROUP</h2>
+                <p class="text-stone-600 font-medium font-serif italic max-w-2xl mx-auto">"시그널그룹의 가치를 증명하는 최고의 금융 전문가 그룹을 소개합니다."</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 justify-center">
+                <a href="./experts/jw1035.html" class="expert-card large" data-aos="fade-right" data-aos-delay="100">
+                    <img src="./assets/images/members/jw1035.jpg" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80'" class="expert-image shadow-xl">
+                    <div class="expert-overlay">프로필보기</div>
+                    <div class="mt-8 text-center">
+                        <h4 class="font-bold text-2xl tracking-tighter text-stone-950">박주완</h4>
+                        <p class="text-sm text-blue-600 font-bold uppercase tracking-widest mt-2" style="font-family: 'Pretendard Variable', sans-serif;">총괄본부장</p>
+                    </div>
+                </a>
+                
+                <a href="./experts/yk1873.html" class="expert-card large" data-aos="fade-left" data-aos-delay="200">
+                    <img src="./assets/images/members/yk1873.png" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80'" class="expert-image shadow-xl">
+                    <div class="expert-overlay">프로필보기</div>
+                    <div class="mt-8 text-center">
+                        <h4 class="font-bold text-2xl tracking-tighter text-stone-950">김연경</h4>
+                        <p class="text-sm text-blue-600 font-bold uppercase tracking-widest mt-2" style="font-family: 'Pretendard Variable', sans-serif;">센터장</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
+                <a href="./experts/jw2565.html" class="expert-card basic" data-aos="fade-up" data-aos-offset="50">
+                    <img src="./assets/images/members/jw2565.png" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80'" class="expert-image shadow-lg">
+                    <div class="expert-overlay">프로필보기</div>
+                    <div class="mt-6 text-center">
+                        <h4 class="font-bold text-lg tracking-tighter text-stone-900">배진우</h4>
+                        <p class="text-[11px] text-blue-600 font-bold uppercase tracking-widest mt-1.5" style="font-family: 'Pretendard Variable', sans-serif;">팀장</p>
+                    </div>
+                </a>
+                
+                <a href="./experts/hk0203.html" class="expert-card basic" data-aos="fade-up" data-aos-offset="50" data-aos-delay="50">
+                    <img src="./assets/images/members/hk0203.jpg" onerror="this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80'" class="expert-image shadow-lg">
+                    <div class="expert-overlay">프로필보기</div>
+                    <div class="mt-6 text-center">
+                        <h4 class="font-bold text-lg tracking-tighter text-stone-900">채홍교</h4>
+                        <p class="text-[11px] text-blue-600 font-bold uppercase tracking-widest mt-1.5" style="font-family: 'Pretendard Variable', sans-serif;">팀장</p>
+                    </div>
+                </a>
+
+                <a href="./experts/ko-jungyun.html" class="expert-card basic" data-aos="fade-up" data-aos-offset="50" data-aos-delay="100">
+                    <img src="./assets/images/members/ko-jungyun.jpg" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80'" class="expert-image shadow-lg">
+                    <div class="expert-overlay">프로필보기</div>
+                    <div class="mt-6 text-center">
+                        <h4 class="font-bold text-lg tracking-tighter text-stone-900">고정윤</h4>
+                        <p class="text-[11px] text-blue-600 font-bold uppercase tracking-widest mt-1.5" style="font-family: 'Pretendard Variable', sans-serif;">팀장</p>
+                    </div>
+                </a>
+
+                <a href="./experts/kim-youngkwon.html" class="expert-card basic" data-aos="fade-up" data-aos-offset="50" data-aos-delay="150">
+                    <img src="./assets/images/members/kim-youngkwon.jpg" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80'" class="expert-image shadow-lg">
+                    <div class="expert-overlay">프로필보기</div>
+                    <div class="mt-6 text-center">
+                        <h4 class="font-bold text-lg tracking-tighter text-stone-900">김영권</h4>
+                        <p class="text-[11px] text-blue-600 font-bold uppercase tracking-widest mt-1.5" style="font-family: 'Pretendard Variable', sans-serif;">지점장</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="py-24 bg-[#fcfcfc] border-y border-stone-50 px-6" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-black text-4xl mb-4 text-stone-900" style="font-family: 'Black Han Sans', sans-serif;">제휴 보험사</h2>
+                <p class="text-stone-500 font-medium">메타리치 시그널그룹은 국내외 33개 주요 보험사와 제휴하여 최적의 솔루션을 제공합니다.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 text-left">
+                <div>
+                    <h4 class="text-xl font-black text-stone-900 mb-6 border-b-2 border-blue-600 pb-2 inline-block">생명보험</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4">
+                        <div class="partner-box">삼성생명</div><div class="partner-box">한화생명</div>
+                        <div class="partner-box">교보생명</div><div class="partner-box">신한라이프</div>
+                        <div class="partner-box">미래에셋</div><div class="partner-box">동양생명</div>
+                        <div class="partner-box">DB생명</div><div class="partner-box">흥국생명</div>
+                        <div class="partner-box">KDB생명</div><div class="partner-box">라이나생명</div>
+                        <div class="partner-box">AIA생명</div><div class="partner-box">푸본현대</div>
+                        <div class="partner-box">하나생명</div><div class="partner-box">교보생명</div>
+                        <div class="partner-box">ABL생명</div><div class="partner-box">IM라이프</div>
+                        <div class="partner-box">KB생명</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-black text-stone-900 mb-6 border-b-2 border-red-500 pb-2 inline-block">손해보험</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4">
+                        <div class="partner-box">현대해상</div><div class="partner-box">DB손보</div>
+                        <div class="partner-box">메리츠화재</div><div class="partner-box">KB손보</div>
+                        <div class="partner-box">삼성화재</div><div class="partner-box">한화손보</div>
+                        <div class="partner-box">흥국화재</div><div class="partner-box">롯데손보</div>
+                        <div class="partner-box">라이나손보</div><div class="partner-box">하나손보</div>
+                        <div class="partner-box">농협손보</div><div class="partner-box">AIG손보</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-950 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 items-center gap-16 text-left">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl text-white font-bold mb-6 leading-tight" style="font-family: 'Noto Serif KR', serif;">
+                    전국으로 뻗어나가는<br>
+                    <span class="text-blue-500 font-black italic" style="font-family: 'Black Han Sans', sans-serif;">시그널의 빛</span>
+                </h2>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    본부와 센터는 유기적으로 연결되어 최첨단 분석 시스템을 공유합니다. <br>
+                    어느 곳에서도 동일한 고품격 금융 서비스를 경험하실 수 있습니다.
+                </p>
+            </div>
+            
+            <div class="relative h-[450px] map-base rounded-3xl border border-white/5" data-aos="zoom-in">
+                <div class="map-point" style="top: 30%; left: 40%;"></div> 
+                <div class="map-point" style="top: 35%; left: 55%;"></div> 
+                <div class="map-point" style="top: 25%; left: 58%;"></div> 
+                <div class="map-point" style="top: 60%; left: 45%;"></div> 
+                <div class="text-center z-10">
+                    <p class="text-blue-400 font-black text-xl tracking-tighter">METARICH SIGNAL NETWORK</p>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recruit" class="py-32 px-6 bg-white text-center" data-aos="zoom-in">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+            <a href="./consult.html" class="btn-action bg-blue-600 text-white shadow-2xl">
+                <span>보험상담 및 청구</span>
+            </a>
+            <a href="./recruit.html" class="btn-action bg-stone-950 text-white shadow-2xl">
+                <span>신입/경력 입사지원</span>
+            </a>
+        </div>
+        <p class="mt-10 text-stone-400 font-medium tracking-tight">메타리치 시그널그룹과 함께할 열정 있는 파트너를 기다립니다.</p>
+    </section>
+
+    <footer class="bg-white py-16 border-t border-stone-100 text-center">
+        <div class="max-w-4xl mx-auto px-6 mb-8 text-stone-600 text-[13px] leading-relaxed space-y-2">
+            <p><strong>원주본부 :</strong> 강원특별자치도 원주시 능라동길 81, 3~6층 메타리치 시그널그룹</p>
+            <p><strong>춘천본부 :</strong> 강원특별자치도 춘천시 동면 춘천순환로 681,1층,2층 메타리치 시그널그룹 춘천본부</p>
+            <p><strong>이천센터 :</strong> 경기 이천시 경충대로 2723, 2~3층 메타리치 시그널그룹 이천센터</p>
+        </div>
+        <p class="text-stone-400 text-[11px] font-serif tracking-widest uppercase italic">Metarich Signal Group / All Rights Reserved</p>
+    </footer>
+
+    <script>
+        AOS.init({ 
+            duration: 800, 
+            once: false, 
+            mirror: true 
+        });
+
+        // 모바일 메뉴 토글 스크립트
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+            mobileNav.classList.toggle('flex');
+        });
+    </script>
+</body>
+</html>

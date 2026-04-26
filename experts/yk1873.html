@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>내 보험료 무료 점검 | 김연경 센터장</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<style>
+/* ════════════════════════════════
+   VARIABLES & RESET
+   BRAND: Deep Green & Gold (Collable Style)
+════════════════════════════════ */
+:root{
+  --gold:      #004132;   /* Deep Green */
+  --gold-m:    #1a3d31;   /* Darker Green */
+  --gold-l:    #D4AF37;   /* Gold Accent */
+  --gold-pale: #F0F4F2;   /* Pale Greenish Gray */
+  --bg:        #FDFDFD;
+  --bg2:       #F7F8F7;
+  --bg3:       #E8EAE9;
+  --dark:      #002D23;   /* Very Deep Green */
+  --dark2:     #0C1A16;
+  --text:      #1A1C1B;
+  --text2:     #4A4D4C;
+  --text3:     #949695;
+  --white:     #FFFFFF;
+  --red:       #A67C52;   /* Muted Brown/Gold for alert */
+  --green:     #004132;
+  --kakao:     #FEE500;
+  --r:         12px;
+  --r-lg:      18px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;} html:not([data-scroll]){scroll-behavior:auto;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  word-break: keep-all;
+}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ════════════════════════════════
+   LAYOUT
+════════════════════════════════ */
+.wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+.sec{padding:80px 0;}
+
+/* ════════════════════════════════
+   SECTION HEADER
+════════════════════════════════ */
+.sh{margin-bottom:44px;}
+.sh-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:12px;
+}
+.sh-label::before{content:'';width:20px;height:2px;background:var(--gold);border-radius:1px;}
+.sh-title{
+  font-size:clamp(24px,5vw,42px);
+  font-weight:800;line-height:1.3;
+  letter-spacing:-.02em;
+  color:var(--dark);
+  margin-bottom:12px;
+}
+.sh-title em{font-style:normal;color:var(--gold);}
+.sh-desc{
+  font-size:16px;line-height:1.8;
+  color:var(--text2);
+  max-width:540px;
+}
+.center .sh-label{display:flex;justify-content:center;}
+.center .sh-title{text-align:center;}
+.center .sh-desc{text-align:center;margin:0 auto;}
+
+/* ════════════════════════════════
+   BUTTONS
+════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;font-size:15px;
+  padding:15px 32px;border-radius:9px;border:none;cursor:pointer;
+  transition:transform .18s,box-shadow .18s,opacity .18s;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-dark{background:var(--dark);color:#fff;box-shadow:0 6px 24px rgba(28,26,22,.22);}
+.btn-dark:hover{box-shadow:0 10px 30px rgba(28,26,22,.3);}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#fff;box-shadow:0 6px 24px rgba(184,146,42,.3);}
+.btn-gold:hover{box-shadow:0 10px 30px rgba(184,146,42,.45);}
+.btn-kakao{background:var(--kakao);color:#111;box-shadow:0 6px 20px rgba(254,229,0,.3);}
+.btn-kakao:hover{box-shadow:0 10px 28px rgba(254,229,0,.45);}
+.btn-call{background:#E8F5EE;color:var(--green);border:2px solid var(--green);}
+.btn-call:hover{background:#D1EBD9;}
+.btn-full{width:100%;padding:17px 24px;font-size:16px;}
+
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:80px 20px 100px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.6) 100%);
+}
+.hero-inner{position:relative;z-index:1;max-width:700px;width:100%;}
+
+.hero-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:var(--white);font-size:12px;font-weight:600;letter-spacing:0.05em;
+  padding:8px 20px;border-radius:100px;margin-bottom:24px;
+  backdrop-filter: blur(4px);
+}
+.hero-h1{
+  font-size:clamp(34px, 8vw, 68px);
+  font-weight:800;line-height:1.2;
+  letter-spacing:-.02em;
+  color:var(--white);
+  margin-bottom:24px;
+  animation:fadeUp .7s .1s ease both;
+}
+.hero-h1 .sub-line{
+  display:block;
+  font-size:clamp(14px, 2.5vw, 18px);
+  font-weight:500;letter-spacing:0;
+  color:rgba(255,255,255,0.8);margin-bottom:12px;
+}
+.hero-h1 .accent{color:var(--gold-l);}
+.hero-h1 .light{font-weight:400;color:rgba(255,255,255,0.7);}
+
+.hero-desc{
+  font-size:clamp(14px,2vw,17px);
+  color:rgba(255,255,255,0.8);line-height:1.9;
+  margin-bottom:36px;
+  animation:fadeUp .7s .2s ease both;
+}
+.hero-desc strong{color:var(--white);font-weight:700;}
+
+.hero-btns{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .7s .3s ease both;
+}
+
+.scroll-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  color:var(--text3);font-size:10px;letter-spacing:.15em;
+  animation:bounce 2.2s ease-in-out infinite;
+}
+.scroll-hint::before{content:'';width:1px;height:32px;background:linear-gradient(to bottom,transparent,var(--text3));}
+
+/* ════════════════════════════════
+   STATS BAR
+════════════════════════════════ */
+.stats-bar{background:var(--dark);padding:44px 20px;}
+.stats-grid{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+  text-align:center;
+}
+.stat-item{
+  padding:0 16px;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.stat-item:last-child{border-right:none;}
+.stat-num{
+  font-size:clamp(28px,4vw,44px);font-weight:800;
+  color:var(--gold-l);line-height:1;margin-bottom:8px;
+  letter-spacing:-.01em;
+}
+.stat-label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);letter-spacing:0.02em;}
+.stat-sub{font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;}
+
+/* ════════════════════════════════
+   PAIN
+════════════════════════════════ */
+.pain-sec{background:var(--white);}
+.pain-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.pain-card{
+  background:var(--bg);
+  border:1.5px solid var(--bg3);
+  border-radius:var(--r);
+  padding:22px 18px;
+  transition:border-color .2s,transform .2s;
+}
+.pain-card:hover{border-color:rgba(184,70,50,.35);transform:translateY(-2px);}
+.pain-bar{width:24px;height:3px;background:var(--red);border-radius:2px;margin-bottom:12px;}
+.pain-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.4;}
+.pain-desc{font-size:14px;color:var(--text2);line-height:1.7;}
+
+/* ════════════════════════════════
+   SOLUTION
+════════════════════════════════ */
+.sol-sec{background:var(--bg2);}
+.sol-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.sol-card{
+  background:var(--white);
+  border:1.5px solid var(--bg3);
+  border-radius:var(--r);
+  padding:28px 18px 24px;
+  text-align:center;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.sol-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(184,146,42,.1);
+}
+.sol-num{
+  font-size:48px;font-weight:800;
+  color:rgba(94, 59, 238, 0.1);line-height:1;
+  margin-bottom:12px;
+}
+.sol-title{font-size:16px;font-weight:700;color:var(--gold);margin-bottom:10px;}
+.sol-desc{font-size:14px;color:var(--text2);line-height:1.7;}
+
+/* ════════════════════════════════
+   KAKAO CHAT
+════════════════════════════════ */
+.chat-sec{background:var(--white);}
+.chat-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+.chat-window{
+  background:#EAE0D5;
+  border-radius:18px;overflow:hidden;
+  box-shadow:0 16px 48px rgba(28,26,22,.12);
+}
+.chat-head{
+  background:#fff;padding:14px 18px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.chat-av{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-l));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:15px;color:#fff;flex-shrink:0;
+}
+.chat-head-name{font-size:14px;font-weight:700;color:var(--dark);}
+.chat-head-sub{font-size:12px;color:var(--text3);}
+.chat-body{padding:16px 14px;display:flex;flex-direction:column;gap:8px;}
+.chat-row{display:flex;gap:7px;align-items:flex-end;}
+.chat-row.me{flex-direction:row-reverse;}
+.av-sm{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;
+}
+.av-sm.ex{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#fff;}
+.av-sm.us{background:#C5BDB5;color:#fff;}
+.bubble{
+  max-width:76%;padding:9px 13px;
+  border-radius:14px;font-size:12.5px;line-height:1.6;
+}
+.chat-row:not(.me) .bubble{background:#fff;color:var(--dark);border-bottom-left-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+.chat-row.me .bubble{background:#FEF08A;color:#111;border-bottom-right-radius:3px;}
+.msg-t{font-size:10px;color:rgba(0,0,0,.35);flex-shrink:0;margin-bottom:1px;}
+.chat-date{text-align:center;font-size:10.5px;color:rgba(0,0,0,.38);padding:3px 0;margin:2px 0;}
+
+.chat-points{display:flex;flex-direction:column;gap:14px;}
+.cp-item{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--bg);border:1.5px solid var(--bg3);
+  border-radius:var(--r);padding:16px 18px;
+}
+.cp-icon{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold-l));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+
+.cp-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.cp-desc{font-size:14px;color:var(--text2);line-height:1.7;}
+
+/* ════════════════════════════════
+   REVIEWS
+════════════════════════════════ */
+.review-sec{background:var(--bg2);}
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.review-card{
+  background:var(--white);
+  border:1.5px solid var(--bg3);
+  border-radius:var(--r);
+  padding:24px 20px;
+  transition:transform .2s,box-shadow .2s;
+}
+.review-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(184,146,42,.1);border-color:rgba(184,146,42,.3);}
+.review-stars{color:var(--gold-m);font-size:13px;letter-spacing:1.5px;margin-bottom:10px;}
+.review-text{font-size:13px;color:var(--text2);line-height:1.85;margin-bottom:16px;}
+.review-foot{
+  display:flex;align-items:center;gap:10px;
+  border-top:1px solid var(--bg3);padding-top:12px;
+}
+.rev-dot{
+  width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;color:#fff;
+}
+.rev-name{font-size:13px;font-weight:700;color:var(--dark);}
+.rev-info{font-size:11px;color:var(--text3);margin-top:1px;}
+
+/* ════════════════════════════════
+   PROFILE
+════════════════════════════════ */
+.profile-sec{background:var(--dark);}
+.profile-sec .sh-title{color:#fff;}
+.profile-sec .sh-desc{color:rgba(255,255,255,.45);}
+.profile-box{
+  display:grid;grid-template-columns:auto 1fr;
+  gap:44px;align-items:center;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(184,146,42,.22);
+  border-radius:var(--r-lg);padding:44px 40px;
+}
+.profile-photo{
+  width:140px;height:140px;border-radius:50%;flex-shrink:0;
+  overflow:hidden;
+  box-shadow:0 0 0 5px rgba(184,146,42,.18),0 16px 40px rgba(184,146,42,.22);
+}
+.profile-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  display:block;
+}
+.profile-name{font-size:28px;font-weight:800;color:#fff;margin-bottom:5px;letter-spacing:-.02em;}
+.profile-role{color:var(--gold-m);font-size:13px;font-weight:600;margin-bottom:18px;letter-spacing:.04em;}
+.profile-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;}
+.ptag{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  padding:4px 13px;border-radius:100px;font-size:12px;color:rgba(255,255,255,.65);
+}
+.profile-quote{
+  font-size:14px;color:rgba(255,255,255,.5);line-height:1.9;
+  border-left:3px solid var(--gold);padding-left:14px;
+}
+
+/* ════════════════════════════════
+   FORM
+════════════════════════════════ */
+.form-sec{background:var(--bg);}
+.form-card{
+  background:var(--white);
+  border:1.5px solid var(--bg3);
+  border-radius:var(--r-lg);
+  padding:48px 44px;
+  max-width:520px;margin:0 auto;
+  box-shadow:0 16px 48px rgba(28,26,22,.08);
+}
+.form-title{
+  font-size:24px;font-weight:800;
+  text-align:center;margin-bottom:8px;
+  color:var(--dark);letter-spacing:-.02em;
+}
+.form-sub{text-align:center;color:var(--text2);font-size:13px;margin-bottom:30px;line-height:1.7;}
+
+.fg{margin-bottom:14px;}
+.fg label{
+  display:block;font-size:11px;font-weight:700;
+  color:var(--text3);letter-spacing:.07em;
+  text-transform:uppercase;margin-bottom:6px;
+}
+.fg input,.fg select{
+  width:100%;
+  background:var(--bg);border:1.5px solid var(--bg3);
+  border-radius:9px;padding:13px 15px;
+  color:var(--dark);font-size:16px;
+  outline:none;transition:border-color .18s,background .18s;
+  -webkit-appearance:none;appearance:none;
+}
+.fg input::placeholder{color:var(--text3);font-size:14px;}
+.fg input:focus,.fg select:focus{border-color:var(--gold);background:var(--gold-pale);}
+.fg select option{background:#fff;}
+
+.or-line{
+  display:flex;align-items:center;gap:10px;
+  color:var(--text3);font-size:12px;margin:14px 0 4px;
+}
+.or-line::before,.or-line::after{content:'';flex:1;height:1px;background:var(--bg3);}
+
+.privacy{text-align:center;color:var(--text3);font-size:11px;margin-top:14px;line-height:1.7;}
+
+.g-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px;}
+.g-item{
+  background:var(--bg);border:1.5px solid var(--bg3);
+  border-radius:10px;padding:12px 8px;text-align:center;
+}
+.g-icon{font-size:16px;margin-bottom:4px;}
+.g-text{font-size:11px;color:var(--text2);line-height:1.5;}
+
+.form-status{
+  display:none;text-align:center;
+  padding:14px;border-radius:9px;
+  font-size:13px;font-weight:600;margin-top:12px;
+}
+.form-status.ok{background:#E6F4EA;border:1.5px solid #4CAF50;color:#1B5E20;display:block;}
+.form-status.err{background:#FFEBEE;border:1.5px solid #EF5350;color:#B71C1C;display:block;}
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+footer{
+  background:var(--dark);
+  padding:44px 20px;text-align:center;
+  font-size:13px;color:rgba(255,255,255,.5);line-height:2.2;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+footer strong{color:rgba(255,255,255,.8);}
+footer a{color:var(--gold-l);}
+
+/* ════════════════════════════════
+   FLOATING
+════════════════════════════════ */
+.float{
+  position:fixed;bottom:24px;right:18px;z-index:999;
+  display:flex;flex-direction:column;gap:9px;align-items:flex-end;
+}
+.fb{
+  display:flex;align-items:center;gap:7px;
+  font-weight:700;font-size:13px;
+  padding:11px 18px;border-radius:100px;border:none;cursor:pointer;
+  text-decoration:none;transition:transform .18s,box-shadow .18s;
+  white-space:nowrap;
+}
+.fb:hover{transform:translateY(-2px) scale(1.03);}
+.fb-call{background:var(--green);color:#fff;box-shadow:0 5px 18px rgba(26,122,66,.3);animation:popUp .5s 1.2s ease both;}
+.fb-kakao{background:var(--kakao);color:#111;box-shadow:0 5px 18px rgba(254,229,0,.3);animation:popUp .5s 1.4s ease both;}
+.fb-apply{background:var(--dark);color:#fff;box-shadow:0 5px 18px rgba(28,26,22,.25);animation:popUp .5s 1.6s ease both;}
+
+/* ════════════════════════════════
+   MODAL
+════════════════════════════════ */
+.modal-bg{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.5);z-index:9999;
+  align-items:center;justify-content:center;padding:24px;
+}
+.modal-bg.show{display:flex;}
+.modal-box{
+  background:#fff;border-radius:var(--r-lg);
+  padding:48px 32px;max-width:360px;width:100%;
+  text-align:center;animation:fadeUp .3s ease;
+  box-shadow:0 24px 64px rgba(0,0,0,.18);
+}
+.modal-ico{font-size:48px;margin-bottom:14px;}
+.modal-title{font-size:20px;font-weight:800;color:var(--dark);margin-bottom:8px;letter-spacing:-.02em;}
+.modal-desc{color:var(--text2);font-size:14px;line-height:1.8;margin-bottom:24px;}
+.modal-close{
+  background:var(--dark);color:#fff;font-weight:700;font-size:14px;
+  padding:13px 36px;border-radius:9px;border:none;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;
+}
+
+/* ════════════════════════════════
+   ANIMATIONS
+════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+@keyframes popUp{from{opacity:0;transform:scale(.75) translateY(12px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.on{opacity:1;transform:translateY(0);}
+
+/* ════════════════════════════════
+   RESPONSIVE — TABLET
+════════════════════════════════ */
+@media(max-width:860px){
+  .pain-grid{grid-template-columns:repeat(2,1fr);}
+  .sol-grid{grid-template-columns:repeat(2,1fr);}
+  .review-grid{grid-template-columns:repeat(2,1fr);}
+  .chat-layout{grid-template-columns:1fr;}
+  .chat-points{display:none;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px 0;}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:16px 0;}
+  .stat-item:nth-child(3),.stat-item:nth-child(4){border-bottom:none;}
+}
+
+/* ════════════════════════════════
+   RESPONSIVE — MOBILE
+════════════════════════════════ */
+@media(max-width:600px){
+  /* 기본 */
+  .sec{padding:60px 0;}
+  .wrap{padding:0 16px;}
+  .sh{margin-bottom:32px;}
+  .sh-title{font-size:clamp(20px,6.5vw,28px);}
+  .sh-desc{font-size:14px;}
+
+  /* 히어로 */
+  .hero{padding:64px 16px 90px;}
+  .hero-h1{font-size:clamp(30px,9vw,44px);line-height:1.2;}
+  .hero-h1 .sub-line{font-size:13px;margin-bottom:6px;}
+  .hero-desc{font-size:14px;margin-bottom:28px;}
+  .hero-btns{flex-direction:column;align-items:stretch;gap:10px;max-width:320px;margin:0 auto;}
+  .hero-btns .btn{width:100%;font-size:15px;padding:16px 20px;}
+
+  /* 스탯바 */
+  .stats-bar{padding:36px 16px;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:0;}
+  .stat-item{padding:14px 8px;border-right:none;border-bottom:1px solid rgba(255,255,255,.07);}
+  .stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.07);}
+  .stat-item:nth-child(3),.stat-item:nth-child(4){border-bottom:none;}
+  .stat-num{font-size:26px;}
+  .stat-label{font-size:11px;}
+
+  /* 페인 */
+  .pain-grid{grid-template-columns:1fr;gap:10px;}
+
+  /* 솔루션 */
+  .sol-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .sol-card{padding:20px 14px 18px;}
+  .sol-num{font-size:36px;}
+  .sol-title{font-size:13px;}
+  .sol-desc{font-size:12px;}
+
+  /* 채팅 */
+  .chat-layout{grid-template-columns:1fr;}
+  .chat-window{max-width:100%;}
+  .bubble{font-size:12.5px;}
+
+  /* 리뷰 */
+  .review-grid{grid-template-columns:1fr;gap:10px;}
+
+  /* 프로필 */
+  .profile-box{
+    grid-template-columns:1fr;text-align:center;
+    padding:32px 20px;gap:24px;
+  }
+  .profile-photo{margin:0 auto;width:110px;height:110px;}
+  .profile-name{font-size:22px;}
+  .profile-tags{justify-content:center;}
+  .profile-quote{text-align:left;font-size:13px;}
+
+  /* 폼 */
+  .form-card{padding:30px 18px;}
+  .form-title{font-size:19px;}
+  .fg input,.fg select{font-size:16px;padding:12px 14px;}
+  .btn-full{font-size:15px;padding:16px 20px;}
+
+  /* 플로팅 */
+  .float{bottom:16px;right:12px;gap:7px;}
+  .fb{font-size:12px;padding:10px 15px;}
+  /* 모바일 텍스트 최적화 */
+  .hero-h1 { font-size: clamp(30px, 10vw, 56px); }
+  .sh-title { font-size: 26px; }
+  .sh-desc { font-size: 15px; }
+  .stat-num { font-size: 32px; }
+  .stat-label { font-size: 12px; }
+  .pain-title, .sol-title, .cp-title { font-size: 16px; }
+  .pain-desc, .sol-desc, .cp-desc, .bubble { font-size: 14px; }
+  .privacy { font-size: 12px; line-height: 1.6; }
+  footer { font-size: 13px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1936380470575431');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1936380470575431&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body onload="window.scrollTo(0,0);">
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-chip">생명보험 · 투자 · 저축 · 연금 전문가</div>
+    <h1 class="hero-h1">
+      <span class="sub-line">당신의 소중한 자산과 미래,</span>
+      가장 <span class="accent">믿음직한</span><br>
+      동반자가 되어드립니다
+    </h1>
+    <p class="hero-desc">
+      여성·가족 특화 재무 설계부터 철저한 사후 관리까지.<br>
+      <strong>김연경 센터장이 제안하는 고객 밀착형 프리미엄 보장 분석</strong>
+    </p>
+    <div class="hero-btns">
+      <a href="javascript:void(0)" onclick="smoothToForm()" class="btn btn-dark">무료 보장분석 신청하기</a>
+      <a href="tel:010-8994-1873" class="btn btn-call">전화 상담하기</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">Premium</div>
+      <div class="stat-label">여성·가족 재무 설계</div>
+      <div class="stat-sub">특화 서비스 제공</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Expert</div>
+      <div class="stat-label">투자 저축 연금 전문가</div>
+      <div class="stat-sub">자산 증식 솔루션</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Care</div>
+      <div class="stat-label">장기 고객 사후 관리</div>
+      <div class="stat-sub">지속적인 리모델링</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0원</div>
+      <div class="stat-label">밀착형 무료 보장분석</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAIN ══ -->
+<section class="pain-sec">
+  <div class="wrap sec reveal">
+    <div class="sh">
+      <div class="sh-label">당신의 보험, 이대로 괜찮을까요?</div>
+      <h2 class="sh-title">알고 계셨나요?<br><em>보험금 청구의 20%는 '몰라서' 못 받습니다</em></h2>
+      <p class="sh-desc">매달 성실히 낸 보험료, 정작 필요할 때 당신을 외면하지 않도록 지금 확인해야 합니다.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-bar"></div>
+        <div class="pain-title">보험료는 나가는데 내용은 모른다</div>
+        <div class="pain-desc">매달 꼬박꼬박 나가지만 어떤 상황에서 얼마나 보장받는지 정확히 모른다</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-bar"></div>
+        <div class="pain-title">가입 후 설계사 연락이 끊겼다</div>
+        <div class="pain-desc">처음엔 연락 잘 오더니 지금은 아무 관리도 없고 누구에게 물어봐야 할지 모른다</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-bar"></div>
+        <div class="pain-title">갱신형 보험, 나중이 걱정된다</div>
+        <div class="pain-desc">지금은 보험료가 적은데 갱신 때마다 오른다는 말에 10년 후가 불안하다</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-bar"></div>
+        <div class="pain-title">보험이 여러 개인데 중복인지 모른다</div>
+        <div class="pain-desc">예전에 가입한 것, 직장에서 든 것이 겹치는지 파악이 안 된다</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-bar"></div>
+        <div class="pain-title">병원 다녀왔는데 청구를 안 했다</div>
+        <div class="pain-desc">어디서 어떻게 청구하는지 몰라 그냥 넘어간 적이 몇 번 있다</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-bar"></div>
+        <div class="pain-title">CI 보험·저축보험이 애매하다</div>
+        <div class="pain-desc">해지하면 손해라고 하고 유지하기도 부담스럽고 어떻게 해야 할지 모르겠다</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOLUTION ══ -->
+<section class="sol-sec">
+  <div class="wrap sec reveal">
+    <div class="sh">
+      <div class="sh-label">김연경 센터장의 전문성</div>
+      <h2 class="sh-title">단순한 보험 가입이 아닌<br><em>인생의 재무 파트너</em>가 되어드립니다</h2>
+      <p class="sh-desc">고객님의 상황에 맞춘 최적의 보장과 자산 관리 솔루션을 제공합니다.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card">
+        <div class="sol-num">01</div>
+        <div class="sol-title">여성·가족 맞춤 설계</div>
+        <div class="sol-desc">가족 구성원 개개인의 생애 주기에 맞춘 꼼꼼하고 세밀한 보장 체계를 구축합니다</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-num">02</div>
+        <div class="sol-title">투자·저축 포트폴리오</div>
+        <div class="sol-desc">단순 보장을 넘어 목적 자금 마련을 위한 효율적인 저축 및 연금 전략을 제시합니다</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-num">03</div>
+        <div class="sol-title">밀착형 보장 분석</div>
+        <div class="sol-desc">고객님과 1:1로 소통하며 기존 보험의 문제점을 분석하고 최적의 대안을 찾습니다</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-num">04</div>
+        <div class="sol-title">장기적 사후 관리</div>
+        <div class="sol-desc">한 번의 가입으로 끝내지 않고, 환경 변화에 따라 지속적인 리모델링을 지원합니다</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHAT ══ -->
+<section class="chat-sec">
+  <div class="wrap sec reveal">
+    <div class="sh">
+      <div class="sh-label">실제 상담 사례</div>
+      <h2 class="sh-title">이런 분들이<br><em>카카오톡으로 먼저 물어보셨습니다</em></h2>
+      <p class="sh-desc">부담 없이 카카오톡으로 먼저 여쭤보세요. 전문가가 직접 답변해드립니다.</p>
+    </div>
+    <div class="chat-layout">
+      <div class="chat-window">
+        <div class="chat-head">
+          <div class="chat-av">김</div>
+          <div>
+            <div class="chat-head-name">김연경 센터장</div>
+            <div class="chat-head-sub">메타리치 · 자산 관리 전문가</div>
+          </div>
+        </div>
+        <div class="chat-body">
+          <div class="chat-date">오늘</div>
+          <div class="chat-row me">
+            <div class="av-sm us">김</div>
+            <div class="bubble">보험이 여러 개인데 중복이 많다고 들었어요. 확인 가능한가요?</div>
+            <div class="msg-t">10:12</div>
+          </div>
+          <div class="chat-row">
+            <div class="av-sm ex">김</div>
+            <div class="bubble">네, 현재 가입하신 내역만 보여주시면 중복된 보장은 줄이고, 부족한 부분은 저축이나 연금으로 전환하는 방법까지 상세히 안내해 드릴게요.</div>
+            <div class="msg-t">10:14</div>
+          </div>
+          <div class="chat-row me">
+            <div class="av-sm us">김</div>
+            <div class="bubble">추가 가입 권유 같은 건 없는 건가요?</div>
+            <div class="msg-t">10:16</div>
+          </div>
+          <div class="chat-row">
+            <div class="av-sm ex">김</div>
+            <div class="bubble">불필요한 지출을 막는 것이 제 역할입니다. 부담 갖지 않으셔도 돼요. 상담 후 리모델링 방향만 결정하시면 됩니다.</div>
+            <div class="msg-t">10:17</div>
+          </div>
+          <div class="chat-date">다른 고객 사례</div>
+          <div class="chat-row me">
+            <div class="av-sm us">박</div>
+            <div class="bubble">갱신형 보험인데 10년 후 보험료가 얼마나 오르나요?</div>
+            <div class="msg-t">14:33</div>
+          </div>
+          <div class="chat-row">
+            <div class="av-sm ex">김</div>
+            <div class="bubble">나이와 상품 알려주시면 20년 후까지 시뮬레이션 돌려드릴게요. 갱신형은 20년 후 2.5~4배 수준이 많아요.</div>
+            <div class="msg-t">14:35</div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-points">
+        <div class="cp-item">
+          <div class="cp-icon">💬</div>
+          <div>
+            <div class="cp-title">부담 없이 먼저 물어보세요</div>
+            <div class="cp-desc">상담 신청 전에 카카오톡으로 궁금한 것을 먼저 여쭤보셔도 됩니다</div>
+          </div>
+        </div>
+        <div class="cp-item">
+          <div class="cp-icon">📋</div>
+          <div>
+            <div class="cp-title">보험증권 없어도 됩니다</div>
+            <div class="cp-desc">가입한 보험사와 대략적인 내용만 알아도 점검이 가능합니다</div>
+          </div>
+        </div>
+        <div class="cp-item">
+          <div class="cp-icon">🚫</div>
+          <div>
+            <div class="cp-title">추가 가입 권유 없습니다</div>
+            <div class="cp-desc">정리 상담이 목적이므로 새로운 보험 가입을 권유하지 않습니다</div>
+          </div>
+        </div>
+        <div style="margin-top:8px;">
+          <a href="https://open.kakao.com/o/sO2XVmBh" target="_blank" class="btn btn-kakao btn-full">카카오톡으로 지금 바로 문의하기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REVIEWS ══ -->
+<section class="review-sec">
+  <div class="wrap sec reveal">
+    <div class="sh">
+      <div class="sh-label">실제 고객 후기</div>
+      <h2 class="sh-title">상담 받으신 분들의<br><em>직접 경험담</em>입니다</h2>
+      <p class="sh-desc">연령대와 상황별로 다양한 고객분들이 실제로 경험하신 내용입니다.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"중복 특약만 정리했는데도 월 19만원이 줄었어요. 추가 가입 권유 전혀 없었고 오히려 필요 없다고 먼저 말씀해 주셔서 더 신뢰가 갔어요."</p>
+        <div class="review-foot">
+          <div class="rev-dot" style="background:linear-gradient(135deg,#2563A8,#4A90D9);">김</div>
+          <div><div class="rev-name">김○○님</div><div class="rev-info">40대 직장인 남성</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"아이 낳고 여러 개 가입했는데 암 진단금이 너무 적게 들어 있었어요. 꼭 필요한 부분만 보완하고 오히려 전체 보험료는 줄었습니다."</p>
+        <div class="review-foot">
+          <div class="rev-dot" style="background:linear-gradient(135deg,#B8922A,#E8C96A);">이</div>
+          <div><div class="rev-name">이○○님</div><div class="rev-info">30대 전업주부 여성</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"갱신형 보험 2개를 정리하고 비갱신형으로 바꾸는 방법을 알려주셨어요. 갱신 폭탄 걱정이 없어지니까 마음이 편해졌어요."</p>
+        <div class="review-foot">
+          <div class="rev-dot" style="background:linear-gradient(135deg,#1A7A42,#3DB870);">박</div>
+          <div><div class="rev-name">박○○님</div><div class="rev-info">50대 자영업 여성</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"보험 설계사라고 하면 팔려고 하는 거 아닌가 했는데 상담 내내 제 보험을 줄이는 방향으로만 말씀하시더라고요. 숨은 보험금도 찾아주셨어요."</p>
+        <div class="review-foot">
+          <div class="rev-dot" style="background:linear-gradient(135deg,#7B3FD4,#A06BE8);">최</div>
+          <div><div class="rev-name">최○○님</div><div class="rev-info">20대 직장인 남성</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"CI보험 해지하려고 했는데 특약 일부를 조정하는 방식으로 매달 8만원 줄였어요. 이런 방법이 있는지도 몰랐는데 전문가 상담 받기 잘했습니다."</p>
+        <div class="review-foot">
+          <div class="rev-dot" style="background:linear-gradient(135deg,#C0392B,#E05C4A);">정</div>
+          <div><div class="rev-name">정○○님</div><div class="rev-info">40대 워킹맘 여성</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"노후에 갱신형 보험료가 얼마나 올라가는지 보여주시니까 지금 정리해야겠다는 확신이 생겼습니다. 카카오로 편하게 질문했는데 빠르고 친절하게 답변해 주셨어요."</p>
+        <div class="review-foot">
+          <div class="rev-dot" style="background:linear-gradient(135deg,#D4861A,#F0A83A);">윤</div>
+          <div><div class="rev-name">윤○○님</div><div class="rev-info">60대 은퇴 준비 남성</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROFILE ══ -->
+<section class="profile-sec">
+  <div class="wrap sec reveal">
+    <div class="sh">
+      <div class="sh-label" style="color:var(--gold-m);">담당 전문가</div>
+    </div>
+    <div class="profile-box">
+      <div class="profile-photo"><img src="../assets/images/members/yk1873.png" alt="김연경 센터장"></div>
+      <div>
+        <div class="profile-name">김연경 센터장</div>
+        <div class="profile-role">메타리치 (시그널그룹) · 센터장</div>
+        <div class="profile-tags">
+          <span class="ptag">센터장</span>
+          <span class="ptag">고객관리</span>
+          <span class="ptag">보장설계</span>
+          <span class="ptag">여성·가족 재무 설계 특화</span>
+          <span class="ptag">장기 고객 사후 관리</span>
+          <span class="ptag">전국 비대면 상담 가능</span>
+        </div>
+        <p class="profile-quote">
+          보험은 파는 것이 아니라 제대로 관리하는 것입니다.<br>
+          고객 밀착형 보장 분석과 여성·가족 특화 재무 설계로,<br>
+          고객님의 소중한 자산을 가장 믿음직하게 지켜드리겠습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORM ══ -->
+<section class="form-sec" id="form">
+  <div class="wrap sec reveal">
+    <div class="sh center">
+      <div class="sh-label">지금 바로 신청하세요</div>
+      <h2 class="sh-title">무료 보장분석<br><em>신청 즉시 김연경 센터장에게 접수됩니다</em></h2>
+      <p class="sh-desc">이름과 연락처만 남겨주시면 24시간 내 직접 연락드립니다.<br>전문가의 눈으로 당신의 보험을 정확하게 진단해 드립니다.</p>
+    </div>
+    <div class="form-card">
+      <h3 class="form-title">무료 보장분석 신청</h3>
+      <p class="form-sub">작성 후 제출하면 바로 접수됩니다 (페이지 이동 없음)</p>
+      <form id="cform">
+        <div class="fg">
+          <label>이름 *</label>
+          <input type="text" name="name" id="fn" placeholder="홍길동" required>
+        </div>
+        <div class="fg">
+          <label>연락처 *</label>
+          <input type="tel" name="phone" id="fp" placeholder="010-0000-0000" required>
+        </div>
+        <div class="fg">
+          <label>지역 *</label>
+          <input type="text" name="area" id="fa" placeholder="예: 강원 원주 / 서울 강남" required>
+        </div>
+        <div class="fg">
+          <label>나이대</label>
+          <select name="age">
+            <option value="">선택 안 함</option>
+            <option>20대</option><option>30대</option>
+            <option>40대</option><option>50대</option><option>60대 이상</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>궁금한 점 (선택)</label>
+          <input type="text" name="memo" placeholder="예: 갱신형 정리 / 보험료 줄이고 싶어요">
+        </div>
+        <input type="hidden" name="_subject" value="[메타리치] 무료 보장분석 신청">
+        <button type="submit" class="btn btn-dark btn-full" id="sbtn" style="margin-top:20px;">
+          신청하기 — 김연경 센터장에게 바로 접수
+        </button>
+      </form>
+      <div class="form-status" id="fstat"></div>
+      <div class="or-line">또는 다른 방법으로 상담</div>
+      <a href="https://open.kakao.com/o/sO2XVmBh" target="_blank" class="btn btn-kakao btn-full" style="margin-top:0;">카카오톡 오픈채팅 바로가기</a>
+      <a href="tel:01089941873" class="btn btn-call btn-full" style="margin-top:10px; background: #fff; color: var(--gold); border: 2px solid var(--gold);">전화 상담 &nbsp; 010-8994-1873</a>
+      <p class="privacy">입력하신 정보는 상담 목적으로만 사용되며 제3자에게 제공되지 않습니다</p>
+      <div class="g-row">
+        <div class="g-item"><div class="g-icon">🔒</div><div class="g-text">개인정보<br>안전 보호</div></div>
+        <div class="g-item"><div class="g-icon">🆓</div><div class="g-text">완전<br>무료 서비스</div></div>
+        <div class="g-item"><div class="g-icon">🚫</div><div class="g-text">추가 가입<br>권유 없음</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <strong>메타리치 (시그널그룹)</strong><br>
+  김연경 센터장 · 여성·가족 재무 설계 & 보장 분석 전문가<br>
+  전화 상담 : <a href="tel:01089941873">010-8994-1873</a><br>
+  카카오톡 : <a href="https://open.kakao.com/o/sO2XVmBh" target="_blank">오픈채팅 바로가기</a><br><br>
+  © 2025 MetaRich. All rights reserved.
+</footer>
+
+<!-- ══ FLOATING ══ -->
+<div class="float">
+  <a href="tel:01089941873" class="fb fb-call">전화 상담</a>
+  <a href="https://open.kakao.com/o/sO2XVmBh" target="_blank" class="fb fb-kakao">카톡 상담</a>
+  <a href="javascript:void(0)" onclick="smoothToForm()" class="fb fb-apply">무료 신청</a>
+</div>
+
+<!-- ══ MODAL ══ -->
+<div class="modal-bg" id="modal">
+  <div class="modal-box">
+    <div class="modal-ico">✅</div>
+    <h3 class="modal-title">신청 완료!</h3>
+    <p class="modal-desc">김연경 센터장에게 접수되었습니다.<br>24시간 내 직접 연락드리겠습니다.<br><br>카카오톡으로도 먼저 연락 주셔도 됩니다.</p>
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('show')">확인</button>
+  </div>
+</div>
+
+<script>
+// ── 폼으로 부드럽게 스크롤 (URL # 변경 없이)
+function smoothToForm(){
+  document.getElementById('form').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// ── 항상 최상단에서 시작 (모든 환경 대응)
+if(history.scrollRestoration) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+document.addEventListener('DOMContentLoaded', () => window.scrollTo(0, 0));
+window.addEventListener('load', () => {
+  // URL에 앵커(#)가 있어도 무조건 최상단
+  if(window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+  }
+  setTimeout(() => window.scrollTo({top:0, left:0, behavior:'instant'}), 0);
+  setTimeout(() => window.scrollTo({top:0, left:0, behavior:'instant'}), 100);
+  setTimeout(() => window.scrollTo({top:0, left:0, behavior:'instant'}), 300);
+});
+
+// ── 스크롤 reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting) setTimeout(() => e.target.classList.add('on'), i * 60);
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── 전화번호 자동 포맷
+document.getElementById('fp').addEventListener('input', function(){
+  let v = this.value.replace(/\D/g,'').slice(0,11);
+  if(v.length > 7) v = v.slice(0,3)+'-'+v.slice(3,7)+'-'+v.slice(7);
+  else if(v.length > 3) v = v.slice(0,3)+'-'+v.slice(3);
+  this.value = v;
+});
+
+var GS='https://script.google.com/macros/s/AKfycbxfG3_3-BShzdr9x1dqZW9Pnh0bF4h54pGWH4s8A6yBXlMC_RnLcNtlmQt6IS7ECloX/exec';
+var TT='8652544241:AAEiwI3_qEnPGmgc8YluREw-LAjNBnXXaNo';
+var TC='8712434989';
+var E1='jw20371035@gmail.com';
+var E2='jinwoo8506@gmail.com';
+
+function sendTG(d){
+  var m=[
+    '🔔 *[메타리치 시그널그룹] 전문가 상담 신청*','',
+    '👤 담당 전문가: ' + d.expert,
+    '👤 신청자: ' + d.name,
+    '📞 연락처: ' + d.phone,
+    '📍 지역: ' + d.area,
+    '🎂 연령대: ' + (d.age||'미입력'),
+    '📝 메모: ' + (d.memo||'없음'),
+    '🕒 신청 시각: ' + d.timestamp
+  ].join('\n');
+  return fetch('https://api.telegram.org/bot'+TT+'/sendMessage',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:TC,text:m,parse_mode:'Markdown'})
+  }).catch(function(){});
+}
+
+function sendGS(d){
+  return fetch(GS,{method:'POST',mode:'no-cors',body:JSON.stringify(d)}).catch(function(){});
+}
+
+document.getElementById('cform').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('sbtn');
+  btn.disabled = true;
+  btn.textContent = '접수 중...';
+
+  const formData = {
+    formType: 'expert-consult',
+    expert: '김연경 센터장',
+    name:  document.getElementById('fn').value,
+    phone: document.getElementById('fp').value,
+    area:  document.getElementById('fa').value,
+    age:   document.querySelector('[name="age"]').value,
+    memo:  document.querySelector('[name="memo"]').value,
+    timestamp: new Date().toLocaleString('ko-KR'),
+    extra_email: E1 + ', ' + E2
+  };
+
+  await Promise.all([sendGS(formData), sendTG(formData)]);
+
+  document.getElementById('modal').classList.add('show');
+  this.reset();
+  btn.disabled = false;
+  btn.textContent = '신청하기 — 김연경 센터장에게 바로 접수';
+});
+
+// ── 모달 배경 클릭 닫기
+document.getElementById('modal').addEventListener('click', function(e){
+  if(e.target === this) this.classList.remove('show');
+});
+</script>
+</body>
+</html>
