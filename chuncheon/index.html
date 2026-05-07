@@ -291,7 +291,7 @@ footer p { font-size:13px; color:#79756e; line-height:1.8; word-break:keep-all; 
       <div class="flip-card" data-aos="fade-up" data-aos-delay="80">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600" class="flip-photo" alt="최정림">
+            <img src="../assets/images/members/jl5017.jpg" class="flip-photo" alt="최정림">
             <span class="flip-hint">뒤집기 →</span>
             <div class="flip-front-info">
               <h3>최정림</h3>
@@ -313,7 +313,7 @@ footer p { font-size:13px; color:#79756e; line-height:1.8; word-break:keep-all; 
               <li>보험·금융 종합 컨설팅 다수 경력</li>
               <li>고객 맞춤형 생애 재무 설계 전문</li>
             </ul>
-            <a href="../experts/choi-jeongrim.html" class="back-btn">
+            <a href="../experts/jl5017.html" class="back-btn">
               프로필 자세히 보기
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -325,7 +325,7 @@ footer p { font-size:13px; color:#79756e; line-height:1.8; word-break:keep-all; 
       <div class="flip-card" data-aos="fade-up" data-aos-delay="140">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600" class="flip-photo" alt="김영은">
+            <img src="../assets/images/members/ye2357.png" class="flip-photo" alt="김영은">
             <span class="flip-hint">뒤집기 →</span>
             <div class="flip-front-info">
               <h3>김영은</h3>
@@ -347,7 +347,7 @@ footer p { font-size:13px; color:#79756e; line-height:1.8; word-break:keep-all; 
               <li>갱신형·CI보험 정리 컨설팅 다수</li>
               <li>춘천 지역 밀착 고객 상담 서비스</li>
             </ul>
-            <a href="../experts/kim-youngeun.html" class="back-btn">
+            <a href="../experts/ye2357.html" class="back-btn">
               프로필 자세히 보기
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -398,15 +398,10 @@ footer p { font-size:13px; color:#79756e; line-height:1.8; word-break:keep-all; 
       if (window.innerWidth < 768) {
         const inner = this.querySelector('.flip-inner');
         const isFlipped = inner.classList.contains('flipped');
-        if (!isFlipped) {
-          e.preventDefault();
-          document.querySelectorAll('.flip-inner.flipped').forEach(f => { if (f !== inner) f.classList.remove('flipped'); });
-          inner.classList.add('flipped');
+        if (isFlipped) {
+          inner.classList.remove('flipped');
         } else {
-          if (!e.target.closest('.back-btn')) {
-            const url = this.querySelector('.back-btn').getAttribute('href');
-            if (url) window.location.href = url;
-          }
+          inner.classList.add('flipped');
         }
       }
     });

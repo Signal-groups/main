@@ -41,6 +41,18 @@ body{
 }
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
+.home-link{
+  position:fixed;top:18px;left:18px;z-index:1000;
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.92);
+  color:var(--dark);border:1px solid rgba(184,146,42,.22);
+  border-radius:999px;padding:9px 14px;
+  font-size:13px;font-weight:800;
+  box-shadow:0 8px 24px rgba(28,26,22,.08);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+.home-link:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(28,26,22,.13);background:#fff;}
 
 /* ════════════════════════════════
    LAYOUT
@@ -598,6 +610,7 @@ src="https://www.facebook.com/tr?id=1936380470575431&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body onload="window.scrollTo(0,0);">
+<a href="../index.html" class="home-link">← 메인 홈페이지</a>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
@@ -870,7 +883,7 @@ src="https://www.facebook.com/tr?id=1936380470575431&ev=PageView&noscript=1"
       <div class="sh-label" style="color:var(--gold-m);">담당 전문가</div>
     </div>
     <div class="profile-box">
-      <div class="profile-photo"><img src="profile.jpg" alt="배진우 재무설계사"></div>
+      <div class="profile-photo"><img src="../assets/images/members/jw2565.png" alt="배진우 재무설계사"></div>
       <div>
         <div class="profile-name">배진우 팀장</div>
         <div class="profile-role">메타리치 (시그널그룹) · AFPK 재무설계사 · 네이버 등록 전문가</div>
