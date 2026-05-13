@@ -105,6 +105,40 @@
         .expert-card { width: 100%; position: relative; cursor: pointer; display: block; }
         .expert-card.large { max-width: 320px; margin: 0 auto; }
         .expert-card.basic { max-width: 240px; margin: 0 auto; }
+        .expert-feature-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+        .expert-feature-cluster {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .expert-feature-cluster {
+                flex-direction: row;
+                justify-content: center;
+                gap: 36px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .expert-feature-row {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 96px;
+            }
+            .expert-feature-cluster {
+                width: auto;
+                justify-content: flex-end;
+                gap: 28px;
+            }
+        }
 
         .expert-image { 
             filter: grayscale(100%); 
@@ -367,7 +401,7 @@
                 <p class="text-stone-600 font-medium font-serif italic max-w-2xl mx-auto">"시그널그룹의 가치를 증명하는 최고의 금융 전문가 그룹을 소개합니다."</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 justify-center">
+            <div class="expert-feature-row">
                 <a href="./experts/jw1035.html" class="expert-card large" data-aos="fade-right" data-aos-delay="100">
                     <img src="./assets/images/members/jw1035.jpg" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80'" class="expert-image shadow-xl">
                     <div class="expert-overlay">프로필보기</div>
@@ -376,15 +410,26 @@
                         <p class="text-sm text-blue-600 font-bold uppercase tracking-widest mt-2" style="font-family: 'Pretendard Variable', sans-serif;">총괄본부장</p>
                     </div>
                 </a>
-                
-                <a href="./experts/yk1873.html" class="expert-card large" data-aos="fade-left" data-aos-delay="200">
-                    <img src="./assets/images/members/yk1873.png" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80'" class="expert-image shadow-xl">
-                    <div class="expert-overlay">프로필보기</div>
-                    <div class="mt-8 text-center">
-                        <h4 class="font-bold text-2xl tracking-tighter text-stone-950">김연경</h4>
-                        <p class="text-sm text-blue-600 font-bold uppercase tracking-widest mt-2" style="font-family: 'Pretendard Variable', sans-serif;">센터장</p>
-                    </div>
-                </a>
+
+                <div class="expert-feature-cluster">
+                    <a href="./experts/jl5017.html" class="expert-card large" data-aos="fade-up" data-aos-delay="180">
+                        <img src="./assets/images/members/jl5017.jpg" class="expert-image shadow-xl">
+                        <div class="expert-overlay">프로필보기</div>
+                        <div class="mt-8 text-center">
+                            <h4 class="font-bold text-2xl tracking-tighter text-stone-950">최정림</h4>
+                            <p class="text-sm text-blue-600 font-bold uppercase tracking-widest mt-2" style="font-family: 'Pretendard Variable', sans-serif;">부장</p>
+                        </div>
+                    </a>
+
+                    <a href="./experts/yk1873.html" class="expert-card large" data-aos="fade-left" data-aos-delay="240">
+                        <img src="./assets/images/members/yk1873.png" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80'" class="expert-image shadow-xl">
+                        <div class="expert-overlay">프로필보기</div>
+                        <div class="mt-8 text-center">
+                            <h4 class="font-bold text-2xl tracking-tighter text-stone-950">김연경</h4>
+                            <p class="text-sm text-blue-600 font-bold uppercase tracking-widest mt-2" style="font-family: 'Pretendard Variable', sans-serif;">센터장</p>
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
@@ -415,12 +460,12 @@
                     </div>
                 </a>
 
-                <a href="./experts/kim-youngkwon.html" class="expert-card basic" data-aos="fade-up" data-aos-offset="50" data-aos-delay="150">
-                    <img src="./assets/images/members/kim-youngkwon.jpg" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80'" class="expert-image shadow-lg">
+                <a href="./experts/ye2357.html" class="expert-card basic" data-aos="fade-up" data-aos-offset="50" data-aos-delay="150">
+                    <img src="./assets/images/members/ye2357.png" class="expert-image shadow-lg">
                     <div class="expert-overlay">프로필보기</div>
                     <div class="mt-6 text-center">
-                        <h4 class="font-bold text-lg tracking-tighter text-stone-900">김영권</h4>
-                        <p class="text-[11px] text-blue-600 font-bold uppercase tracking-widest mt-1.5" style="font-family: 'Pretendard Variable', sans-serif;">지점장</p>
+                        <h4 class="font-bold text-lg tracking-tighter text-stone-900">김영은</h4>
+                        <p class="text-[11px] text-blue-600 font-bold uppercase tracking-widest mt-1.5" style="font-family: 'Pretendard Variable', sans-serif;">팀장</p>
                     </div>
                 </a>
             </div>

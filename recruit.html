@@ -221,6 +221,11 @@ footer p{font-size:12px;color:var(--mid);line-height:2;}
 <script>
 
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfG3_3-BShzdr9x1dqZW9Pnh0bF4h54pGWH4s8A6yBXlMC_RnLcNtlmQt6IS7ECloX/exec';
+const EXTRA_EMAILS = [
+  'jw20371035@gmail.com',
+  'jinwoo8506@gmail.com',
+  'kye1004s7@gmail.com'
+].join(', ');
 
 document.getElementById('recruitForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -235,7 +240,8 @@ document.getElementById('recruitForm').addEventListener('submit', async function
     exp: this.exp.value,
     loc: this.loc.value,
     memo: this.memo.value,
-    timestamp: new Date().toLocaleString('ko-KR')
+    timestamp: new Date().toLocaleString('ko-KR'),
+    extra_email: EXTRA_EMAILS
   };
 
   try {
