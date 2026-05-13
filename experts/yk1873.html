@@ -1024,6 +1024,7 @@ var TT='8652544241:AAEiwI3_qEnPGmgc8YluREw-LAjNBnXXaNo';
 var TC='8712434989';
 var E1='jw20371035@gmail.com';
 var E2='jinwoo8506@gmail.com';
+var E3='kye1004s7@gmail.com';
 
 function sendTG(d){
   var m=[
@@ -1061,7 +1062,7 @@ document.getElementById('cform').addEventListener('submit', async function(e){
     age:   document.querySelector('[name="age"]').value,
     memo:  document.querySelector('[name="memo"]').value,
     timestamp: new Date().toLocaleString('ko-KR'),
-    extra_email: E1 + ', ' + E2
+    extra_email: E1 + ', ' + E2 + ', ' + E3
   };
 
   await Promise.all([sendGS(formData), sendTG(formData)]);

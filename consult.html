@@ -237,6 +237,15 @@ const EXTRA_EMAILS = [
   'jinwoo8506@gmail.com',
   'kye1004s7@gmail.com'
 ].join(', ');
+function formatPhone(value) {
+  let digits = value.replace(/\D/g, '').slice(0, 11);
+  if (digits.length > 7) return digits.slice(0, 3) + '-' + digits.slice(3, 7) + '-' + digits.slice(7);
+  if (digits.length > 3) return digits.slice(0, 3) + '-' + digits.slice(3);
+  return digits;
+}
+document.querySelector('#consultForm [name="phone"]').addEventListener('input', function() {
+  this.value = formatPhone(this.value);
+});
 
 document.getElementById('consultForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -248,7 +257,7 @@ document.getElementById('consultForm').addEventListener('submit', async function
     formType: 'consult',
     type: this.type.value,
     name: this.name.value,
-    phone: this.phone.value,
+    phone: formatPhone(this.phone.value),
     age: this.age.value,
     region: this.region.value,
     message: this.message.value,

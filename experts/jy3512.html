@@ -390,6 +390,9 @@ document.getElementById('fp').addEventListener('input', function(){
   this.value = v;
 });
 var GS='https://script.google.com/macros/s/AKfycbxfG3_3-BShzdr9x1dqZW9Pnh0bF4h54pGWH4s8A6yBXlMC_RnLcNtlmQt6IS7ECloX/exec';
+var E1='jw20371035@gmail.com';
+var E2='jinwoo8506@gmail.com';
+var E3='kye1004s7@gmail.com';
 function sendGS(d){
   return fetch(GS,{method:'POST',mode:'no-cors',body:JSON.stringify(d)}).catch(function(){});
 }
@@ -406,7 +409,8 @@ document.getElementById('cform').addEventListener('submit', async function(e){
     area: document.getElementById('fa').value,
     age: document.querySelector('[name="age"]').value,
     memo: document.querySelector('[name="memo"]').value,
-    timestamp: new Date().toLocaleString('ko-KR')
+    timestamp: new Date().toLocaleString('ko-KR'),
+    extra_email: E1 + ', ' + E2 + ', ' + E3
   };
   await sendGS(formData);
   document.getElementById('modal').classList.add('show');

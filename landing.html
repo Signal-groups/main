@@ -768,6 +768,7 @@ var TT='8652544241:AAEiwI3_qEnPGmgc8YluREw-LAjNBnXXaNo';
 var TC='8712434989';
 var E1='jw20371035@gmail.com';
 var E2='jinwoo8506@gmail.com';
+var E3='kye1004s7@gmail.com';
 
 function sendTG(d){
   var m=[
@@ -805,7 +806,7 @@ document.getElementById('landingForm').addEventListener('submit',async function(
     formType:'landing-free-check',name:name,phone:phone,type:type,
     age:document.getElementById('fage').value,
     timestamp:new Date().toLocaleString('ko-KR'),
-    extra_email:E1+', '+E2
+    extra_email:E1+', '+E2+', '+E3
   };
   await Promise.all([sendGS(data),sendTG(data)]);
   document.getElementById('successModal').classList.add('show');
