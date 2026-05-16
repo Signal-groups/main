@@ -19,8 +19,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{font-size:15px;font-weight:900;letter-spacing:.05em;color:var(--dark);text-decoration:none;}
 .nav-logo span{color:var(--blue);}
-.nav-links{display:flex;gap:28px;}
-.nav-links a{font-size:13px;color:var(--mid);text-decoration:none;transition:color .2s;}
+.nav-links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{font-size:13px;color:var(--mid);text-decoration:none;transition:color .2s;white-space:nowrap;}
 .nav-links a:hover{color:var(--dark);}
 .nav-cta{background:var(--blue);color:#fff;border:none;border-radius:6px;
   padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
@@ -96,8 +97,9 @@ footer{background:#fff;border-top:1px solid var(--border);padding:40px 48px;text
 footer p{font-size:12px;color:var(--mid);line-height:2;}
 
 @media(max-width:600px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;}
+  nav{height:auto;min-height:64px;padding:14px 20px;align-items:flex-start;flex-direction:column;gap:10px;}
+  .nav-links{display:flex;width:100%;}
+  .nav-cta{display:none;}
   .card-head,.card-body{padding:24px 20px;}
   .row2{grid-template-columns:1fr;}
   .steps-inner{gap:4px;}
@@ -110,11 +112,14 @@ footer p{font-size:12px;color:var(--mid);line-height:2;}
 <nav>
   <a href="index.html" class="nav-logo">METARICH <span>SIGNAL</span></a>
   <div class="nav-links">
-    <a href="index.html">홈</a>
+    <a href="employees.html">임직원소개</a>
+    <a href="support.html">지원 시스템</a>
+    <a href="partners.html">제휴보험사</a>
+    <a href="financial-consumer-protection.html">금융소비자보호</a>
+    <a href="recruit.html">입사지원</a>
     <a href="consult.html">보험상담</a>
-    <a href="recruit.html">채용안내</a>
   </div>
-  <a href="consult.html" class="nav-cta">상담 신청</a>
+  <a href="index.html" class="nav-cta">홈</a>
 </nav>
 
 <div class="hero">
