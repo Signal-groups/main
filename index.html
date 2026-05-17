@@ -264,6 +264,80 @@
       box-shadow: 0 16px 42px rgba(26,39,68,.06);
       overflow: hidden;
     }
+    .story-card {
+      padding: 24px 22px 26px;
+      border-color: rgba(201,169,110,.28);
+      box-shadow: 0 18px 48px rgba(26,39,68,.07);
+    }
+    .story-head {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(201,169,110,.22);
+    }
+    .story-initial {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #1A2744;
+      color: #fff;
+      font-weight: 900;
+      font-size: 18px;
+      flex: none;
+    }
+    .story-name-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+    .story-name {
+      color: #111111;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+    .story-badge {
+      border-radius: 999px;
+      background: #1A2744;
+      color: #E8A84B;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .story-meta {
+      color: #8B7355;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .story-quote {
+      position: relative;
+      margin-top: 20px;
+      padding-left: 18px;
+      color: #374151;
+      font-size: 15px;
+      line-height: 2;
+      font-weight: 500;
+    }
+    .story-quote::before {
+      content: "\201C";
+      position: absolute;
+      left: 0;
+      top: -6px;
+      color: #C9A96E;
+      font-family: 'Nanum Myeongjo', serif;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 800;
+    }
     .story-tab { display: none !important; }
     .story-tab.active { display: grid !important; }
     .tab-button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
@@ -307,9 +381,9 @@
 
   <header class="hero">
     <div class="hero-track">
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=2200');"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=2200');"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2200');"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/hero-life-plan.png');"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/hero-finance-risk.png');"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/hero-small-choice.png');"></div>
     </div>
     <div class="hero-content max-w-7xl mx-auto px-6 pt-20">
       <div class="relative w-full min-h-[520px]">
