@@ -56,7 +56,13 @@
       white-space: nowrap;
     }
     .nav-link:hover { color: var(--primary-light); }
-    .hero { min-height: 760px; position: relative; background: var(--bg-dark); overflow: hidden; }
+    .hero {
+      height: clamp(760px, 57.15vw, 980px);
+      margin-top: 72px;
+      position: relative;
+      background: #070a0f;
+      overflow: hidden;
+    }
     .hero-track {
       position: absolute;
       inset: 0;
@@ -70,8 +76,9 @@
       height: 100%;
       position: relative;
       flex-shrink: 0;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
+      background-repeat: no-repeat;
     }
     @keyframes hero-slide {
       0%, 27% { transform: translateX(0); }
@@ -316,7 +323,7 @@
     .story-tab.active { display: grid !important; }
     .tab-button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     @media (max-width: 900px) {
-      .hero { min-height: 660px; }
+      .hero { height: clamp(560px, 57.15vw, 660px); }
       .member-strip { width: 100%; max-width: 726px; margin: 0 auto; }
       .member-card { width: 230px; }
       .member-layout { grid-template-columns: 1fr; }
