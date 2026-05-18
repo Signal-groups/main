@@ -73,37 +73,11 @@
       background-size: cover;
       background-position: center;
     }
-    .hero-slide::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(10,10,10,.86), rgba(10,10,10,.58), rgba(10,10,10,.34));
-    }
     @keyframes hero-slide {
       0%, 27% { transform: translateX(0); }
       33%, 60% { transform: translateX(-100vw); }
       66%, 93% { transform: translateX(-200vw); }
       100% { transform: translateX(0); }
-    }
-    .hero-content { position: relative; z-index: 3; min-height: 760px; display: flex; align-items: center; }
-    .hero-kicker { color: var(--accent); font-weight: 900; letter-spacing: .14em; font-size: 12px; }
-    .hero-copy {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      max-width: 760px;
-      opacity: 0;
-      animation: hero-copy 9s infinite;
-    }
-    .hero-copy:nth-child(2) { animation-delay: 3s; }
-    .hero-copy:nth-child(3) { animation-delay: 6s; }
-    .hero-title { font-family: 'Black Han Sans', sans-serif; font-size: clamp(48px, 7.8vw, 96px); line-height: 1.02; letter-spacing: 0; color: white; font-weight: 400; }
-    .hero-title em { color: var(--accent); font-style: normal; }
-    @keyframes hero-copy {
-      0%, 3% { opacity: 0; transform: translateY(calc(-50% + 20px)); }
-      6%, 29% { opacity: 1; transform: translateY(-50%); }
-      32%, 100% { opacity: 0; transform: translateY(calc(-50% - 10px)); }
     }
     .section-label { font-size: 12px; font-weight: 900; letter-spacing: .14em; color: var(--accent); text-transform: uppercase; }
     .section-title { font-size: clamp(32px, 4.8vw, 58px); line-height: 1.12; letter-spacing: 0; }
@@ -342,7 +316,7 @@
     .story-tab.active { display: grid !important; }
     .tab-button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     @media (max-width: 900px) {
-      .hero, .hero-content { min-height: 660px; }
+      .hero { min-height: 660px; }
       .member-strip { width: 100%; max-width: 726px; margin: 0 auto; }
       .member-card { width: 230px; }
       .member-layout { grid-template-columns: 1fr; }
@@ -381,28 +355,9 @@
 
   <header class="hero">
     <div class="hero-track">
-      <div class="hero-slide" style="background-image:url('./assets/images/hero-life-plan.png');"></div>
-      <div class="hero-slide" style="background-image:url('./assets/images/hero-finance-risk.png');"></div>
-      <div class="hero-slide" style="background-image:url('./assets/images/hero-small-choice.png');"></div>
-    </div>
-    <div class="hero-content max-w-7xl mx-auto px-6 pt-20">
-      <div class="relative w-full min-h-[520px]">
-      <div class="hero-copy">
-        <p class="hero-kicker mb-5">INSURANCE · FINANCE · TRUST</p>
-        <h1 class="hero-title mb-8">보험을<br><em>정확하게 분석</em>합니다</h1>
-        <p class="text-xl md:text-2xl leading-relaxed max-w-2xl" style="color: rgba(255,255,255,.82);">가입한 보장을 한눈에 정리하고, 부족한 부분과 중복된 보험료를 구체적으로 확인합니다.</p>
-      </div>
-      <div class="hero-copy">
-        <p class="hero-kicker mb-5">FINANCIAL DESIGN</p>
-        <h1 class="hero-title mb-8">생애 전반의<br><em>금융설계</em></h1>
-        <p class="text-xl md:text-2xl leading-relaxed max-w-2xl" style="color: rgba(255,255,255,.82);">가족, 소득, 은퇴, 의료비 흐름까지 고려해 오래 유지할 수 있는 설계를 제안합니다.</p>
-      </div>
-      <div class="hero-copy">
-        <p class="hero-kicker mb-5">TRUSTED CLAIM</p>
-        <h1 class="hero-title mb-8">청구는 빠르게,<br><em>관리는 믿을 수 있게</em></h1>
-        <p class="text-xl md:text-2xl leading-relaxed max-w-2xl" style="color: rgba(255,255,255,.82);">필요 서류와 절차를 놓치지 않도록 안내하고, 상담 이후의 관리까지 이어갑니다.</p>
-      </div>
-      </div>
+      <div class="hero-slide" style="background-image:url('./assets/images/hero-01-life-flow.png');"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/hero-02-finance-alert.png');"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/hero-03-small-choice.png');"></div>
     </div>
   </header>
 
@@ -505,21 +460,21 @@
         <button class="tab-button active btn-main btn-light" data-tab="customers">고객 만족 후기</button>
         <button class="tab-button btn-main btn-light" data-tab="agents">설계사 입사 인터뷰</button>
       </div>
-      <div id="customers" class="story-tab active grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="story-card p-7"><strong>실손 청구가 처음인 40대 고객</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">서류 준비부터 접수 순서까지 안내받아 놓친 항목 없이 청구했습니다.</p></div>
-        <div class="story-card p-7"><strong>보험료 점검을 받은 50대 부부</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">중복 보장을 정리하고 필요한 진단비 중심으로 재구성했습니다.</p></div>
-        <div class="story-card p-7"><strong>자녀 보험을 상담한 30대 부모</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">성장 단계별 필요한 보장과 납입 부담을 함께 비교했습니다.</p></div>
-        <div class="story-card p-7"><strong>퇴직 전 보장을 점검한 60대 고객</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">갱신형 특약과 의료비 위험을 중심으로 노후 보장을 확인했습니다.</p></div>
-        <div class="story-card p-7"><strong>교통사고 후 청구 상담 고객</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">자동차보험과 운전자보험 청구 가능 항목을 구분해 진행했습니다.</p></div>
-        <div class="story-card p-7"><strong>가족 보험을 한 번에 정리한 고객</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">가족별 보장 공백을 한눈에 보고 우선순위를 정할 수 있었습니다.</p></div>
+      <div id="customers" class="story-tab active grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div class="story-card"><div class="story-head"><span class="story-initial">박</span><div><div class="story-name-row"><strong class="story-name">박OO 고객</strong><span class="story-badge">40대</span></div><p class="story-meta">원주센터 · 실손 청구 상담</p></div></div><p class="story-quote">보험금 청구가 처음이라 막막했는데, 필요한 서류와 접수 순서를 하나씩 알려주셔서 놓친 항목 없이 진행할 수 있었습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">김</span><div><div class="story-name-row"><strong class="story-name">김OO 고객</strong><span class="story-badge">50대</span></div><p class="story-meta">춘천센터 · 보장 분석</p></div></div><p class="story-quote">오래된 보험이 많아 정리가 어려웠는데, 중복 보장과 부족한 부분이 한눈에 보이도록 설명해주셔서 기준이 생겼습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">이</span><div><div class="story-name-row"><strong class="story-name">이OO 고객</strong><span class="story-badge">30대</span></div><p class="story-meta">인천센터 · 자녀 보험 상담</p></div></div><p class="story-quote">아이 보험을 준비하면서 납입 부담이 걱정됐는데, 성장 단계별로 필요한 보장을 비교해주셔서 결정이 쉬웠습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">최</span><div><div class="story-name-row"><strong class="story-name">최OO 고객</strong><span class="story-badge">60대</span></div><p class="story-meta">여수본부 · 노후 보장 점검</p></div></div><p class="story-quote">퇴직 후 보험료가 부담될까 걱정했는데, 갱신형 특약과 의료비 위험을 함께 살펴보니 앞으로의 계획이 분명해졌습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">정</span><div><div class="story-name-row"><strong class="story-name">정OO 고객</strong><span class="story-badge">40대</span></div><p class="story-meta">대전센터 · 가족 보장 정리</p></div></div><p class="story-quote">가족 보험을 따로따로 가입해 전체 상황을 몰랐는데, 가족별 보장 공백과 우선순위를 정리해주셔서 안심이 됐습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">윤</span><div><div class="story-name-row"><strong class="story-name">윤OO 고객</strong><span class="story-badge">30대</span></div><p class="story-meta">광주센터 · 운전자 보험 상담</p></div></div><p class="story-quote">사고 이후 어떤 보험에서 청구가 가능한지 헷갈렸는데, 자동차보험과 운전자보험 항목을 구분해주셔서 빠르게 처리했습니다.</p></div>
       </div>
-      <div id="agents" class="story-tab grid md:grid-cols-2 lg:grid-cols-3 gap-5" hidden>
-        <div class="story-card p-7"><strong>신입 설계사 A</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">보장분석 자료와 멘토링 덕분에 첫 상담의 부담을 줄였습니다.</p></div>
-        <div class="story-card p-7"><strong>경력 설계사 B</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">고객관리 시스템이 정리되어 기존 고객 사후관리가 쉬워졌습니다.</p></div>
-        <div class="story-card p-7"><strong>육아 병행 설계사 C</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">일정 관리와 모바일 업무 지원으로 활동 시간을 효율적으로 쓸 수 있습니다.</p></div>
-        <div class="story-card p-7"><strong>전직 금융권 설계사 D</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">상품 비교와 청구 상담까지 연결되는 구조가 전문성을 높여줍니다.</p></div>
-        <div class="story-card p-7"><strong>지역 기반 설계사 E</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">원주를 중심으로 전국 네트워크가 연결되어 협업이 편합니다.</p></div>
-        <div class="story-card p-7"><strong>리더 후보 설계사 F</strong><p class="text-stone-500 text-sm leading-relaxed mt-3">교육과 성과 관리가 명확해 팀 빌딩 목표를 세우기 좋았습니다.</p></div>
+      <div id="agents" class="story-tab grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" hidden>
+        <div class="story-card"><div class="story-head"><span class="story-initial">박</span><div><div class="story-name-row"><strong class="story-name">박OO 설계사</strong><span class="story-badge">경력 2년차</span></div><p class="story-meta">인천센터 · FA 조직 보유</p></div></div><p class="story-quote">이직 전 다른 보험사에서 3년을 보냈는데, 시스템 차이가 이렇게 클 줄 몰랐어요. 비교 자료와 고객 설명 시간이 훨씬 좋아졌습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">김</span><div><div class="story-name-row"><strong class="story-name">김OO 설계사</strong><span class="story-badge">신규 1년차</span></div><p class="story-meta">원주본부 · 워킹맘 출신</p></div></div><p class="story-quote">아이를 키우면서 일할 수 있을까 걱정이 컸는데, 분석 시스템과 멘토링 덕분에 지금은 소개 상담까지 자연스럽게 이어집니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">이</span><div><div class="story-name-row"><strong class="story-name">이OO 팀장</strong><span class="story-badge">경력 3년차</span></div><p class="story-meta">춘천센터 · 팀장 승진</p></div></div><p class="story-quote">전국 센터 네트워크 덕분에 고객 범위가 넓어졌습니다. 팀장 승진 후에도 교육과 리더십 지원을 꾸준히 받고 있어요.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">최</span><div><div class="story-name-row"><strong class="story-name">최OO 설계사</strong><span class="story-badge">경력 1년차</span></div><p class="story-meta">여주본부 · 경력직</p></div></div><p class="story-quote">55세에 새 출발이 가능할까 걱정했는데, 수술비 계산과 재무설계 툴이 잘 갖춰져 있어 고객 신뢰를 얻는 데 도움이 됐습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">정</span><div><div class="story-name-row"><strong class="story-name">정OO 설계사</strong><span class="story-badge">신규 2년차</span></div><p class="story-meta">대전센터 · 금융권 출신</p></div></div><p class="story-quote">처음에는 상품 설명이 가장 어려웠지만, 보장 분석 자료와 청구 사례 교육이 연결되어 상담 흐름을 잡을 수 있었습니다.</p></div>
+        <div class="story-card"><div class="story-head"><span class="story-initial">윤</span><div><div class="story-name-row"><strong class="story-name">윤OO 지점장</strong><span class="story-badge">경력 5년차</span></div><p class="story-meta">광주센터 · 조직 운영</p></div></div><p class="story-quote">성과만 요구하는 구조가 아니라 교육, 활동 지원, 수수료 구조가 투명하게 연결되어 있어 조직을 키우는 데 안정감이 있습니다.</p></div>
       </div>
     </div>
   </section>
