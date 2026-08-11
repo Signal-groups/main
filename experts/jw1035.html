@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>시그널 그룹 · DB영업 자동화 관리시스템 2026 | 박주완 본부장</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -141,6 +142,22 @@ document.addEventListener('DOMContentLoaded', async function() {
     const resourceScript = '<script>window.__resources = ' +
       JSON.stringify(resourceMap).split('</' + 'script>').join('<\\/' + 'script>') +
       ';</' + 'script>';
+    const mobileStyle = '<style id="experts-mobile-fix">' +
+      'html,body{width:100%;max-width:100%;overflow-x:clip}' +
+      'img,svg,video{max-width:100%}' +
+      '.mobile-expert-photo{display:none}' +
+      '@media(max-width:600px){' +
+      '.sec-in{width:100%!important;max-width:100%!important;padding-left:16px!important;padding-right:16px!important}' +
+      '.s1-grid{grid-template-columns:1fr!important;text-align:center!important}' +
+      '.s1-pill,.s1-chips,.s1-btns{justify-content:center!important;margin-left:auto!important;margin-right:auto!important}' +
+      '.s1-h1,.s1-sub,.sec-title,.sec-body{max-width:100%!important;word-break:keep-all!important;overflow-wrap:break-word!important}' +
+      '.s1-btns{display:flex!important;flex-direction:column!important;width:min(100%,340px)!important}' +
+      '.s1-btns a{width:100%!important;min-height:52px!important;justify-content:center!important}' +
+      '.mobile-expert-photo{display:block;width:138px;height:164px;margin:22px auto;border:2px solid rgba(75,33,182,.2);border-radius:22px;overflow:hidden;box-shadow:0 16px 36px rgba(33,20,61,.16)}' +
+      '.mobile-expert-photo img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 12%!important}' +
+      '.s1-kpis{grid-template-columns:1fr!important}' +
+      '}' +
+      '</style>';
     // Inject after <head> so the DOCTYPE stays first; prepending the script
     // would push the parser into quirks mode. DOMParser always emits a <head>
     // (synthesizing one if the source HTML omitted it) but may carry
@@ -149,7 +166,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const headOpen = template.match(/<head[^>]*>/i);
     if (headOpen) {
       const i = headOpen.index + headOpen[0].length;
-      template = template.slice(0, i) + resourceScript + template.slice(i);
+      template = template.slice(0, i) + resourceScript + mobileStyle + template.slice(i);
     }
 
     // Parse the template and swap the root element. Scripts inserted via
@@ -158,6 +175,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     // preserve ordering (React before ReactDOM before Babel before text/babel).
     const doc = new DOMParser().parseFromString(template, 'text/html');
     document.documentElement.replaceWith(doc.documentElement);
+    const mobilePhotoSource = document.querySelector('.s5-photo img');
+    const mobilePhotoAnchor = document.querySelector('.s1-sub');
+    if (mobilePhotoSource && mobilePhotoAnchor) {
+      const mobilePhoto = document.createElement('div');
+      mobilePhoto.className = 'mobile-expert-photo';
+      mobilePhoto.setAttribute('aria-hidden', 'true');
+      const clonedPhoto = mobilePhotoSource.cloneNode(true);
+      clonedPhoto.alt = '';
+      mobilePhoto.appendChild(clonedPhoto);
+      mobilePhotoAnchor.insertAdjacentElement('afterend', mobilePhoto);
+    }
     const dead = Array.from(document.scripts);
     for (const old of dead) {
       const s = document.createElement('script');

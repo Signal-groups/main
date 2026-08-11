@@ -1,0 +1,296 @@
+/* Shared responsive safeguards for expert landing pages. */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+.wrap,
+.sec-inner,
+.hero-inner,
+.hero-content,
+.form-card,
+.profile-box,
+.case-wrap {
+  min-width: 0;
+}
+
+.mobile-expert-photo {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .wrap,
+  .sec-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: clamp(18px, 5vw, 24px) !important;
+  }
+
+  .sec {
+    padding-block: clamp(56px, 14vw, 76px) !important;
+  }
+
+  .hero,
+  .hero-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-inner,
+  .hero-content {
+    width: 100% !important;
+    max-width: 620px !important;
+    margin-inline: auto !important;
+  }
+
+  .hero-h1,
+  .hero-title,
+  .hero-name,
+  .sh-title,
+  .sec-title,
+  .profile-name,
+  .form-title {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: keep-all;
+  }
+
+  .hero-desc,
+  .hero-sub,
+  .sh-desc,
+  .sec-desc,
+  .profile-quote {
+    max-width: 100% !important;
+    overflow-wrap: break-word;
+    word-break: keep-all;
+  }
+
+  .pain-grid,
+  .solution-grid,
+  .review-grid,
+  .case-wrap,
+  .about-grid,
+  .benefit-grid,
+  .process-grid,
+  .feature-grid,
+  .service-grid {
+    min-width: 0;
+  }
+
+  .stats-grid:has(> .stat-item:nth-child(4)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .stat-item,
+  .pain-card,
+  .sol-card,
+  .review-card,
+  .case-panel,
+  .form-card {
+    min-width: 0;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 88px 18px 64px !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+
+  .hero-inner,
+  .hero-content {
+    position: relative;
+    inset: auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  .hero-chip,
+  .hero-eyebrow {
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .hero-h1,
+  .hero-title {
+    font-size: clamp(31px, 9.5vw, 43px) !important;
+    line-height: 1.16 !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .hero-h1 .sub-line {
+    font-size: clamp(13px, 3.8vw, 16px) !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-desc,
+  .hero-sub {
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mobile-expert-photo,
+  .hero-profile {
+    display: block !important;
+    position: relative !important;
+    inset: auto !important;
+    width: 138px !important;
+    height: 164px !important;
+    margin: 24px auto !important;
+    border: 2px solid rgba(255, 255, 255, 0.72) !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+    opacity: 1 !important;
+    z-index: 3 !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22) !important;
+  }
+
+  .mobile-expert-photo img,
+  .hero-profile img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center 14% !important;
+  }
+
+  .hero-btns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    width: min(100%, 340px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-btns > a,
+  .hero-btns > button,
+  .hero-btns .btn,
+  .btn-kakao,
+  .btn-consult {
+    width: 100% !important;
+    min-height: 54px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .hero-kpi {
+    justify-content: center !important;
+    margin-inline: auto !important;
+  }
+
+  .scroll-hint {
+    display: none !important;
+  }
+
+  .sh,
+  .sec-heading {
+    text-align: center;
+  }
+
+  .sh-label,
+  .sec-label {
+    justify-content: center;
+  }
+
+  .sh-title,
+  .sec-title {
+    font-size: clamp(24px, 7.5vw, 32px) !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+
+  .sh-desc,
+  .sec-desc {
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+
+  .pain-grid,
+  .solution-grid,
+  .review-grid,
+  .case-wrap,
+  .about-grid,
+  .benefit-grid,
+  .process-grid,
+  .feature-grid,
+  .service-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-card {
+    width: 100% !important;
+    padding: 28px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .profile-box {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .profile-photo {
+    margin-inline: auto !important;
+  }
+
+  .profile-tags {
+    justify-content: center !important;
+  }
+
+  .float-menu {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  }
+
+  footer {
+    padding-inline: 18px !important;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero {
+    padding-inline: 14px !important;
+  }
+
+  .hero-h1,
+  .hero-title {
+    font-size: clamp(29px, 9.3vw, 36px) !important;
+  }
+
+  .brand-home-link {
+    max-width: calc(100vw - 28px);
+    font-size: 14px !important;
+  }
+}
