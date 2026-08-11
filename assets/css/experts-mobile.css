@@ -294,3 +294,134 @@ video {
     font-size: 14px !important;
   }
 }
+
+/* 고정윤 전문가: 인물 중심 인트로 대신 밝고 따뜻한 정보 상담 공간 */
+.expert-jy3512 .hero {
+  background: #f7f1e7 !important;
+}
+
+.expert-jy3512 .hero-bg {
+  background-image:
+    linear-gradient(90deg, rgba(255, 252, 246, 0.97) 0%, rgba(255, 250, 241, 0.89) 42%, rgba(255, 248, 236, 0.3) 76%, rgba(255, 248, 236, 0.12) 100%),
+    url('../images/warm-office-information-hero.png') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  filter: none !important;
+}
+
+.expert-jy3512 .hero-bg::after {
+  background: linear-gradient(to bottom, transparent 68%, #f8f5ef 100%) !important;
+}
+
+.expert-jy3512 .hero-inner {
+  max-width: 680px !important;
+}
+
+.expert-jy3512 .hero-chip {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(184, 146, 42, 0.34) !important;
+  color: #8a6818 !important;
+  box-shadow: 0 10px 28px rgba(80, 58, 18, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.expert-jy3512 .hero-h1 {
+  color: #20251f !important;
+  font-weight: 700 !important;
+  line-height: 1.17 !important;
+  letter-spacing: -0.012em !important;
+  font-synthesis: none;
+  text-shadow: none !important;
+}
+
+.expert-jy3512 .hero-h1 .sub-line {
+  color: #8a6818 !important;
+  font-weight: 550 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.025em !important;
+  margin-bottom: 14px !important;
+}
+
+.expert-jy3512 .hero-desc {
+  color: #4f574e !important;
+}
+
+.expert-jy3512 .hero-desc strong {
+  color: #20251f !important;
+}
+
+.expert-jy3512 .hero-profile {
+  display: none !important;
+}
+
+.expert-jy3512 .btn-call {
+  display: inline-flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px 10px;
+  line-height: 1.25;
+}
+
+.expert-jy3512 .btn-call strong {
+  color: #624a18;
+  font-size: 0.95em;
+  font-variation-settings: 'wght' 720;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 600px) {
+  .mobile-expert-photo,
+  .expert-jy3512 .hero-profile {
+    display: none !important;
+  }
+
+  .expert-jy3512 .hero {
+    min-height: 720px !important;
+    justify-content: flex-start !important;
+    padding-top: 112px !important;
+  }
+
+  .expert-jy3512 .hero-bg {
+    background-image:
+      linear-gradient(180deg, rgba(255, 252, 246, 0.95) 0%, rgba(255, 250, 242, 0.8) 52%, rgba(248, 245, 239, 0.96) 100%),
+      url('../images/warm-office-information-hero.png') !important;
+    background-position: 62% center !important;
+  }
+
+  .expert-jy3512 .hero-btns {
+    margin-top: 8px !important;
+  }
+
+  .expert-jy3512 .hero-h1 {
+    font-size: clamp(32px, 9.2vw, 40px) !important;
+    line-height: 1.24 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .expert-jy3512 .hero-h1 .sub-line {
+    line-height: 1.65 !important;
+    letter-spacing: 0.035em !important;
+    margin-bottom: 16px !important;
+  }
+
+  .expert-jy3512 .hero-desc {
+    line-height: 1.85 !important;
+    letter-spacing: 0.005em !important;
+  }
+
+  .expert-jy3512 .btn {
+    min-height: 52px !important;
+    padding: 14px 18px !important;
+    font-size: 15px !important;
+  }
+
+  .expert-jy3512 .btn-call {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .expert-jy3512 .btn-call strong {
+    font-size: 14px;
+  }
+}
