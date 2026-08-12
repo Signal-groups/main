@@ -1,0 +1,981 @@
+<!DOCTYPE html><html lang="ko"><head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보험영업 자동화 — 무료 확인</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  :root {
+    --navy: #1E3A5F;
+    --navy-deep: #142A47;
+    --blue: #3B82F6;
+    --blue-light: #93C5FD;
+    --blue-tint: #EFF6FF;
+    --blue-tint-2: #F0F6FF;
+    --yellow: #FCD34D;
+    --yellow-deep: #92400E;
+    --red: #B91C1C;
+    --red-bg: #FEE2E2;
+    --ink: #0F172A;
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-500: #64748B;
+    --gray-700: #334155;
+  }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans KR", "Inter", sans-serif;
+    background: #fff; color: var(--navy);
+    line-height: 1.5; -webkit-font-smoothing: antialiased;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  .narrow { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+  /* Sticky top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px; max-width: 1100px; margin: 0 auto;
+  }
+  .wordmark {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 800; color: var(--navy); letter-spacing: -0.02em;
+  }
+  .wordmark::before {
+    content: ""; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--blue);
+  }
+  .topbar .cta-mini {
+    background: var(--navy); color: #fff;
+    padding: 10px 20px; border-radius: 999px;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: background 150ms;
+  }
+  .topbar .cta-mini:hover { background: var(--blue); }
+
+  /* HERO */
+  .hero {
+    background:
+      radial-gradient(800px 500px at 80% -20%, rgba(59,130,246,0.45) 0%, transparent 60%),
+      radial-gradient(700px 500px at 0% 80%, rgba(252,211,77,0.10) 0%, transparent 60%),
+      linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #2A4A75 100%);
+    color: #fff;
+    padding: 88px 0 96px;
+    position: relative; overflow: hidden;
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--yellow); color: var(--navy);
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 14px; font-weight: 800; letter-spacing: 0.06em;
+  }
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 84px);
+    font-weight: 900; line-height: 1.0;
+    letter-spacing: -0.035em;
+    margin: 24px 0 0;
+  }
+  .hero h1 .hl {
+    background-image: linear-gradient(transparent 62%, var(--yellow) 62%, var(--yellow) 92%, transparent 92%);
+  }
+  .hero .sub {
+    font-size: clamp(18px, 2.2vw, 22px); color: #CBD5E1; line-height: 1.55;
+    margin-top: 28px; max-width: 640px; font-weight: 500;
+  }
+  .hero-actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--yellow); color: var(--navy);
+    padding: 18px 28px; border-radius: 14px;
+    font-size: 18px; font-weight: 900; letter-spacing: -0.01em;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+    box-shadow: 0 12px 28px rgba(252,211,77,0.30);
+    transition: transform 150ms, box-shadow 150ms;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(252,211,77,0.40); }
+  .btn-secondary {
+    background: transparent; color: #fff;
+    padding: 18px 26px; border-radius: 14px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    font-size: 17px; font-weight: 700; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  .hero-trust {
+    display: flex; gap: 22px; margin-top: 40px;
+    color: #93C5FD; font-size: 14px; font-weight: 600;
+    flex-wrap: wrap;
+  }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-trust .dot { color: rgba(255,255,255,0.3); }
+
+  /* Hero promise cards */
+  .hero-promise {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin-top: 56px;
+  }
+  .hero-promise .card {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px; padding: 18px 20px;
+    display: flex; align-items: center; gap: 14px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-promise .card .ic {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(59,130,246,0.25);
+    border: 1px solid rgba(147,197,253,0.4);
+    display: grid; place-items: center; font-size: 20px;
+    flex-shrink: 0;
+  }
+  .hero-promise .card .t { font-size: 14px; color: #93C5FD; font-weight: 600; }
+  .hero-promise .card .em { font-size: 18px; color: #fff; font-weight: 800; letter-spacing: -0.01em; }
+  @media (max-width: 640px) { .hero-promise { grid-template-columns: 1fr; } }
+
+  /* Section header */
+  section { padding: 96px 0; }
+  .eyebrow {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-size: 13px; font-weight: 800; letter-spacing: 0.16em;
+    color: var(--blue); text-transform: uppercase;
+    background: var(--blue-tint); padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900; color: var(--navy);
+    letter-spacing: -0.03em; line-height: 1.1;
+    margin: 0 0 18px;
+  }
+  .section-title .hl {
+    background-image: linear-gradient(transparent 62%, var(--yellow) 62%, var(--yellow) 92%, transparent 92%);
+  }
+  .section-lead { font-size: 19px; color: var(--gray-500); max-width: 640px; line-height: 1.6; }
+
+  /* PAIN section */
+  .pain { background: var(--gray-50); }
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    margin-top: 48px;
+  }
+  @media (max-width: 720px) { .pain-grid { grid-template-columns: 1fr; } }
+  .pain-card {
+    background: #fff; border: 1px solid var(--gray-200);
+    border-radius: 14px; padding: 18px 20px;
+    display: flex; align-items: center; gap: 14px;
+    box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+    transition: transform 200ms, box-shadow 200ms;
+  }
+  .pain-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(15,23,42,0.08); }
+  .pain-card .ic {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--red-bg); border: 1px solid #FECACA;
+    display: grid; place-items: center; font-size: 22px;
+    flex-shrink: 0;
+  }
+  .pain-card .t { font-size: 17px; font-weight: 800; color: var(--navy); line-height: 1.3; }
+  .pain-card .sub { font-size: 13px; color: var(--red); font-weight: 600; margin-top: 3px; }
+
+  .pain-quote {
+    background: var(--navy); color: #fff; border-radius: 18px;
+    padding: 32px 36px; margin-top: 36px;
+    display: flex; align-items: center; gap: 22px;
+  }
+  .pain-quote .icon { font-size: 40px; }
+  .pain-quote .text {
+    font-size: 22px; font-weight: 700; line-height: 1.45; letter-spacing: -0.01em;
+  }
+  .pain-quote .text .y { color: var(--yellow); }
+
+  /* WAKE — provocation */
+  .wake {
+    background:
+      radial-gradient(800px 400px at 50% 0%, rgba(59,130,246,0.08) 0%, transparent 60%),
+      #fff;
+    text-align: center;
+  }
+  .wake .badge-stop {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--red-bg); color: var(--red);
+    padding: 10px 22px; border-radius: 999px;
+    font-size: 14px; font-weight: 800; letter-spacing: 0.06em;
+    margin-bottom: 28px;
+  }
+  .wake h2 {
+    font-size: clamp(40px, 6.5vw, 80px);
+    font-weight: 900; color: var(--navy);
+    letter-spacing: -0.035em; line-height: 1.0;
+    margin: 0;
+  }
+  .wake h2 .hl {
+    background-image: linear-gradient(transparent 62%, var(--yellow) 62%, var(--yellow) 92%, transparent 92%);
+  }
+  .time-card {
+    margin: 64px auto 0;
+    max-width: 720px;
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    border-radius: 20px; padding: 28px;
+    text-align: left;
+  }
+  .time-label {
+    font-size: 13px; font-weight: 800; color: var(--gray-500);
+    letter-spacing: 0.08em; margin-bottom: 18px;
+  }
+  .time-row { margin-bottom: 14px; }
+  .time-row:last-child { margin-bottom: 0; }
+  .time-row-top {
+    display: flex; justify-content: space-between; margin-bottom: 8px;
+    font-size: 15px; font-weight: 700; color: var(--navy);
+  }
+  .time-row-top .pct {
+    font-family: "Inter", sans-serif; font-size: 20px; font-weight: 800;
+  }
+  .time-bar { height: 16px; border-radius: 999px; overflow: hidden; }
+  .time-bar .fill { height: 100%; border-radius: 999px; }
+  .time-row.bad .time-bar { background: var(--red-bg); }
+  .time-row.bad .fill { background: #EF4444; }
+  .time-row.bad .pct { color: var(--red); }
+  .time-row.good .time-bar { background: #DBEAFE; }
+  .time-row.good .fill { background: var(--blue); }
+  .time-row.good .pct { color: var(--blue); }
+
+  .wake-stripe {
+    margin: 48px auto 0; max-width: 800px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 100%);
+    border-radius: 16px; padding: 22px 28px;
+    color: #fff; font-size: clamp(22px, 3vw, 30px); font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+  .wake-stripe .y { color: var(--yellow); }
+
+  /* FEATURES */
+  .features { background: var(--blue-tint-2); }
+  .feature-row {
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px;
+    align-items: center; padding: 56px 0;
+    border-bottom: 1px solid #DBEAFE;
+  }
+  .feature-row:last-child { border-bottom: none; }
+  .feature-row.flip { direction: rtl; }
+  .feature-row.flip > * { direction: ltr; }
+  @media (max-width: 880px) {
+    .feature-row, .feature-row.flip { grid-template-columns: 1fr; direction: ltr; gap: 28px; padding: 40px 0; }
+  }
+  .feature-meta {
+    font-family: "Inter", sans-serif;
+    font-size: 64px; font-weight: 900; color: var(--blue);
+    letter-spacing: -0.04em; line-height: 0.9;
+  }
+  .feature-row h3 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 900; color: var(--navy);
+    letter-spacing: -0.025em; line-height: 1.1;
+    margin: 12px 0 14px;
+  }
+  .feature-row p { font-size: 17px; color: var(--gray-700); line-height: 1.65; margin: 0 0 16px; }
+  .feature-row .checks { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; }
+  .feature-row .checks li {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 15px; color: var(--navy); font-weight: 600;
+  }
+  .feature-row .checks .c {
+    width: 22px; height: 22px; border-radius: 50%; background: var(--blue);
+    color: #fff; display: grid; place-items: center;
+    font-size: 12px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* Feature mock */
+  .mock {
+    background: #fff; border-radius: 18px; padding: 20px;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 16px 40px rgba(15,23,42,0.10);
+  }
+  .mock-search {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    border-radius: 12px; padding: 10px 14px; margin-bottom: 12px;
+    font-size: 14px; font-weight: 600; color: var(--navy);
+  }
+  .mock-search .pill {
+    background: var(--blue); color: #fff;
+    padding: 5px 12px; border-radius: 8px;
+    font-size: 11px; font-weight: 800; margin-left: auto;
+  }
+  .doc-item {
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    border-radius: 10px; padding: 10px 12px;
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .doc-item:last-child { margin-bottom: 0; }
+  .doc-thumb {
+    width: 32px; height: 40px; background: #fff;
+    border: 1px solid var(--gray-200); border-radius: 5px;
+    display: flex; flex-direction: column; padding: 5px 3px; gap: 2px;
+    position: relative;
+  }
+  .doc-thumb .line { height: 2px; background: #CBD5E1; border-radius: 2px; }
+  .doc-thumb .line.s { width: 70%; }
+  .doc-thumb .pdf-tag {
+    position: absolute; bottom: 2px; left: 2px;
+    color: #fff; font-size: 7px; font-weight: 800; padding: 1px 3px; border-radius: 2px;
+  }
+  .doc-item .meta { flex: 1; min-width: 0; }
+  .doc-item .tag {
+    display: inline-block; background: var(--blue-tint);
+    padding: 2px 7px; border-radius: 999px;
+    font-size: 10px; font-weight: 800; margin-right: 6px;
+  }
+  .doc-item .doc-title { font-size: 13px; font-weight: 800; color: var(--navy); margin-top: 2px; }
+  .doc-item .open {
+    background: var(--navy); color: #fff;
+    padding: 5px 10px; border-radius: 6px;
+    font-size: 10px; font-weight: 800;
+  }
+
+  /* Before/After mock */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ba {
+    background: #fff; border-radius: 12px; padding: 14px;
+    position: relative;
+  }
+  .ba.before { border: 1px solid #FECACA; }
+  .ba.after  { background: var(--navy); color: #fff; border: 1px solid var(--blue); }
+  .ba-label {
+    position: absolute; top: -8px; left: 12px;
+    padding: 3px 10px; border-radius: 999px;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+  }
+  .ba.before .ba-label { background: var(--red-bg); color: var(--red); }
+  .ba.after  .ba-label { background: var(--blue); color: #fff; }
+  .ba-title { font-size: 14px; font-weight: 800; margin: 8px 0 10px; }
+  .ba-list { list-style: none; padding: 0; margin: 0; font-size: 12px; }
+  .ba-list li {
+    display: flex; gap: 8px; padding: 5px 0; align-items: center;
+    border-bottom: 1px solid;
+  }
+  .ba.before .ba-list li { border-color: #F1F5F9; color: var(--gray-700); }
+  .ba.before .ba-list li:last-child { border: none; }
+  .ba.before .x {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--red-bg); color: var(--red);
+    display: grid; place-items: center; font-size: 10px; font-weight: 900;
+    flex-shrink: 0;
+  }
+  .ba.after .preview {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(147,197,253,0.3);
+    border-radius: 8px; padding: 10px; font-size: 11px; line-height: 1.6;
+  }
+  .ba.after .preview .name { color: var(--blue-light); font-weight: 800; }
+  .ba.after .preview .docs { color: var(--yellow); }
+  .ba .timing {
+    margin-top: 10px; padding: 6px 10px; border-radius: 6px;
+    font-size: 11px; font-weight: 800; text-align: center;
+  }
+  .ba.before .timing { background: var(--red-bg); color: var(--red); }
+  .ba.after .timing { background: var(--blue); color: #fff; }
+
+  /* Notification stack mock */
+  .notif {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .notif-item {
+    border-radius: 10px; padding: 10px 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .notif-item .ic {
+    width: 32px; height: 32px; border-radius: 9px;
+    display: grid; place-items: center; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .notif-item .t { font-size: 13px; font-weight: 800; color: var(--navy); }
+  .notif-item .d { font-size: 11px; font-weight: 700; }
+  .notif-item .send {
+    background: #fff; padding: 3px 9px; border-radius: 999px;
+    font-size: 10px; font-weight: 800;
+    margin-left: auto;
+  }
+
+  /* Curriculum cards */
+  .curr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .curr {
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    border-radius: 14px; padding: 16px;
+  }
+  .curr .ic {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--blue-tint);
+    display: grid; place-items: center; font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .curr .t { font-size: 16px; font-weight: 900; color: var(--navy); letter-spacing: -0.015em; }
+  .curr .d { font-size: 12px; color: var(--gray-500); margin-top: 4px; line-height: 1.5; }
+  .curr .tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+  .curr .tags span {
+    background: #FEF3C7; color: var(--yellow-deep);
+    padding: 2px 8px; border-radius: 999px;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.04em;
+  }
+
+  /* STORY */
+  .story { background: #fff; }
+  .story-card {
+    background: var(--gray-50); border: 1px solid var(--gray-200);
+    border-radius: 22px; padding: 36px;
+    display: flex; gap: 22px; align-items: flex-start;
+    margin-top: 36px;
+  }
+  @media (max-width: 640px) { .story-card { flex-direction: column; } }
+  .avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: #fff; display: grid; place-items: center;
+    font-size: 36px; font-weight: 800;
+    box-shadow: 0 8px 20px rgba(59,130,246,0.30);
+    flex-shrink: 0;
+  }
+  .story-eyebrow {
+    font-size: 13px; font-weight: 800; color: var(--blue);
+    letter-spacing: 0.06em;
+  }
+  .story-quote {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 900; color: var(--navy);
+    letter-spacing: -0.015em; line-height: 1.4;
+    margin: 6px 0 14px;
+  }
+  .story-body { font-size: 17px; color: var(--gray-700); line-height: 1.7; }
+
+  .flow {
+    background: var(--navy); color: #fff;
+    border-radius: 18px; padding: 28px;
+    margin-top: 36px;
+  }
+  .flow-label {
+    font-size: 13px; font-weight: 800; color: var(--blue-light);
+    letter-spacing: 0.08em; margin-bottom: 18px;
+  }
+  .flow-steps {
+    display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 8px; align-items: center;
+  }
+  @media (max-width: 720px) { .flow-steps { grid-template-columns: 1fr; } .flow-steps .arr { display: none; } }
+  .flow-step {
+    background: rgba(59,130,246,0.18);
+    border: 1px solid rgba(147,197,253,0.4);
+    border-radius: 12px; padding: 16px 10px;
+    text-align: center; font-size: 15px; font-weight: 800;
+  }
+  .flow-steps .arr { color: var(--yellow); font-size: 22px; font-weight: 900; text-align: center; }
+
+  /* CTA section — WEBINAR */
+  .cta-section {
+    background:
+      radial-gradient(700px 500px at 80% 20%, rgba(252,211,77,0.20) 0%, transparent 60%),
+      radial-gradient(700px 500px at 10% 90%, rgba(59,130,246,0.40) 0%, transparent 60%),
+      linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #2A4A75 100%);
+    color: #fff;
+    padding: 96px 0;
+    position: relative; overflow: hidden;
+  }
+  .cta-section .container { position: relative; z-index: 1; }
+  .date-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--yellow); color: var(--navy);
+    padding: 10px 22px; border-radius: 999px;
+    font-size: 15px; font-weight: 900; letter-spacing: 0.06em;
+    margin-bottom: 24px;
+  }
+  .cta-section h2 {
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 900; color: #fff;
+    letter-spacing: -0.035em; line-height: 0.98;
+    margin: 0;
+  }
+  .cta-section h2 .hl {
+    background-image: linear-gradient(transparent 62%, var(--yellow) 62%, var(--yellow) 92%, transparent 92%);
+  }
+  .cta-section .sub {
+    font-size: 20px; color: #CBD5E1; max-width: 580px; line-height: 1.55;
+    margin-top: 24px; font-weight: 500;
+  }
+
+  /* Gift bundle */
+  .gift {
+    margin-top: 56px;
+    background: rgba(255,255,255,0.07);
+    border: 1px dashed rgba(252,211,77,0.5);
+    border-radius: 20px; padding: 28px;
+    backdrop-filter: blur(8px);
+  }
+  .gift-label {
+    font-size: 13px; font-weight: 800; color: var(--yellow);
+    letter-spacing: 0.1em; margin-bottom: 18px;
+  }
+  .gift-items { display: flex; flex-direction: column; gap: 10px; }
+  .gift-item {
+    display: flex; align-items: center; gap: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 16px 20px;
+  }
+  .gift-item .num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--yellow); color: var(--navy);
+    display: grid; place-items: center;
+    font-family: "Inter", sans-serif;
+    font-size: 16px; font-weight: 900; flex-shrink: 0;
+  }
+  .gift-item .t { font-size: 18px; font-weight: 800; color: #fff; }
+  .gift-item .d { font-size: 13px; color: #CBD5E1; font-weight: 600; margin-top: 2px; }
+  .gift-item .free {
+    font-size: 12px; font-weight: 800; color: var(--yellow);
+    letter-spacing: 0.06em; margin-left: auto;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    margin-top: 56px;
+    background: var(--yellow); color: var(--navy);
+    border-radius: 20px; padding: 28px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap;
+    box-shadow: 0 24px 48px rgba(252,211,77,0.30);
+  }
+  .final-cta .label {
+    font-size: 13px; font-weight: 800; color: var(--yellow-deep);
+    letter-spacing: 0.08em;
+  }
+  .final-cta .big {
+    font-size: clamp(22px, 3vw, 28px); font-weight: 900;
+    color: var(--navy); letter-spacing: -0.015em; margin-top: 4px;
+  }
+  .final-cta .btn-join {
+    background: var(--navy); color: #fff;
+    padding: 18px 28px; border-radius: 14px;
+    font-size: 19px; font-weight: 900;
+    display: inline-flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    transition: transform 150ms;
+  }
+  .final-cta .btn-join:hover { transform: scale(1.03); }
+  .final-actions {
+    display: flex; align-items: center; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .final-cta .btn-cafe {
+    background: #03C75A; color: #fff;
+    padding: 18px 28px; border-radius: 14px;
+    font-size: 19px; font-weight: 900;
+    display: inline-flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    transition: transform 150ms;
+  }
+  .final-cta .btn-cafe:hover { transform: scale(1.03); }
+
+  .cta-disclaim {
+    text-align: center; color: rgba(255,255,255,0.5);
+    font-size: 13px; margin-top: 28px; font-weight: 500;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--navy-deep); color: #93C5FD;
+    padding: 36px 0; text-align: center;
+    font-size: 13px; font-weight: 500;
+  }
+  footer .brand { color: #fff; font-weight: 800; margin-right: 8px; }
+
+  /* Small viz helpers reused */
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--blue-tint); color: var(--navy);
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 800;
+  }
+</style>
+</head>
+<body style="">
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="wordmark">인슈런스매니져</a>
+    <a href="https://open.kakao.com/o/g8ND5toi" class="cta-mini" style="">오픈채팅방 입장 →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding-top: 88px;">
+  <div class="container">
+    <span class="hero-badge" style="">📣 무표 테스터를 모집합니다.</span>
+    <h1>
+      이제 진짜<br>
+      <span class="hl">자동화</span>입니다.
+    </h1>
+    <p class="sub">
+      보험설계사분들 주목하세요. 영업에만 집중하실 수 있도록, 번거로운 일은 시스템이 대신합니다.
+      준비부터 청구, 고객관리까지 한 곳에서.
+    </p>
+    <div class="hero-actions">
+      <a href="https://open.kakao.com/o/g8ND5toi" class="btn-primary">🎁 채팅방 입장하고 자료 받기 →</a>
+      <a href="#features" class="btn-secondary">기능 둘러보기</a>
+    </div>
+    <div class="hero-trust">
+      <span>✓ 입장만 해도 무료 자료</span>
+      <span class="dot">·</span>
+      <span>✓ 신입 / 경력 모두 가능</span>
+      <span class="dot">·</span>
+      <span>✓ 설계사 · 관리자 모두 환영</span>
+    </div>
+
+    <div class="hero-promise">
+      <div class="card">
+        <div class="ic">💼</div>
+        <div>
+          <div class="t">설계사님은 영업만</div>
+          <div class="em">돈만 많이 버세요</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ic">🤖</div>
+        <div>
+          <div class="t">번거로운 일은</div>
+          <div class="em">제가 해드립니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="container">
+    <span class="eyebrow">익숙한 풍경</span>
+    <h2 class="section-title">이런 상황, <span class="hl">또 반복</span>하시나요?</h2>
+    <p class="section-lead" style="">
+      매일 반복되는 자료 준비와 사무, 보험금 청구 응대.&nbsp;<div>진짜 영업할 시간은 자꾸 줄어듭니다.
+    </div></p>
+
+    <div class="pain-grid">
+      <div class="pain-card"><div class="ic">📞</div><div><div class="t">고객 전화와 보험금 청구</div><div class="sub">끊임없는 연락</div></div></div>
+      <div class="pain-card"><div class="ic">📄</div><div><div class="t">자료 준비, 약관 확인</div><div class="sub">언제 만들고 언제 상담?</div></div></div>
+      <div class="pain-card"><div class="ic">💬</div><div><div class="t">채팅방 돌아다니며 자료 구걸</div><div class="sub">더 이상 그만!</div></div></div>
+      <div class="pain-card"><div class="ic">💸</div><div><div class="t">돈 주고 자료 구매</div><div class="sub">또 사야 하나...</div></div></div>
+      <div class="pain-card"><div class="ic">⏰</div><div><div class="t">직접 만들기는 어렵고</div><div class="sub">시간만 자꾸 흘러</div></div></div>
+      <div class="pain-card"><div class="ic">🤔</div><div><div class="t">어떤 상품을 팔아야 할지?</div><div class="sub">결정이 안 됨</div></div></div>
+    </div>
+
+    <div class="pain-quote">
+      <span class="icon">💭</span>
+      <div class="text">
+        "이거 알았으면 지난 번에<br>
+        <span class="y">클로징 했을 텐데..."</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAKE -->
+<section class="wake">
+  <div class="container">
+    <span class="badge-stop">⛔ STOP — 잠깐 멈춰보세요</span>
+    <h2>영업보다<br>준비시간이<br><span class="hl">더 길다면?</span></h2>
+
+    <div class="time-card">
+      <div class="time-label">일주일 시간 배분 — 현실</div>
+
+      <div class="time-row bad">
+        <div class="time-row-top">
+          <span>📋 자료 준비 · 사무 · 청구</span>
+          <span class="pct">62%</span>
+        </div>
+        <div class="time-bar"><div class="fill" style="width:62%;"></div></div>
+      </div>
+
+      <div class="time-row good">
+        <div class="time-row-top">
+          <span>💼 진짜 영업 · 상담 · 클로징</span>
+          <span class="pct">38%</span>
+        </div>
+        <div class="time-bar"><div class="fill" style="width:38%;"></div></div>
+      </div>
+    </div>
+
+    <div class="wake-stripe">그만 후회하시고, <span class="y">집중하세요!</span></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="eyebrow">4가지 핵심 기능</span>
+      <h2 class="section-title">상담의 모든 과정,<br><span class="hl">한 곳에서</span> 처리합니다.</h2>
+    </div>
+
+    <!-- 01 -->
+    <div class="feature-row">
+      <div>
+        <div class="feature-meta">01</div>
+        <h3>자료 확인</h3>
+        <p>통계자료부터 실제 치료 흐름까지 — 상담 중 필요한 자료를 <strong>즉시</strong> 찾고, 바로 활용합니다. 클로징이 쉬워집니다.</p>
+        <ul class="checks">
+          <li><span class="c">✓</span>국가암등록통계 · 치료 비용표 · 약관 사례 정리</li>
+          <li><span class="c">✓</span>카테고리별 검색 · 즉시 PDF / DOC 다운로드</li>
+          <li><span class="c">✓</span>채팅방에서 자료 구걸할 필요 없음</li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="mock-search">🔍 암 치료 단계별 자료<span class="pill" style="margin-left:auto; background: var(--blue); color: #fff;">검색</span></div>
+        <div class="doc-item">
+          <div class="doc-thumb"><div class="line"></div><div class="line s"></div><div class="line"></div><div class="pdf-tag" style="background: var(--blue);">PDF</div></div>
+          <div class="meta"><span class="tag" style="color: var(--blue);">통계</span><span style="font-size:10px; color: var(--gray-500); font-family: Inter, sans-serif; font-weight: 600;">PDF · 8p</span><div class="doc-title">국가암등록통계 2025 요약</div></div>
+          <span class="open">열기</span>
+        </div>
+        <div class="doc-item">
+          <div class="doc-thumb"><div class="line"></div><div class="line s"></div><div class="line"></div><div class="pdf-tag" style="background: #DB2777;">PDF</div></div>
+          <div class="meta"><span class="tag" style="color: #DB2777;">치료</span><span style="font-size:10px; color: var(--gray-500); font-family: Inter, sans-serif; font-weight: 600;">PDF · 12p</span><div class="doc-title">갑상선암 치료 단계별 비용표</div></div>
+          <span class="open">열기</span>
+        </div>
+        <div class="doc-item">
+          <div class="doc-thumb"><div class="line"></div><div class="line s"></div><div class="line"></div><div class="pdf-tag" style="background: #15803D;">DOC</div></div>
+          <div class="meta"><span class="tag" style="color: #15803D;">약관</span><span style="font-size:10px; color: var(--gray-500); font-family: Inter, sans-serif; font-weight: 600;">DOC · 6p</span><div class="doc-title">표적항암제 비급여 적용 사례</div></div>
+          <span class="open">열기</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="feature-row flip">
+      <div>
+        <div class="feature-meta">02</div>
+        <h3>고객관리 · 청구서류</h3>
+        <p>"알아보고 다시 연락드릴게요." 그만! <strong>클릭 몇 번으로 복사 → 전송</strong>. 23분 걸리던 청구 안내가 30초로.</p>
+        <ul class="checks">
+          <li><span class="c">✓</span>상황별 청구서류 템플릿 — 자동 개인화</li>
+          <li><span class="c">✓</span>고객명 / 상품 / 사고유형 자동 치환</li>
+          <li><span class="c">✓</span>원클릭 복사 후 카톡 · 문자 바로 전송</li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="ba-grid">
+          <div class="ba before">
+            <span class="ba-label">BEFORE</span>
+            <div class="ba-title">보험금 청구 안내</div>
+            <ul class="ba-list">
+              <li><span class="x">×</span>필요 서류 검색...</li>
+              <li><span class="x">×</span>약관 다시 확인...</li>
+              <li><span class="x">×</span>메시지 직접 작성...</li>
+              <li><span class="x">×</span>빠진 게 있는지 걱정</li>
+            </ul>
+            <div class="timing">⏱ 평균 23분</div>
+          </div>
+          <div class="ba after">
+            <span class="ba-label">AFTER</span>
+            <div class="ba-title">템플릿 → 복사 → 전송</div>
+            <div class="preview">
+              <span class="name">김민수</span>님, 보험금 청구를 도와드립니다.<br>
+              준비 서류: <span class="docs">진단서, 입퇴원확인서, 영수증</span><br>
+              아래 링크에서 바로 제출 가능합니다.
+            </div>
+            <div style="margin-top: 10px; text-align: right; font-size: 11px;">📋 복사 완료</div>
+            <div class="timing">⏱ 30초 완료</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="feature-row">
+      <div>
+        <div class="feature-meta">03</div>
+        <h3>자동 알림 · 전송</h3>
+        <p>생일, 갱신일, 면책종료, 기념일까지. 스케줄러는 이미 포화상태? <strong>알림 → 미리 설정한 문구 → 전송 클릭</strong>으로 끝.</p>
+        <ul class="checks">
+          <li><span class="c">✓</span>중요한 날짜 자동 감지 · 사전 알림</li>
+          <li><span class="c">✓</span>고객별 맞춤 문구 미리 설정</li>
+          <li><span class="c">✓</span>한 번의 클릭으로 메시지 전송</li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="notif">
+          <div class="notif-item" style="background: #FCE7F3;">
+            <div class="ic" style="background: #FBCFE8;">🎂</div>
+            <div><div class="t">김민수 생일</div><div class="d" style="color:#DB2777;">D-3</div></div>
+            <span class="send" style="color:#DB2777;">전송</span>
+          </div>
+          <div class="notif-item" style="background: #FFEDD5;">
+            <div class="ic" style="background: #FDBA74;">🚗</div>
+            <div><div class="t">자동차 갱신</div><div class="d" style="color:#C2410C;">D-30</div></div>
+            <span class="send" style="color:#C2410C;">전송</span>
+          </div>
+          <div class="notif-item" style="background: var(--red-bg);">
+            <div class="ic" style="background: #FCA5A5;">💊</div>
+            <div><div class="t">면책 종료</div><div class="d" style="color: var(--red);">오늘</div></div>
+            <span class="send" style="color: var(--red);">전송</span>
+          </div>
+          <div class="notif-item" style="background: #DBEAFE;">
+            <div class="ic" style="background: #93C5FD;">🎁</div>
+            <div><div class="t">5주년 기념일</div><div class="d" style="color: #1D4ED8;">D-7</div></div>
+            <span class="send" style="color: #1D4ED8;">전송</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="feature-row flip">
+      <div>
+        <div class="feature-meta">04</div>
+        <h3>교육 시스템</h3>
+        <p>신입부터 경력직, 원수사 출신까지 — <strong>모두 가능합니다</strong>. 상품 안내장과 상품별 화법을 한 번에.</p>
+        <ul class="checks">
+          <li><span class="c">✓</span>주요 상품별 AP / PT 자료</li>
+          <li><span class="c">✓</span>상황별 클로징 멘트 라이브러리</li>
+          <li><span class="c">✓</span>0주차 신입 온보딩 → 경력 심화까지 단계별</li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="curr-grid">
+          <div class="curr">
+            <div class="ic">📘</div>
+            <div class="t">상품 안내장</div>
+            <div class="d">주요 상품별 PT + 인쇄 안내장</div>
+            <div class="tags"><span>AP</span><span>PT</span><span>PDF</span></div>
+          </div>
+          <div class="curr">
+            <div class="ic">🎤</div>
+            <div class="t">상품별 화법</div>
+            <div class="d">클로징 멘트 라이브러리</div>
+            <div class="tags"><span>스크립트</span></div>
+          </div>
+          <div class="curr">
+            <div class="ic">👶</div>
+            <div class="t">신입 온보딩</div>
+            <div class="d">0주차부터 단계별 시작</div>
+            <div class="tags"><span>0~12주차</span></div>
+          </div>
+          <div class="curr">
+            <div class="ic">🎓</div>
+            <div class="t">경력 심화</div>
+            <div class="d">원수사 출신 / 다년차 고도화</div>
+            <div class="tags"><span>심화</span><span>리쿠르팅</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container">
+    <span class="eyebrow">From the founder</span>
+    <h2 class="section-title">답답해서 <span class="hl">제가 직접 만들었습니다.</span></h2>
+
+    <div class="story-card">
+      <div class="avatar">👤</div>
+      <div>
+        <div class="story-eyebrow">현직 보험설계사</div>
+        <div class="story-quote">"저도 같은 고민을 했습니다."</div>
+        <div class="story-body" style="">
+          상담 준비부터 계약, 고객관리, 보험 청구까지 — 한 곳에서 처리할 수 있다면 얼마나 편할까.&nbsp;<div>그래서 직접 만들었습니다. 누구나 쉽게 이용 가능합니다.
+        </div></div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-label">✦ 한 곳에서 끝나는 영업 흐름</div>
+      <div class="flow-steps">
+        <div class="flow-step">상담 준비</div>
+        <div class="arr">→</div>
+        <div class="flow-step">계약</div>
+        <div class="arr">→</div>
+        <div class="flow-step">고객관리</div>
+        <div class="arr">→</div>
+        <div class="flow-step">보험 청구</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="join">
+  <div class="container">
+    <div class="date-badge" style="">🎁 오픈채팅방과 카페 방문하시면 무료자료 제공</div>
+    <h2>
+      보험영업 자동화<br>
+      <span class="hl">무료 확인 지금 입장!</span>
+    </h2>
+    <p class="sub">채팅방에 입장만 하셔도 영업 자료를 무료로 드립니다. 설계사님은&nbsp;
+돈만 버시고, 남은 시간은 가족 혹은 본인을 위해 충전하세요.</p>
+
+    <div class="gift">
+      <div class="gift-label" style="">🎁 5월 영업자료 및 상담 자료 무료제공</div>
+      <div class="gift-items">
+        <div class="gift-item">
+          <div class="num">1</div>
+          <div>
+            <div class="t">고객 화법 자료</div>
+            <div class="d">상황별 클로징 멘트 모음</div>
+          </div>
+          <div class="free">FREE</div>
+        </div>
+        <div class="gift-item">
+          <div class="num">2</div>
+          <div>
+            <div class="t">AP / PT 실전 자료 2종</div>
+            <div class="d">현장에서 바로 쓰는 고급 템플릿</div>
+          </div>
+          <div class="free">FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-cta">
+      <div>
+        <div class="label">지금 채팅방 입장</div>
+        <div class="big">입장만 해도 영업 자료 무료</div>
+      </div>
+      <div class="final-actions">
+        <a href="https://open.kakao.com/o/g8ND5toi" class="btn-join" style="">오픈채팅방 입장 →</a>
+        <a href="https://cafe.naver.com/signal1035" class="btn-cafe" data-cafe-link style="">네이버카페 입장 →</a>
+      </div>
+    </div>
+
+    <p class="cta-disclaim" style="">테스터는 조기 마감 될 수 있습니다.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="">
+    <span class="brand">인슈런스매니져</span> · 보험영업 자동화 솔루션 / 보험의 기준</div>
+</footer>
+
+
+
+<script>
+  (function () {
+    var cafeLinks = document.querySelectorAll('[data-cafe-link]');
+    var isMobile = window.matchMedia('(max-width: 768px)').matches || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    var cafeUrl = isMobile
+      ? 'https://m.cafe.naver.com/ca-fe/signal1035?tc=section_home_my_cafe'
+      : 'https://cafe.naver.com/signal1035';
+
+    cafeLinks.forEach(function (link) {
+      link.href = cafeUrl;
+    });
+  })();
+</script>
+</body></html>

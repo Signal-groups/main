@@ -1,0 +1,80 @@
+{
+  "converted": [
+    {
+      "source": "1278b613f8245080.png",
+      "destination": "1278b613f8245080.webp",
+      "width": 854,
+      "height": 1125,
+      "originalBytes": 1454656,
+      "optimizedBytes": 707666
+    },
+    {
+      "source": "4374263b0369b3c4.png",
+      "destination": "4374263b0369b3c4.webp",
+      "width": 1254,
+      "height": 1254,
+      "originalBytes": 2992852,
+      "optimizedBytes": 1638572
+    },
+    {
+      "source": "619952ba06bd0934.png",
+      "destination": "619952ba06bd0934.webp",
+      "width": 1234,
+      "height": 1275,
+      "originalBytes": 2747044,
+      "optimizedBytes": 235330
+    },
+    {
+      "source": "c1476da7e65cac40.png",
+      "destination": "c1476da7e65cac40.webp",
+      "width": 1024,
+      "height": 1536,
+      "originalBytes": 1466050,
+      "optimizedBytes": 141444
+    },
+    {
+      "source": "dc9f8fb9e4187db7.png",
+      "destination": "dc9f8fb9e4187db7.webp",
+      "width": 1774,
+      "height": 887,
+      "originalBytes": 1987500,
+      "optimizedBytes": 84206
+    },
+    {
+      "source": "fbac84fabf01547d.jpg",
+      "destination": "fbac84fabf01547d.webp",
+      "width": 1082,
+      "height": 1624,
+      "originalBytes": 335745,
+      "optimizedBytes": 70682
+    },
+    {
+      "source": "fee86ed4143e2a41.png",
+      "destination": "fee86ed4143e2a41.webp",
+      "width": 1254,
+      "height": 1254,
+      "originalBytes": 407410,
+      "optimizedBytes": 283118
+    }
+  ],
+  "usedOptimizedAssets": [
+    "1278b613f8245080.webp",
+    "4374263b0369b3c4.webp",
+    "619952ba06bd0934.webp",
+    "c1476da7e65cac40.webp",
+    "dc9f8fb9e4187db7.webp",
+    "fbac84fabf01547d.webp",
+    "fee86ed4143e2a41.webp"
+  ],
+  "updatedFiles": [
+    "당근광고/시그널 오마주 당근.html",
+    "당근광고/시그널 오마주 원주당근.html",
+    "당근광고/시그널 오마주 춘천당근.html",
+    "부장님광고랜딩/CJ Onstyle GA _ _.html",
+    "부장님광고랜딩/시그널 그룹 광고 부장님.html",
+    "당근광고/원주/도둑/index.html",
+    "당근광고/춘천/도둑/index.html"
+  ],
+  "originalBytes": 11391257,
+  "optimizedBytes": 3161018
+}

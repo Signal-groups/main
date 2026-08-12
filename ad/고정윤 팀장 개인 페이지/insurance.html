@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>보험 상담 | 올바른 금융</title>
+  <meta name="description" content="고정윤 전문가와 현재 보험 보장을 확인하고 필요한 상담을 신청하세요.">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">正</span><span><strong>올바른 금융</strong><small>RIGHT FINANCE</small></span></a>
+    <nav class="nav"><a aria-current="page" href="insurance.html">보험 상담</a><a href="recruit.html">인재채용</a><a href="metarich.html">메타리치</a><a href="lecture.html">금융 패밀리</a></nav>
+    <a class="header-contact" href="tel:01077463512">010.7746.3512</a>
+  </header>
+  <main class="sub-page">
+    <section class="page-hero">
+      <p class="eyebrow">INSURANCE CONSULTING</p><h1>내 보험을 제대로 읽는 것,<br><em>올바른 금융의 시작입니다.</em></h1>
+      <p class="lead">가입을 권하기 전에 현재 상황과 보장 내용을 먼저 살펴봅니다. 궁금한 항목을 선택하고 상담을 신청해 주세요.</p>
+    </section>
+    <section class="form-layout">
+      <div class="panel coverage-panel">
+        <p class="panel-number">01</p><h2>궁금한 분야를 선택해 주세요</h2><p class="muted">여러 항목을 선택할 수 있습니다.</p>
+        <div class="check-grid coverage-options">
+          <label><input type="checkbox" name="coverage" value="보험 보장 분석"><span>보험 보장 분석</span></label>
+          <label><input type="checkbox" name="coverage" value="연금"><span>연금</span></label>
+          <label><input type="checkbox" name="coverage" value="상속"><span>상속</span></label>
+          <label><input type="checkbox" name="coverage" value="절세"><span>절세</span></label>
+          <label><input type="checkbox" name="coverage" value="보험금 청구"><span>보험금 청구</span></label>
+          <label><input type="checkbox" name="coverage" value="기존 보험 점검"><span>기존 보험 점검</span></label>
+        </div>
+        <div class="comment-box" id="coverageComment"><strong>선택한 분야의 확인 내용을 안내해 드립니다.</strong><ul><li>현재 상황과 가입 내용을 바탕으로 필요한 부분을 함께 살펴봅니다.</li></ul></div>
+      </div>
+      <form class="panel lead-form" data-form-type="보험 상담">
+        <p class="panel-number">02</p><h2>상담 신청</h2><p class="muted">입력하신 내용은 상담 연락 목적으로만 사용됩니다.</p>
+        <label>이름<input name="name" autocomplete="name" required placeholder="성함을 입력해 주세요"></label>
+        <label>연락처<input name="phone" inputmode="tel" autocomplete="tel" required placeholder="010-0000-0000"></label>
+        <label class="agree"><input type="checkbox" name="privacy" required><span>상담을 위해 이름과 연락처를 수집·이용하는 데 동의합니다.</span></label>
+        <button class="btn primary full" type="submit">상담 신청하기</button><p class="form-phone">전화 문의 <a href="tel:01077463512">010-7746-3512</a></p><p class="form-message" role="status"></p>
+      </form>
+    </section>
+    <section class="channel-band compact" aria-label="외부 채널">
+      <a href="https://www.instagram.com/metarich_kojyn" target="_blank" rel="noopener"><span>INSTAGRAM</span><strong>@metarich_kojyn</strong></a>
+      <a href="https://qr.kakao.com/talk/0JYmYps7nd.SMkq1t5W2vwYSRmk-" target="_blank" rel="noopener"><span>KAKAO</span><strong>카카오톡 프로필</strong></a>
+      <a href="https://cafe.naver.com/signal1035" data-mobile-href="https://m.cafe.naver.com/ca-fe/signal1035?tc=section_home_my_cafe" target="_blank" rel="noopener"><span>NAVER CAFE</span><strong>보험의 기준 카페</strong></a>
+      <a href="https://open.kakao.com/o/g8ND5toi" target="_blank" rel="noopener"><span>OPEN CHAT</span><strong>오픈채팅방</strong></a>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="brand"><span class="brand-mark">正</span><span><strong>올바른 금융</strong><small>RIGHT FINANCE</small></span></div><p>고정윤 전문가 · 메타리치</p><p>© 2026 Right Finance.</p></footer>
+  <div class="submit-modal" id="submitModal" aria-hidden="true"><div class="submit-dialog" role="dialog" aria-modal="true" aria-live="polite"><button class="modal-close" type="button" data-modal-close aria-label="닫기">×</button><div class="submit-spinner" aria-hidden="true"></div><h3>신청 정보를 전송 중입니다</h3><p>잠시만 기다려 주세요.</p></div></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

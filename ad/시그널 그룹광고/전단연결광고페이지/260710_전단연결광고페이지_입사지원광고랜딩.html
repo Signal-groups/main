@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>입사지원 | 메타리치 시그널그룹</title>
+<meta name="description" content="보험영업, 아직도 혼자 하시나요? 메타리치 시그널그룹의 시스템과 함께 다음 커리어를 시작하세요.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --navy:#071D3F;
+  --navy2:#0B3D8F;
+  --blue:#0B63CE;
+  --sky:#EAF4FF;
+  --gold:#D7B56D;
+  --kakao:#FEE500;
+  --kakao-text:#3C1E1E;
+  --ink:#0B1220;
+  --body:#445066;
+  --muted:#7A879A;
+  --line:#E2E8F0;
+  --paper:#FFFFFF;
+  --bg:#F3F6FA;
+  --green:#DFF4EC;
+  --green-text:#0A7A4E;
+  --red:#D64242;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);color:var(--ink);word-break:keep-all;overflow-wrap:break-word;
+  overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+.wrap{width:min(1120px,100%);margin:0 auto;padding:0 22px}
+.eyebrow{font-size:13px;font-weight:900;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}
+.section{padding:82px 0}
+.title{font-size:clamp(30px,5vw,52px);line-height:1.16;letter-spacing:-.02em;font-weight:950;color:var(--ink)}
+.lead{margin-top:16px;color:var(--body);font-size:clamp(16px,2vw,20px);font-weight:650;line-height:1.65}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;
+  padding:16px 22px;border-radius:14px;border:0;font-size:16px;font-weight:900;cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--navy2));color:#fff;box-shadow:0 14px 34px rgba(11,99,206,.28)}
+.btn-kakao{background:var(--kakao);color:var(--kakao-text);box-shadow:0 10px 28px rgba(254,229,0,.28)}
+
+.topbar{
+  position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);border-bottom:1px solid rgba(226,232,240,.9);
+}
+.topbar .wrap{height:62px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:950;color:var(--navy);letter-spacing:-.01em}
+.logo span{color:var(--blue)}
+.top-actions{display:flex;gap:8px}
+.top-actions .btn{min-height:38px;padding:9px 14px;border-radius:10px;font-size:13px}
+
+.hero{position:relative;overflow:hidden;background:var(--navy);color:#fff}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(100deg,rgba(7,29,63,.94),rgba(7,29,63,.72)),
+    url('https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&q=80') center/cover;
+}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.02fr .98fr;gap:42px;align-items:center;min-height:690px;padding-top:70px;padding-bottom:70px}
+.hero .eyebrow{color:#9CCBFF}
+.hero h1{font-size:clamp(42px,7vw,78px);line-height:1.06;letter-spacing:-.035em;font-weight:950;margin-top:16px}
+.hero h1 strong{color:var(--gold)}
+.hero p{margin-top:22px;color:rgba(255,255,255,.78);font-size:clamp(17px,2.2vw,22px);font-weight:700;line-height:1.55}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hero-actions .btn{min-width:180px}
+.hero-proof{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.proof-pill{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.82);padding:9px 13px;border-radius:999px;font-size:13px;font-weight:800}
+
+.live-card{
+  background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.55);border-radius:24px;
+  color:var(--ink);box-shadow:0 28px 80px rgba(0,0,0,.24);overflow:hidden;
+}
+.live-head{text-align:center;padding:28px 22px 20px}
+.live-head .mini{font-size:13px;color:var(--blue);font-weight:950;letter-spacing:.08em}
+.live-head h2{font-size:34px;line-height:1.18;font-weight:950;margin-top:8px}
+.live-head p{margin-top:10px;color:var(--body);font-size:14px;font-weight:700}
+.live-window{height:260px;overflow:hidden;padding:0 14px 16px}
+.live-track{display:flex;flex-direction:column;gap:10px;animation:roll 18s linear infinite}
+.live-row{
+  min-height:58px;border:1px solid var(--line);background:#fff;border-radius:12px;
+  display:grid;grid-template-columns:.65fr 1.2fr .85fr .65fr .9fr;gap:10px;align-items:center;
+  padding:12px 16px;font-size:14px;font-weight:900;color:#273244;
+}
+.live-row .region{color:var(--blue)}
+.live-row .status{justify-self:end;min-width:92px;text-align:center;padding:6px 10px;border-radius:999px;background:var(--green);color:var(--green-text);font-size:12px}
+@keyframes roll{
+  0%,8%{transform:translateY(0)}
+  18%,26%{transform:translateY(-68px)}
+  36%,44%{transform:translateY(-136px)}
+  54%,62%{transform:translateY(-204px)}
+  72%,80%{transform:translateY(-272px)}
+  90%,100%{transform:translateY(-340px)}
+}
+
+.problem{background:#fff}
+.problem-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:32px}
+.problem-card{background:#F8FAFC;border:1px solid var(--line);border-radius:16px;padding:20px 16px;min-height:140px}
+.problem-card .check{width:30px;height:30px;border-radius:8px;background:var(--sky);display:grid;place-items:center;color:var(--blue);font-weight:950;margin-bottom:14px}
+.problem-card p{font-size:15px;font-weight:850;line-height:1.45;color:#1B2738}
+
+.solution{background:linear-gradient(180deg,#F3F6FA,#fff)}
+.solution-box{margin-top:34px;background:var(--navy);color:#fff;border-radius:26px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;overflow:hidden}
+.solution-copy h3{font-size:34px;line-height:1.18;font-weight:950}
+.solution-copy p{margin-top:14px;color:rgba(255,255,255,.72);font-size:16px;font-weight:650}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feature{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px}
+.feature .ico{font-size:24px;margin-bottom:8px}
+.feature strong{display:block;font-size:17px;font-weight:950}
+.feature span{display:block;margin-top:4px;color:rgba(255,255,255,.68);font-size:13px;font-weight:650}
+
+.screen{background:#fff}
+.screen-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin-top:34px}
+.mock{
+  border-radius:24px;background:#101827;padding:18px;box-shadow:0 24px 70px rgba(7,29,63,.22);
+}
+.mock-top{height:34px;display:flex;align-items:center;gap:7px}
+.dot{width:9px;height:9px;border-radius:50%;background:#64748B}
+.mock-panel{background:#F8FAFC;border-radius:16px;padding:18px}
+.mock-title{font-weight:950;color:var(--navy);font-size:18px}
+.mock-bars{display:grid;gap:10px;margin-top:16px}
+.bar{height:42px;border-radius:12px;background:#EAF4FF;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:13px;font-weight:850;color:#1F3B64}
+.bar span:last-child{color:var(--blue)}
+.mock-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.mini-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px;font-size:13px;font-weight:850;color:#334155}
+.mini-card b{display:block;color:var(--blue);font-size:20px;margin-top:4px}
+.screen-list{display:grid;gap:14px}
+.screen-item{display:flex;gap:12px;align-items:flex-start}
+.screen-item .num{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:950}
+.screen-item strong{display:block;font-size:18px;font-weight:950}
+.screen-item p{margin-top:3px;color:var(--body);font-weight:650}
+
+.meta{background:#F8FAFC}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+.meta-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 18px;text-align:center}
+.meta-card b{display:block;color:var(--blue);font-size:30px;font-weight:950;line-height:1}
+.meta-card span{display:block;margin-top:10px;color:var(--body);font-size:14px;font-weight:750}
+
+.reviews{background:#fff}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.review-card{background:#F8FAFC;border:1px solid var(--line);border-radius:18px;padding:24px}
+.stars{color:#F5B301;font-weight:950;margin-bottom:12px}
+.review-card p{color:#334155;font-size:15px;font-weight:650;line-height:1.7}
+.review-card .who{margin-top:18px;color:var(--blue);font-size:13px;font-weight:950}
+
+.final-cta{background:var(--navy);color:#fff;text-align:center;padding:78px 0}
+.final-cta h2{font-size:clamp(32px,5vw,58px);line-height:1.16;font-weight:950}
+.final-cta p{margin:18px auto 0;max-width:600px;color:rgba(255,255,255,.74);font-size:18px;font-weight:700}
+.final-actions{margin-top:30px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+.form-section{padding:86px 0;background:linear-gradient(180deg,#fff,#F3F6FA)}
+.form-card{width:min(640px,100%);margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 22px 70px rgba(15,23,42,.12)}
+.form-head{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;padding:32px 28px;text-align:center}
+.form-head .badge{display:inline-flex;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:950;margin-bottom:12px}
+.form-head h2{font-size:32px;line-height:1.22;font-weight:950}
+.form-head p{margin-top:10px;color:rgba(255,255,255,.72);font-size:14px;font-weight:650}
+.form-body{padding:28px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:950;color:var(--navy);margin-bottom:7px}
+.field input{width:100%;height:54px;border:1.5px solid var(--line);border-radius:12px;padding:0 15px;font-size:16px;font-weight:750;color:var(--ink);outline:none;transition:.2s}
+.field input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(11,99,206,.13)}
+.field input.err{border-color:var(--red)}
+.consent{border:1px solid var(--line);border-radius:14px;background:#F8FAFC;padding:16px;margin:8px 0 18px}
+.consent.err{border-color:var(--red);background:#FFF7F7}
+.consent label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--blue);flex:0 0 auto}
+.consent strong{font-size:13px;color:var(--ink)}
+.consent p{margin-top:5px;font-size:12px;color:var(--muted);line-height:1.55}
+.submit-btn{width:100%;min-height:56px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--navy2));color:#fff;font-size:17px;font-weight:950;cursor:pointer;box-shadow:0 14px 34px rgba(11,99,206,.22)}
+.submit-btn:disabled{opacity:.62;cursor:not-allowed;box-shadow:none}
+
+.footer{background:#071528;color:rgba(255,255,255,.58);text-align:center;padding:34px 22px 96px;font-size:12px}
+.float{position:fixed;left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom));z-index:50;max-width:430px;margin:0 auto}
+.float.hidden{opacity:0;transform:translateY(80px);pointer-events:none}
+.float .btn{width:100%;box-shadow:0 14px 42px rgba(11,99,206,.34)}
+
+.modal-wrap{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(7,21,40,.66);z-index:100;padding:20px}
+.modal-wrap.show{display:flex}
+.modal{background:#fff;border-radius:24px;padding:34px 26px;text-align:center;width:min(360px,100%);box-shadow:0 26px 80px rgba(0,0,0,.28)}
+.modal-icon{width:64px;height:64px;border-radius:50%;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-size:34px;font-weight:950;margin:0 auto 18px}
+.modal h3{font-size:24px;font-weight:950}
+.modal p{margin-top:10px;color:var(--body);font-weight:650}
+.modal button{margin-top:22px;width:100%;height:48px;border:0;border-radius:12px;background:var(--navy);color:#fff;font-weight:950;cursor:pointer}
+
+@media(max-width:900px){
+  .hero .wrap,.solution-box,.screen-grid{grid-template-columns:1fr}
+  .hero .wrap{min-height:auto}
+  .problem-grid{grid-template-columns:1fr 1fr}
+  .meta-grid{grid-template-columns:1fr 1fr}
+  .review-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .topbar .wrap{height:56px}
+  .top-actions .btn-kakao{display:none}
+  .section{padding:62px 0}
+  .wrap{padding:0 16px}
+  .hero .wrap{padding-top:52px;padding-bottom:62px;gap:28px}
+  .hero h1{font-size:38px}
+  .hero p{font-size:16px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%}
+  .live-head h2{font-size:28px}
+  .live-window{height:244px;padding-left:10px;padding-right:10px}
+  .live-row{grid-template-columns:.55fr 1.2fr .8fr .8fr;min-height:56px;font-size:13px;padding:10px 12px}
+  .live-row .channel{display:none}
+  .live-row .status{min-width:76px;font-size:11px}
+  .problem-grid,.meta-grid{grid-template-columns:1fr}
+  .solution-box{border-radius:20px;padding:26px 18px}
+  .solution-copy h3{font-size:28px}
+  .feature-grid{grid-template-columns:1fr}
+  .mock{border-radius:18px;padding:12px}
+  .mock-cards{grid-template-columns:1fr}
+  .form-card{border-radius:20px}
+  .form-head{padding:28px 20px}
+  .form-head h2{font-size:28px}
+  .form-body{padding:22px 18px}
+  .final-actions{flex-direction:column}
+  .final-actions .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="logo">METARICH <span>SIGNAL GROUP</span></div>
+    <div class="top-actions">
+      <a class="btn btn-primary" href="#apply">입사지원</a>
+      <a class="btn btn-kakao" href="https://open.kakao.com/o/g8ND5toi" target="_blank" rel="noopener noreferrer">상담</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">RECRUIT LANDING</div>
+      <h1>보험영업,<br><strong>아직도 혼자</strong><br>하시나요?</h1>
+      <p>열심히보다 시스템이 중요합니다. 고객 상담, 자료 준비, 비교 분석, 사후관리까지 혼자 하지 않아도 되는 팀이 있습니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#apply">입사지원하기</a>
+        <a class="btn btn-kakao" href="https://open.kakao.com/o/g8ND5toi" target="_blank" rel="noopener noreferrer">상담 먼저 받아보기</a>
+      </div>
+      <div class="hero-proof">
+        <span class="proof-pill">30여 개 보험사 제휴</span>
+        <span class="proof-pill">Insurance Manager</span>
+        <span class="proof-pill">신규·경력 지원</span>
+      </div>
+    </div>
+    <div class="live-card" aria-label="실시간 지원 현황">
+      <div class="live-head">
+        <div class="mini">LIVE APPLY</div>
+        <h2>실시간 지원 현황</h2>
+        <p>개인정보 보호를 위해 일부 정보는 가림 처리됩니다.</p>
+      </div>
+      <div class="live-window">
+        <div class="live-track">
+          <div class="live-row"><span>이**</span><span>010-****-9061</span><span class="region">부산지역</span><span class="channel">타GA</span><span class="status">상담완료</span></div>
+          <div class="live-row"><span>정**</span><span>010-****-1802</span><span class="region">대전지역</span><span class="channel">원수사</span><span class="status">접수완료</span></div>
+          <div class="live-row"><span>한**</span><span>010-****-6679</span><span class="region">대구지역</span><span class="channel">GA</span><span class="status">접수중</span></div>
+          <div class="live-row"><span>오**</span><span>010-****-5528</span><span class="region">광주지역</span><span class="channel">원수사</span><span class="status">상담완료</span></div>
+          <div class="live-row"><span>김**</span><span>010-****-3417</span><span class="region">강원지역</span><span class="channel">신규</span><span class="status">접수완료</span></div>
+          <div class="live-row"><span>박**</span><span>010-****-7284</span><span class="region">경기지역</span><span class="channel">타GA</span><span class="status">상담중</span></div>
+          <div class="live-row"><span>이**</span><span>010-****-9061</span><span class="region">부산지역</span><span class="channel">타GA</span><span class="status">상담완료</span></div>
+          <div class="live-row"><span>정**</span><span>010-****-1802</span><span class="region">대전지역</span><span class="channel">원수사</span><span class="status">접수완료</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section problem">
+  <div class="wrap">
+    <div class="eyebrow">PROBLEM</div>
+    <h2 class="title">고객은 있는데,<br>시스템이 없으신가요?</h2>
+    <p class="lead">지원자가 가장 먼저 공감하는 문제만 남겼습니다. 복잡한 설명보다 “내 이야기”가 먼저 보여야 합니다.</p>
+    <div class="problem-grid">
+      <div class="problem-card"><div class="check">✓</div><p>보험료 비교하려고 사이트 여러 개 접속</p></div>
+      <div class="problem-card"><div class="check">✓</div><p>자료 찾느라 상담 준비만 2시간</p></div>
+      <div class="problem-card"><div class="check">✓</div><p>고객에게 보여줄 설명자료 부족</p></div>
+      <div class="problem-card"><div class="check">✓</div><p>청구와 사후관리를 전부 직접 처리</p></div>
+      <div class="problem-card"><div class="check">✓</div><p>계약 후 관리가 어려워 소개가 끊김</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section solution">
+  <div class="wrap">
+    <div class="eyebrow">SOLUTION</div>
+    <h2 class="title">우리는 다릅니다.<br>상담을 시스템으로 돕습니다.</h2>
+    <div class="solution-box">
+      <div class="solution-copy">
+        <h3>Insurance Manager</h3>
+        <p>설계사가 분석에 묶이지 않고 고객 상담에 집중하도록, 비교·분석·자료·설계 흐름을 한 번에 묶었습니다.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature"><div class="ico">📊</div><strong>보험료 비교</strong><span>30여 개 보험사 실시간 비교</span></div>
+        <div class="feature"><div class="ico">📈</div><strong>통계자료</strong><span>고객 설득을 위한 객관적 데이터</span></div>
+        <div class="feature"><div class="ico">🩺</div><strong>수술비 계산</strong><span>예상 의료비 자동 계산</span></div>
+        <div class="feature"><div class="ico">💰</div><strong>재무설계</strong><span>생애주기 맞춤 포트폴리오</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section screen">
+  <div class="wrap">
+    <div class="eyebrow">SYSTEM PREVIEW</div>
+    <h2 class="title">상담 화면이 바뀌면,<br>고객 반응도 바뀝니다.</h2>
+    <div class="screen-grid">
+      <div class="mock">
+        <div class="mock-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="mock-panel">
+          <div class="mock-title">Insurance Manager Dashboard</div>
+          <div class="mock-bars">
+            <div class="bar"><span>보험료 비교 분석</span><span>30개사</span></div>
+            <div class="bar"><span>보장분석 리포트</span><span>자동 생성</span></div>
+            <div class="bar"><span>청구자료 안내</span><span>즉시 확인</span></div>
+          </div>
+          <div class="mock-cards">
+            <div class="mini-card">상담 준비시간<b>-52%</b></div>
+            <div class="mini-card">자료 신뢰도<b>UP</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen-list">
+        <div class="screen-item"><div class="num">1</div><div><strong>보험료 비교</strong><p>여러 보험사를 한 화면에서 비교해 설명 시간이 줄어듭니다.</p></div></div>
+        <div class="screen-item"><div class="num">2</div><div><strong>보장분석 자료</strong><p>고객에게 보여줄 자료가 있어 상담 신뢰가 올라갑니다.</p></div></div>
+        <div class="screen-item"><div class="num">3</div><div><strong>청구와 관리</strong><p>계약 이후 관리까지 이어져 소개와 재상담이 쉬워집니다.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section meta">
+  <div class="wrap">
+    <div class="eyebrow">WHY METARICH</div>
+    <h2 class="title">시스템만 있는 곳이 아니라,<br>함께 움직이는 팀입니다.</h2>
+    <div class="meta-grid">
+      <div class="meta-card"><b>30+</b><span>보험사 제휴</span></div>
+      <div class="meta-card"><b>4</b><span>지역 센터 운영</span></div>
+      <div class="meta-card"><b>1:1</b><span>온보딩 교육</span></div>
+      <div class="meta-card"><b>투명</b><span>수수료 구조</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reviews">
+  <div class="wrap">
+    <div class="eyebrow">REVIEW</div>
+    <h2 class="title">먼저 합류한 사람들이<br>말하는 변화</h2>
+    <div class="review-grid">
+      <div class="review-card"><div class="stars">★★★★★</div><p>“보험료 비교 기능 하나만으로 상담 준비 시간이 확 줄었습니다. 고객에게 설명하는 방식이 달라졌어요.”</p><div class="who">경력 3년차 설계사</div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>“혼자 찾던 자료를 팀에서 같이 준비해주니 상담에 집중할 수 있었습니다. 신규 상담이 훨씬 편해졌어요.”</p><div class="who">신규 입문 설계사</div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>“계약 이후 관리 흐름이 잡히니까 소개가 이어졌습니다. 혼자 일한다는 느낌이 많이 줄었습니다.”</p><div class="who">팀 운영 설계사</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>새로운 시스템.<br>새로운 팀.<br>새로운 시작.</h2>
+    <p>당신의 다음 커리어를 메타리치 시그널그룹에서 시작해보세요.</p>
+    <div class="final-actions">
+      <a class="btn btn-primary" href="#apply">입사지원하기</a>
+      <a class="btn btn-kakao" href="https://open.kakao.com/o/g8ND5toi" target="_blank" rel="noopener noreferrer">상담 먼저 받아보기</a>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="apply">
+  <div class="wrap">
+    <div class="form-card">
+      <div class="form-head">
+        <div class="badge">간편 입사지원</div>
+        <h2>이름과 연락처만<br>남겨주세요.</h2>
+        <p>담당자가 24시간 내 직접 연락드립니다.</p>
+      </div>
+      <div class="form-body">
+        <form id="landingForm" novalidate>
+          <div class="field">
+            <label for="fname">이름 *</label>
+            <input id="fname" name="name" type="text" autocomplete="name" placeholder="성함을 입력해주세요">
+          </div>
+          <div class="field">
+            <label for="fphone">연락처 *</label>
+            <input id="fphone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13">
+          </div>
+          <div class="consent" id="consentBox">
+            <label for="consentCheck">
+              <input id="consentCheck" type="checkbox">
+              <div>
+                <strong>[필수] 개인정보 수집·이용에 동의합니다.</strong>
+                <p>수집 항목: 이름, 연락처 · 수집 목적: 입사지원 상담 및 연락 · 보유 기간: 상담 종료 후 1년 또는 요청 시 즉시 삭제</p>
+              </div>
+            </label>
+          </div>
+          <button class="submit-btn" id="sbtn" type="submit">입사지원 접수하기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  METARICH SIGNAL GROUP · 메타리치 시그널그룹<br>
+  입사지원 접수 후 담당자가 순차적으로 연락드립니다.
+</footer>
+
+<div class="float" id="floatBtn">
+  <a class="btn btn-primary" href="#apply">입사지원하기</a>
+</div>
+
+<div class="modal-wrap" id="successModal">
+  <div class="modal">
+    <div class="modal-icon">✓</div>
+    <h3>지원 접수 완료</h3>
+    <p>담당자가 24시간 내 직접 연락드립니다.</p>
+    <button onclick="closeModal()">확인</button>
+  </div>
+</div>
+
+<script>
+var floatBtn=document.getElementById('floatBtn');
+var formSection=document.getElementById('apply');
+var fObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){floatBtn.classList.toggle('hidden',entry.isIntersecting);});
+},{threshold:.12});
+fObs.observe(formSection);
+
+document.getElementById('fphone').addEventListener('input',function(){
+  var v=this.value.replace(/\D/g,'').slice(0,11);
+  if(v.length>7) v=v.slice(0,3)+'-'+v.slice(3,7)+'-'+v.slice(7);
+  else if(v.length>3) v=v.slice(0,3)+'-'+v.slice(3);
+  this.value=v;
+  this.classList.remove('err');
+});
+document.getElementById('fname').addEventListener('input',function(){this.classList.remove('err');});
+document.getElementById('consentCheck').addEventListener('change',function(){
+  document.getElementById('consentBox').classList.toggle('err',!this.checked);
+});
+
+var GS='https://script.google.com/macros/s/AKfycbxfG3_3-BShzdr9x1dqZW9Pnh0bF4h54pGWH4s8A6yBXlMC_RnLcNtlmQt6IS7ECloX/exec';
+var TT='8652544241:AAEiwI3_qEnPGmgc8YluREw-LAjNBnXXaNo';
+var TC='8712434989';
+var EXTRA_EMAIL='jw20371035@gmail.com, jinwoo8506@gmail.com, kye1004s7@gmail.com';
+
+function sendTG(data){
+  var message=[
+    '👥 [메타리치 시그널그룹] 간편 입사지원 접수',
+    '',
+    '이름: '+data.name,
+    '연락처: '+data.phone,
+    '유입: 전단연결 광고용 압축 랜딩',
+    '지원 시각: '+data.timestamp
+  ].join('\n');
+  return fetch('https://api.telegram.org/bot'+TT+'/sendMessage',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:TC,text:message})
+  }).catch(function(){});
+}
+function sendGS(data){
+  return fetch(GS,{method:'POST',body:JSON.stringify(data)}).catch(function(){});
+}
+
+document.getElementById('landingForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  var name=document.getElementById('fname');
+  var phone=document.getElementById('fphone');
+  var consent=document.getElementById('consentCheck');
+  var consentBox=document.getElementById('consentBox');
+  var ok=true;
+  if(name.value.trim().length<2){name.classList.add('err');ok=false;}
+  if(phone.value.replace(/\D/g,'').length<10){phone.classList.add('err');ok=false;}
+  if(!consent.checked){consentBox.classList.add('err');ok=false;}
+  if(!ok){
+    var first=document.querySelector('.err');
+    if(first) first.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  var btn=document.getElementById('sbtn');
+  btn.textContent='접수 중...';
+  btn.disabled=true;
+  var data={
+    formType:'recruit-simple-ad-landing',
+    name:name.value.trim(),
+    phone:phone.value.trim(),
+    position:'간편 입사지원',
+    experience:'',
+    center:'',
+    message:'전단연결 광고용 압축 랜딩 간편 입사지원',
+    timestamp:new Date().toLocaleString('ko-KR'),
+    extra_email:EXTRA_EMAIL
+  };
+  await Promise.all([sendGS(data),sendTG(data)]);
+  document.getElementById('successModal').classList.add('show');
+  this.reset();
+  btn.textContent='입사지원 접수하기';
+  btn.disabled=false;
+});
+
+function closeModal(){document.getElementById('successModal').classList.remove('show');}
+document.getElementById('successModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+</script>
+</body>
+</html>

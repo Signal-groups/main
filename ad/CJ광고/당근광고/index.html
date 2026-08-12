@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8월 한정 · CJ온스타일 홈쇼핑 DB 추가지원 확인</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
+    :root{--navy:#0a1b35;--blue:#2461c8;--pale:#eef4fc;--ink:#142035;--muted:#607089;--line:#dce5f0;--white:#fff;--yellow:#fee500;--red:#e0432b}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f7f9fc;color:var(--ink);font-family:"Noto Sans KR",sans-serif;line-height:1.6;word-break:keep-all}a{text-decoration:none;color:inherit}button,input{font:inherit}.nav{position:sticky;top:0;z-index:10;height:64px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.navin{height:100%;max-width:1100px;margin:auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;font-size:18px;letter-spacing:-.8px}.brand span{color:var(--blue)}.navcta{padding:10px 15px;border-radius:99px;background:var(--navy);color:#fff;font-size:13px;font-weight:800}
+    .hero{position:relative;overflow:hidden;color:#fff;background:#0a1b35}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,20,42,.97),rgba(8,26,54,.91) 48%,rgba(8,26,54,.55)),url("https://images.unsplash.com/photo-1754531976828-69e42ce4e0d9?auto=format&fit=crop&w=1800&q=85") center/cover no-repeat;filter:saturate(.75)}.hero:after{content:"";position:absolute;right:-100px;top:-100px;width:400px;height:400px;border:1px solid rgba(168,204,255,.22);border-radius:50%;box-shadow:0 0 0 45px rgba(168,204,255,.05),0 0 0 90px rgba(168,204,255,.03)}.hero-in{position:relative;z-index:1;max-width:1100px;margin:auto;padding:70px 20px 84px;display:grid;grid-template-columns:1.12fr .88fr;gap:50px;align-items:center}
+    .badge-limited{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;background:var(--red);color:#fff;font-size:13px;font-weight:900;letter-spacing:-.2px}
+    .eyebrow{display:inline-block;padding:6px 11px;border:1px solid rgba(255,255,255,.26);border-radius:99px;color:#d2e4ff;font-size:12px;font-weight:800;margin-left:8px}
+    .hero h1{margin:16px 0 10px;font-size:clamp(34px,4.4vw,54px);line-height:1.22;letter-spacing:-2.6px}.hero h1 .line{display:block}.hero h1 mark{background:none;color:#a9ccff}
+    .hero-sub{margin:0 0 14px;color:#ffe9a8;font-size:17px;font-weight:800;letter-spacing:-.3px}
+    .hero-copy{margin:0;color:#d4dfef;font-size:16px;font-weight:600;letter-spacing:-.3px}.hero-copy .line{display:block}
+    .who{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.who span{padding:8px 14px;border-radius:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:14px;font-weight:800;color:#f0f5ff}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;border:0;border-radius:9px;font-size:16px;font-weight:900;cursor:pointer}.primary{background:#fff;color:var(--navy)}.outline{border:1px solid rgba(255,255,255,.35);background:rgba(5,18,38,.2);color:#fff}
+    .hero-card{padding:0 27px 27px;border:1px solid rgba(255,255,255,.22);border-radius:14px;background:rgba(9,29,58,.78);box-shadow:0 24px 58px rgba(0,0,0,.25);backdrop-filter:blur(7px)}.hero-card .card-label{margin:0 -27px 22px;padding:13px 17px;border-bottom:1px solid rgba(255,255,255,.18);color:#d3e6ff;font-size:11px;font-weight:900;letter-spacing:1.3px}.hero-card strong{display:block;font-size:22px;line-height:1.4;letter-spacing:-1px}.hero-card ul{display:grid;gap:12px;margin:20px 0 0;padding:0;list-style:none}.hero-card li{display:flex;gap:9px;color:#e7effb;font-size:15px;font-weight:600}.hero-card li:before{content:"✓";color:#a9ccff;font-weight:900}
+    section{padding:68px 20px}.container{max-width:1100px;margin:auto}.tag{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:1.2px}.head{max-width:760px;margin-bottom:30px}.head h2{margin:9px 0 12px;font-size:32px;line-height:1.32;letter-spacing:-1.6px}.head h2 .line{display:block}.head p{margin:0;color:var(--muted);font-size:16px;font-weight:600}.head p .line{display:block}
+    .checklist-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.check-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.check-item{display:flex;align-items:center;gap:12px;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--pale)}.check-item i{display:grid;place-items:center;width:30px;height:30px;flex:none;border-radius:50%;background:var(--blue);color:#fff;font-size:14px;font-weight:900}.check-item span{font-size:15px;font-weight:800;letter-spacing:-.4px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{padding:24px 20px;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:center}.icon{display:grid;place-items:center;width:46px;height:46px;margin:0 auto;border-radius:12px;background:var(--pale);color:var(--blue);font-size:20px;font-weight:900}.card h3{margin:14px 0 0;font-size:16px;letter-spacing:-.6px}
+    .dark{background:var(--navy);color:#fff}.dark .head p{color:#c0cde0}.dark .tag{color:#9dc4ff}
+    .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:stretch}.flow article{position:relative;padding:22px 14px;border-top:2px solid #82b6ff;background:rgba(255,255,255,.06);text-align:center}.flow article:not(:last-child):after{content:"›";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:#6f89ad;font-size:20px;font-weight:900}.flow b{display:block;color:#9dc4ff;font-size:12px;margin-bottom:8px}.flow i{display:grid;place-items:center;width:36px;height:36px;margin:0 auto 10px;border-radius:50%;background:rgba(157,196,255,.15);color:#c7d9ff;font-size:14px;font-weight:900}.flow h3{margin:0;font-size:15px;letter-spacing:-.4px}
+    .why{background:#fff}.why-in{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.why-quote{padding:30px 26px;border-radius:16px;background:var(--pale);border:1px solid var(--line)}.why-quote p{margin:0;font-size:19px;font-weight:800;line-height:1.5;letter-spacing:-.6px;color:var(--navy)}.why-quote small{display:block;margin-top:14px;color:var(--muted);font-size:13px;font-weight:700}.why-list{display:grid;gap:14px;margin:0;padding:0;list-style:none}.why-list li{display:flex;gap:12px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:#fff}.why-list b{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px}.why-list span{font-size:15px;font-weight:700;letter-spacing:-.3px}
+    .manager{padding:0 20px}.manager-in{max-width:1100px;margin:auto;padding:34px 32px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#0a1b35,#17346);color:#fff;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}.manager-badge{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:22px;font-weight:900;color:#a9ccff;border:1px solid rgba(255,255,255,.2)}.manager h3{margin:0 0 6px;font-size:20px;letter-spacing:-.6px}.manager p{margin:0;color:#c7d3e5;font-size:14px;font-weight:600;line-height:1.7}.manager p .line{display:block}
+    .stats{background:#fff}.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat{padding:26px 16px;border:1px solid var(--line);border-radius:14px;text-align:center;background:var(--pale)}.stat b{display:block;font-size:32px;letter-spacing:-1.4px;color:var(--navy)}.stat b span{color:var(--blue)}.stat p{margin:6px 0 0;color:var(--muted);font-size:13px;font-weight:700}
+    .apply{padding:0 20px 78px;background:linear-gradient(#f7f9fc 50%,#fff 50%)}.apply-in{max-width:760px;margin:auto;padding:38px 30px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 15px 45px rgba(13,34,66,.09);text-align:center}.apply h2{margin:0;font-size:27px;line-height:1.36;letter-spacing:-1.3px}.apply>div>p{margin:10px 0 25px;color:var(--muted);font-size:15px;font-weight:600}.form{display:grid;gap:12px;max-width:500px;margin:auto;text-align:left}.form label{font-size:14px;font-weight:800}.form input{width:100%;height:52px;margin-top:7px;padding:0 14px;border:1px solid #ccd8e8;border-radius:7px;outline:0}.form input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #e3efff}.privacy{display:flex;gap:8px;align-items:flex-start;color:#5d6b80;font-size:12px!important;font-weight:600!important}.privacy input{width:16px;height:16px;margin:3px 0 0}.submit{width:100%;background:var(--blue);color:#fff}.form-message{min-height:18px;margin:0;text-align:center;color:var(--blue);font-size:13px;font-weight:800}.direct{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:19px}.direct a{padding:9px 12px;border-radius:7px;background:#f0f4fa;font-size:13px;font-weight:800}.direct .kakao{background:var(--yellow);color:#191919}
+    footer{padding:35px 20px 88px;background:#111923;color:#adb9c9;font-size:12px}.footer-in{max-width:1100px;margin:auto}.footer-in strong{display:block;color:#fff;font-size:16px}.legal{margin-top:16px;padding:16px;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:rgba(255,255,255,.04);line-height:1.75;width:fit-content;max-width:100%}.legal p{margin:0 0 7px}.legal p:last-child{margin:0}.float{position:fixed;right:14px;bottom:14px;z-index:20;display:flex;gap:7px}.float a{padding:12px 14px;border-radius:99px;background:var(--navy);color:#fff;box-shadow:0 10px 28px rgba(5,20,42,.28);font-size:13px;font-weight:900}.float a:last-child{background:var(--yellow);color:#191919}
+    @media(max-width:900px){.check-grid{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(3,1fr);row-gap:20px}.flow article:nth-child(3):after{content:none}.stat-grid{grid-template-columns:repeat(2,1fr)}.why-in{grid-template-columns:1fr}.manager-in{grid-template-columns:auto 1fr}}
+    @media(max-width:760px){.navin{padding:0 16px}.brand{font-size:16px}.navcta{padding:9px 12px;font-size:12px}.hero-in{padding:42px 18px 52px;grid-template-columns:1fr;gap:26px}.hero h1{font-size:33px;letter-spacing:-1.8px}.hero-copy{font-size:15px;line-height:1.68}.actions{display:grid;grid-template-columns:1fr;gap:8px}.actions .button{width:100%}.hero-card{padding:0 21px 23px}.hero-card .card-label{margin:0 -21px 19px;padding:12px 14px}.hero-card strong{font-size:19px}.hero-card li{font-size:14px}section{padding:48px 18px}.head{margin-bottom:22px}.head h2{font-size:24px;letter-spacing:-1.1px}.head p{font-size:14px;line-height:1.68}.check-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr;gap:14px}.flow article:after{content:none!important}.why-quote p{font-size:17px}.why-list li{padding:14px}.manager{padding:0 18px}.manager-in{grid-template-columns:1fr;text-align:center;padding:26px 20px}.manager-badge{margin:0 auto}.stat-grid{grid-template-columns:1fr 1fr}.apply{padding:0 18px 56px}.apply-in{padding:26px 18px}.apply h2{font-size:22px}.float{right:10px;bottom:10px}.float a{padding:11px 12px}}
+  </style>
+</head>
+<body>
+  <header class="nav"><div class="navin"><a class="brand" href="#top">CJ온스타일 <span>GA</span></a><a class="navcta" href="#apply">혜택 확인하기</a></div></header>
+  <main id="top">
+
+    <section class="hero"><div class="hero-in">
+      <div>
+        <span class="badge-limited">8월 한정</span><span class="eyebrow">CJ온스타일 홈쇼핑 DB</span>
+        <h1><span class="line">CJ 홈쇼핑 DB</span><span class="line"><mark>최대 ○○건 추가지원</mark></span><span class="line">（조건 있음）</span></h1>
+        <p class="hero-sub">경력자 · 신입 · 전직 모두 확인 가능</p>
+        <p class="hero-copy"><span class="line">방송을 보고 상담에 관심을 남긴 고객 DB부터</span><span class="line">교육·동행·AI 브랜딩까지, 받을 수 있는 조건을</span><span class="line">지금 바로 확인해 보세요.</span></p>
+        <div class="who"><span>경력자</span><span>신입</span><span>전직 희망자</span></div>
+        <div class="actions"><a class="button primary" href="#apply">지금 확인하기</a><a class="button outline" href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener">카카오톡 문의</a></div>
+      </div>
+      <aside class="hero-card"><p class="card-label">8월 입과자 한정 지원</p><strong>확인만 해도<br>받을 수 있는 혜택</strong><ul><li>CJ온스타일 홈쇼핑 DB 추가지원</li><li>AI 브랜딩 무료 지원</li><li>1:1 상담 동행</li><li>교육비 없음</li></ul></aside>
+    </div></section>
+
+    <section class="checklist-sec"><div class="container">
+      <div class="head"><span class="tag">SELF CHECK</span><h2><span class="line">이런 분이라면</span><span class="line">확인해 보세요.</span></h2></div>
+      <div class="check-grid">
+        <div class="check-item"><i>✓</i><span>소개가 없다</span></div>
+        <div class="check-item"><i>✓</i><span>DB가 부족하다</span></div>
+        <div class="check-item"><i>✓</i><span>상담이 어렵다</span></div>
+        <div class="check-item"><i>✓</i><span>혼자 영업한다</span></div>
+      </div>
+    </div></section>
+
+    <section><div class="container">
+      <div class="head"><span class="tag">WHAT YOU GET</span><h2><span class="line">확인만 해도</span><span class="line">받을 수 있는 혜택</span></h2><p><span class="line">회사 소개보다 먼저,</span><span class="line">지금 받을 수 있는 것부터 확인하세요.</span></p></div>
+      <div class="grid">
+        <article class="card"><i class="icon">DB</i><h3>홈쇼핑 DB 지원</h3></article>
+        <article class="card"><i class="icon">₩</i><h3>교육비 없음</h3></article>
+        <article class="card"><i class="icon">동행</i><h3>상담 동행</h3></article>
+        <article class="card"><i class="icon">AI</i><h3>AI 브랜딩</h3></article>
+        <article class="card"><i class="icon">영상</i><h3>콘텐츠 제작 지원</h3></article>
+        <article class="card"><i class="icon">SNS</i><h3>SNS 운영 지원</h3></article>
+        <article class="card"><i class="icon">↗</i><h3>조직관리 성장기회</h3></article>
+        <article class="card"><i class="icon">?</i><h3>내 조건 확인하기</h3></article>
+      </div>
+    </div></section>
+
+    <section class="dark"><div class="container">
+      <div class="head"><span class="tag">HOW IT WORKS</span><h2><span class="line">사진 한 장이면</span><span class="line">시작할 수 있습니다.</span></h2><p>DB 지원부터 소개까지, 실제 상담사들이 거치는 과정입니다.</p></div>
+      <div class="flow">
+        <article><b>STEP 1</b><i>사진</i><h3>사진</h3></article>
+        <article><b>STEP 2</b><i>DB</i><h3>DB지원</h3></article>
+        <article><b>STEP 3</b><i>교육</i><h3>교육</h3></article>
+        <article><b>STEP 4</b><i>동행</i><h3>동행</h3></article>
+        <article><b>STEP 5</b><i>실전</i><h3>실전</h3></article>
+        <article><b>STEP 6</b><i>소개</i><h3>소개</h3></article>
+      </div>
+    </div></section>
+
+    <section class="why"><div class="container why-in">
+      <div>
+        <span class="tag">WHY US</span>
+        <h2><span class="line">DB보다 먼저 볼 것은</span><span class="line">누구와 시작하느냐입니다.</span></h2>
+        <p style="margin:0 0 20px"><span class="line">같은 DB를 받아도 결과가 갈리는 이유는</span><span class="line">그 다음을 함께하는 관리자가 다르기 때문입니다.</span></p>
+        <div class="why-quote"><p>“혼자 고객을 찾고, 혼자 자료를 만들고, 혼자 버티는 방식은 오래가기 어렵습니다.”</p><small>메타리치 시그널그룹 온보딩 메시지</small></div>
+      </div>
+      <ul class="why-list">
+        <li><b>1</b><span>DB를 줘도 상담 전환은 결국 첫 멘트·화법·피드백에서 갈립니다.</span></li>
+        <li><b>2</b><span>막히는 지점마다 동행하고 점검해줄 관리자가 있어야 오래 갑니다.</span></li>
+        <li><b>3</b><span>정착지원금보다 중요한 건 교육·시스템·사람입니다.</span></li>
+        <li><b>4</b><span>제대로 된 관리자와 시작해야 같은 DB로도 다른 결과를 만듭니다.</span></li>
+      </ul>
+    </div></section>
+
+    <section class="manager"><div class="manager-in">
+      <div class="manager-badge">배진우</div>
+      <div>
+        <h3>담당 관리자 배진우가 처음부터 함께합니다</h3>
+        <p><span class="line">(주)메타리치 보험대리점 · 보험대리점 등록번호 2023070016</span><span class="line">상담 신청부터 DB 배정, 교육, 동행까지 한 명의 관리자가 끝까지 확인합니다.</span></p>
+      </div>
+    </div></section>
+
+    <section class="stats"><div class="container">
+      <div class="head"><span class="tag">STRUCTURE</span><h2><span class="line">숫자로 보는</span><span class="line">지원 시스템</span></h2></div>
+      <div class="stat-grid">
+        <div class="stat"><b><span>1</span>:1</b><p>전담 관리자 매칭</p></div>
+        <div class="stat"><b><span>24</span>H</b><p>상담 신청 후 연락</p></div>
+        <div class="stat"><b><span>0</span>원</b><p>교육비 부담</p></div>
+        <div class="stat"><b><span>6</span>단계</b><p>DB→교육→동행→실전→소개</p></div>
+      </div>
+    </div></section>
+
+    <section class="apply" id="apply"><div class="apply-in">
+      <h2><span class="line">내가 받을 수 있는</span><span class="line">혜택을 확인해 보세요.</span></h2>
+      <p>이름과 연락처를 남겨주시면 배진우 담당자가 직접 조건을 안내드립니다.</p>
+      <form class="form" id="leadForm">
+        <label>이름<input name="name" required autocomplete="name" placeholder="이름을 입력해 주세요"></label>
+        <label>연락처<input name="phone" required inputmode="tel" autocomplete="tel" placeholder="010-0000-0000"></label>
+        <label class="privacy"><input type="checkbox" name="privacy" required><span>개인정보 수집 및 이용에 동의합니다. 입력 정보는 혜택 안내 및 문의 응대에만 사용됩니다.</span></label>
+        <button class="button submit" type="submit">혜택 확인하기</button>
+        <p class="form-message" role="status"></p>
+      </form>
+      <div class="direct"><a href="tel:010-3430-2565">전화 상담</a><a href="sms:010-3430-2565">문자 상담</a><a class="kakao" href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener">카카오톡 상담</a></div>
+    </div></section>
+
+  </main>
+  <footer><div class="footer-in"><strong>CJ온스타일 GA · 메타리치 시그널 그룹</strong><div class="legal"><p>보험설계사 배진우 · (주)메타리치 보험대리점 · 보험대리점 등록번호: 2023070016 · 손해/생명 협회 등록번호: 20151185060013</p><p>주식회사 메타리치</p><p>대표자 김상배 | 사업자등록번호 126-86-82797 | 보험대리점 등록번호 제 2023070016호</p><p>주소 경기도 과천시 양지마을로 22 2층 (과천동), 대한민국 | 대표전화 02-503-7175</p></div></div></footer>
+  <div class="float"><a href="tel:010-3430-2565">전화 상담</a><a href="#apply">혜택 확인하기</a></div>
+  <script>
+    const ENDPOINT='https://script.google.com/macros/s/AKfycbx_acqxXYQmUY9n-TgsVYBXscE0o3iq4VGQh1dC7opSAqhtbJZhCdy8kRYFqZB_-T8Now/exec';
+    const form=document.querySelector('#leadForm'), message=document.querySelector('.form-message');
+    form.phone.addEventListener('input',()=>{let n=form.phone.value.replace(/\D/g,'').slice(0,11);form.phone.value=n.length>7?`${n.slice(0,3)}-${n.slice(3,7)}-${n.slice(7)}`:n.length>3?`${n.slice(0,3)}-${n.slice(3)}`:n});
+    form.addEventListener('submit',async e=>{e.preventDefault();const button=form.querySelector('button');const name=form.name.value.trim(),phone=form.phone.value.trim();if(!name||!phone||!form.privacy.checked){message.textContent='이름, 연락처, 개인정보 동의를 확인해 주세요.';return}button.disabled=true;button.textContent='전송 중…';const payload={createdAt:new Date().toISOString(),timestamp:new Date().toLocaleString('ko-KR'),brand:'CJ온스타일 GA',advisor:'배진우',expert:'배진우',formType:'consult',requestType:'CJ온스타일 GA 광고 상담',pageName:'CJ온스타일 GA 광고',requestPage:'CJ온스타일 GA 광고',pageTitle:document.title,name,phone,type:'CJ온스타일 GA 광고 상담',exp:'CJ온스타일 GA 광고 상담',message:'CJ온스타일 GA 광고 상담 신청',memo:'CJ온스타일 GA 광고 상담 신청',privacyConsent:'Y',source:'CJ온스타일 GA 광고',telegramTitle:'[CJ온스타일 GA] 광고 상담 신청',utm_source:new URLSearchParams(location.search).get('utm_source')||'cj-onstyle',page_url:location.href};try{await fetch(ENDPOINT,{method:'POST',body:JSON.stringify(payload)});form.reset();message.textContent='접수되었습니다. 곧 연락드리겠습니다.'}catch(err){message.textContent='접수 중 문제가 발생했습니다. 전화 또는 카카오톡 상담을 이용해 주세요.'}finally{button.disabled=false;button.textContent='혜택 확인하기'}});
+  </script>
+</body>
+</html>

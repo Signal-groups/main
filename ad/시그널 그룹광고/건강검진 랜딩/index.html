@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>내 보험 무료 점검 | 메타리치 시그널그룹</title>
+<meta name="description" content="국내 30여개 보험사 제휴. 누적 상담 21,573건. 단 10분 보험 점검으로 불안함을 없애드립니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nanumfont@1.0.0/NanumSquareRound.css">
+<style>
+/* ═══════ VARIABLES ═══════ */
+:root {
+  --navy:      #1A2744;
+  --navy-mid:  #2D4A8A;
+  --navy-deep: #0F1A30;
+  --gold:      #C9A96E;
+  --gold-w:    #E8A84B;
+  --cream:     #FAFAF8;
+  --cream-m:   #F5F2ED;
+  --cream-d:   #EDE8E0;
+  --text:      #111111;
+  --text-m:    #4B5563;
+  --text-s:    #9CA3AF;
+  --white:     #FFFFFF;
+  --kakao:     #FEE500;
+  --kakao-t:   #3C1E1E;
+  --r:         16px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,sans-serif;
+  background:var(--cream);color:var(--text);
+  overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased;font-size:15px;line-height:1.7;
+}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+button{font-family:inherit;}
+
+/* ═══════ ANIMATION ═══════ */
+.fu{opacity:0;transform:translateY(28px);
+  transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}
+.fu.on{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+
+/* ═══════ NAV ═══════ */
+.nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--cream-d);
+  padding:0 20px;height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-weight:900;font-size:15px;letter-spacing:-.02em;color:var(--navy);
+}
+.nav-logo em{color:var(--gold);font-style:normal;}
+.nav-acts{display:flex;gap:7px;}
+.nb{
+  display:flex;align-items:center;gap:5px;
+  padding:8px 13px;border-radius:9px;
+  font-size:13px;font-weight:700;border:none;cursor:pointer;
+  white-space:nowrap;min-height:36px;transition:all .2s;
+}
+.nb-k{background:var(--kakao);color:var(--kakao-t);}
+.nb-k:hover{background:#f0d800;}
+.nb-t{background:var(--navy);color:#fff;}
+.nb-t:hover{opacity:.87;}
+.nb-h{background:var(--cream-m);color:var(--navy);border:1px solid var(--cream-d);}
+.nb-h:hover{background:var(--cream-d);}
+@media(max-width:480px){.nb-h{display:none;}.nb{padding:7px 9px;font-size:12px;}}
+
+/* ═══════ HERO ═══════ */
+.hero-wrap{position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center;}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80') center 30%/cover;
+}
+.hero-ov{position:absolute;inset:0;background:rgba(15,26,48,.74);}
+.hero-in{
+  position:relative;z-index:1;
+  padding:88px 24px 88px;text-align:center;
+  max-width:780px;margin:0 auto;width:100%;
+}
+.hero-pill{
+  display:inline-block;
+  background:rgba(201,169,110,.2);border:1px solid rgba(201,169,110,.4);
+  border-radius:100px;padding:5px 18px;
+  font-size:13px;font-weight:700;letter-spacing:.06em;
+  color:var(--gold);margin-bottom:28px;
+}
+.hero-h1{
+  font-weight:800;font-size:clamp(36px,7.5vw,72px);
+  color:#fff;line-height:1.12;letter-spacing:-.03em;margin-bottom:18px;
+}
+.hero-h1 em{color:var(--gold);font-style:normal;}
+.hero-sub{
+  font-size:clamp(16px,2.4vw,20px);font-weight:600;
+  color:rgba(255,255,255,.82);line-height:1.6;margin-bottom:6px;
+}
+.hero-body{
+  font-size:14px;color:rgba(255,255,255,.58);
+  line-height:1.9;margin-bottom:44px;max-width:500px;margin-left:auto;margin-right:auto;
+}
+.hero-btns{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto;}
+.btn-lg{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  width:100%;padding:17px 20px;border-radius:13px;
+  font-size:15px;font-weight:800;border:none;cursor:pointer;
+  min-height:54px;transition:all .25s cubic-bezier(.16,1,.3,1);letter-spacing:-.01em;
+}
+.btn-ka{background:var(--kakao);color:var(--kakao-t);box-shadow:0 4px 20px rgba(254,229,0,.4);}
+.btn-ka:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,229,0,.55);}
+.btn-te{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.35);color:#fff;}
+.btn-te:hover{background:rgba(255,255,255,.22);transform:translateY(-2px);}
+.btn-sc{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.72);font-size:14px;}
+.btn-sc:hover{background:rgba(255,255,255,.14);}
+
+/* ═══════ TRUST STRIP ═══════ */
+.trust-strip{background:var(--navy-deep);padding:18px 24px;}
+.trust-in{
+  max-width:960px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;
+  gap:8px 24px;flex-wrap:wrap;
+}
+.trust-item{
+  font-size:13px;font-weight:700;color:rgba(255,255,255,.75);
+  white-space:nowrap;letter-spacing:.01em;
+}
+.trust-item strong{color:var(--gold);}
+.trust-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(255,255,255,.25);flex-shrink:0;
+}
+@media(max-width:600px){.trust-dot{display:none;}}
+
+/* ═══════ PAIN SECTION ═══════ */
+.pain-sec{padding:80px 20px;background:var(--white);}
+.pain-inner{max-width:1060px;margin:0 auto;}
+.sec-label{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:10px;}
+.sec-title{
+  font-weight:800;font-size:clamp(24px,4vw,38px);
+  color:var(--navy);line-height:1.25;letter-spacing:-.02em;margin-bottom:48px;
+}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:768px){.pain-grid{grid-template-columns:1fr;}}
+@media(min-width:769px) and (max-width:1024px){.pain-grid{grid-template-columns:repeat(2,1fr);}}
+
+.pain-card{
+  position:relative;overflow:hidden;border-radius:20px;min-height:320px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.pain-card-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  filter:blur(2px) brightness(.38);
+  transform:scale(1.06);
+  transition:transform .5s ease;
+}
+.pain-card:hover .pain-card-bg{transform:scale(1.09);}
+.pain-card-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,18,36,.95) 0%,rgba(10,18,36,.45) 60%,transparent 100%);
+}
+.pain-card-body{
+  position:relative;z-index:1;padding:28px 26px;
+}
+.pain-tag{
+  display:inline-block;
+  background:rgba(201,169,110,.25);border:1px solid rgba(201,169,110,.45);
+  border-radius:100px;padding:3px 12px;
+  font-size:13px;font-weight:700;color:var(--gold);
+  margin-bottom:14px;
+}
+.pain-q{
+  font-size:clamp(16px,2.2vw,20px);font-weight:800;
+  color:#fff;line-height:1.45;letter-spacing:-.015em;margin-bottom:10px;
+}
+.pain-a{font-size:13px;color:rgba(255,255,255,.6);line-height:1.75;}
+
+/* ═══════ NAVER CREDIBILITY ═══════ */
+.cred-sec{background:var(--cream-m);padding:52px 20px;}
+.cred-in{
+  max-width:900px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;
+  gap:32px;flex-wrap:wrap;
+}
+.cred-badge{
+  display:flex;align-items:center;gap:14px;
+  background:var(--white);border:1px solid var(--cream-d);
+  border-radius:14px;padding:18px 24px;
+  box-shadow:0 2px 16px rgba(26,39,68,.06);
+}
+.naver-n{
+  width:40px;height:40px;border-radius:10px;
+  background:#03C75A;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:20px;color:#fff;flex-shrink:0;
+  font-family:'Arial Black',sans-serif;letter-spacing:-.02em;
+}
+.cred-badge-text strong{
+  display:block;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:2px;
+}
+.cred-badge-text span{font-size:13px;color:var(--text-m);}
+
+.cred-stat{
+  display:flex;align-items:center;gap:14px;
+  background:var(--white);border:1px solid var(--cream-d);
+  border-radius:14px;padding:18px 24px;
+  box-shadow:0 2px 16px rgba(26,39,68,.06);
+}
+.cred-stat-num{
+  font-size:28px;font-weight:800;color:var(--navy);
+  letter-spacing:-.03em;line-height:1;
+}
+.cred-stat-num em{color:var(--gold-w);font-style:normal;}
+.cred-stat-label{font-size:13px;color:var(--text-m);font-weight:600;line-height:1.5;}
+
+/* ═══════ COMPANY ═══════ */
+.company-sec{padding:80px 20px;background:var(--white);}
+.company-in{max-width:960px;margin:0 auto;}
+.company-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+@media(max-width:768px){.company-grid{grid-template-columns:1fr;gap:36px;}}
+.company-desc{font-size:15px;color:var(--text-m);line-height:1.9;margin-bottom:36px;}
+.metrics-row{display:flex;gap:32px;flex-wrap:wrap;}
+.metric{border-left:3px solid var(--gold);padding-left:16px;}
+.metric-num{
+  font-size:clamp(26px,4vw,36px);font-weight:800;
+  color:var(--navy);letter-spacing:-.03em;line-height:1;margin-bottom:4px;
+}
+.metric-num em{color:var(--gold-w);font-style:normal;font-size:.7em;}
+.metric-label{font-size:13px;color:var(--text-m);font-weight:600;line-height:1.4;}
+.company-visual{
+  position:relative;border-radius:20px;overflow:hidden;
+  aspect-ratio:4/3;box-shadow:0 12px 48px rgba(26,39,68,.15);
+}
+.company-visual img{width:100%;height:100%;object-fit:cover;}
+.company-visual-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(26,39,68,.55) 0%,transparent 60%);
+}
+.company-visual-txt{
+  position:absolute;bottom:24px;left:24px;right:24px;
+  font-size:13px;color:rgba(255,255,255,.85);font-weight:700;
+  line-height:1.55;
+}
+.company-visual-txt strong{display:block;font-size:16px;color:#fff;margin-bottom:4px;}
+
+/* ═══════ BENEFIT ═══════ */
+.benefit-sec{position:relative;overflow:hidden;padding:80px 20px;}
+.benefit-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1600&q=80') center/cover;
+  filter:brightness(.25);
+}
+.benefit-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(184,136,26,.88) 0%,rgba(232,168,75,.78) 100%);
+  mix-blend-mode:multiply;
+}
+.benefit-in{
+  position:relative;z-index:1;
+  max-width:700px;margin:0 auto;text-align:center;
+}
+.benefit-chip{
+  display:inline-block;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);
+  border-radius:100px;padding:5px 18px;
+  font-size:13px;font-weight:800;letter-spacing:.06em;color:#fff;margin-bottom:20px;
+}
+.benefit-h{
+  font-weight:800;font-size:clamp(22px,4.5vw,38px);
+  color:#fff;line-height:1.3;letter-spacing:-.02em;margin-bottom:12px;
+}
+.benefit-body{font-size:14px;color:rgba(255,255,255,.82);line-height:1.9;margin-bottom:24px;}
+/* "별도 안내" 강조 태그 */
+.benefit-notice{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--navy-deep);border-radius:10px;
+  padding:10px 20px;
+  font-size:13px;font-weight:800;color:#fff;letter-spacing:.02em;
+}
+.benefit-notice-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+/* ═══════ REVIEWS ═══════ */
+.review-sec{padding:80px 20px;background:var(--cream);}
+.review-in{max-width:1000px;margin:0 auto;}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;}
+@media(max-width:768px){.review-grid{grid-template-columns:1fr;}}
+@media(min-width:769px) and (max-width:1024px){.review-grid{grid-template-columns:repeat(2,1fr);}}
+.review-card{
+  background:var(--white);border:1px solid var(--cream-d);
+  border-radius:18px;padding:28px;
+  box-shadow:0 2px 20px rgba(26,39,68,.05);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 10px 36px rgba(26,39,68,.1);}
+.review-stars{color:var(--gold-w);font-size:16px;letter-spacing:2px;margin-bottom:14px;}
+.review-text{
+  font-size:14px;color:var(--text);line-height:1.85;
+  margin-bottom:20px;font-style:normal;
+}
+.review-divider{width:32px;height:2px;background:var(--cream-d);margin-bottom:16px;}
+.review-author{display:flex;align-items:center;gap:10px;}
+.review-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--cream-m);border:1px solid var(--cream-d);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:var(--navy);flex-shrink:0;
+}
+.review-name{font-size:13px;font-weight:700;color:var(--navy);}
+.review-info{font-size:13px;color:var(--text-s);}
+
+/* ═══════ FORM ═══════ */
+.form-sec{padding:80px 20px 96px;max-width:600px;margin:0 auto;}
+.form-card{
+  background:var(--white);border:1px solid var(--cream-d);
+  border-radius:24px;overflow:hidden;
+  box-shadow:0 8px 48px rgba(26,39,68,.09);
+}
+.form-head{background:var(--navy);padding:32px 30px 26px;}
+.form-head h2{
+  font-size:clamp(18px,3vw,22px);font-weight:800;
+  color:#fff;line-height:1.35;margin-bottom:6px;letter-spacing:-.02em;
+}
+.form-head p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.75;}
+.form-body{padding:28px 30px;}
+@media(max-width:480px){.form-head,.form-body{padding-left:20px;padding-right:20px;}}
+.fg{margin-bottom:18px;}
+.fg label{
+  display:block;font-size:13px;font-weight:700;
+  color:var(--text);margin-bottom:7px;letter-spacing:.01em;
+}
+.fg label .req{color:#EF4444;margin-left:2px;}
+.fg input,.fg select{
+  width:100%;padding:13px 15px;
+  border:1.5px solid var(--cream-d);border-radius:10px;
+  font-size:14px;font-family:inherit;color:var(--text);
+  background:#fff;outline:none;-webkit-appearance:none;
+  min-height:48px;transition:border-color .2s,box-shadow .2s;
+}
+.fg input:focus,.fg select:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,39,68,.09);}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:400px){.row2{grid-template-columns:1fr;}}
+.consent-box{
+  background:#EEF2FF;border:1.5px solid #C7D2FE;
+  border-radius:12px;padding:16px;margin-bottom:20px;
+  transition:border-color .2s,background .2s;
+}
+.consent-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
+.consent-check input[type="checkbox"]{
+  width:20px;height:20px;min-width:20px;
+  accent-color:var(--navy);margin-top:2px;cursor:pointer;
+}
+.consent-text{font-size:14px;font-weight:700;color:var(--navy);line-height:1.6;}
+.consent-req{color:#EF4444;}
+.consent-sub{font-size:13px;color:var(--text-s);margin-top:6px;line-height:1.65;}
+.consent-box.err{border-color:#EF4444;background:#FFF5F5;}
+.btn-submit{
+  width:100%;
+  background:linear-gradient(135deg,var(--navy),var(--navy-mid));
+  color:#fff;border:none;border-radius:13px;
+  padding:18px;font-size:15px;font-weight:800;
+  cursor:pointer;min-height:54px;letter-spacing:-.01em;
+  transition:all .25s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 4px 20px rgba(26,39,68,.3);
+}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(26,39,68,.42);}
+.btn-submit:active{transform:scale(.99);}
+.btn-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* ═══════ MODAL ═══════ */
+.modal-wrap{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.5);z-index:999;
+  align-items:center;justify-content:center;padding:24px;
+}
+.modal-wrap.show{display:flex;}
+.modal{
+  background:#fff;border-radius:24px;
+  padding:48px 28px;text-align:center;
+  max-width:340px;width:100%;
+  animation:popUp .4s cubic-bezier(.16,1,.3,1);
+}
+@keyframes popUp{from{opacity:0;transform:scale(.8) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.modal-icon{font-size:52px;margin-bottom:14px;}
+.modal h3{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:10px;letter-spacing:-.02em;}
+.modal p{font-size:14px;color:var(--text-m);line-height:1.85;margin-bottom:24px;}
+.modal p strong{color:var(--navy);}
+.modal-btn{
+  background:var(--navy);color:#fff;border:none;
+  border-radius:10px;padding:13px 28px;
+  font-size:14px;font-weight:700;cursor:pointer;min-height:44px;transition:opacity .2s;
+}
+.modal-btn:hover{opacity:.85;}
+
+/* ═══════ FOOTER ═══════ */
+footer{background:var(--navy);padding:48px 20px 56px;text-align:center;}
+.ft-logo{font-size:16px;font-weight:900;color:rgba(255,255,255,.9);margin-bottom:20px;letter-spacing:-.01em;}
+.ft-logo em{color:var(--gold);font-style:normal;}
+.ft-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 20px;margin-bottom:24px;}
+.ft-links a{font-size:13px;font-weight:600;color:rgba(255,255,255,.5);min-height:32px;display:inline-flex;align-items:center;transition:color .2s;}
+.ft-links a:hover{color:var(--gold);}
+.ft-info{font-size:13px;color:rgba(255,255,255,.3);line-height:2.1;}
+
+/* ═══════ FLOAT BTN ═══════ */
+.float-btn{
+  display:none;position:fixed;bottom:18px;left:50%;
+  transform:translateX(-50%);z-index:90;
+  background:var(--kakao);color:var(--kakao-t);
+  font-size:14px;font-weight:800;
+  padding:14px 28px;border-radius:100px;border:none;
+  box-shadow:0 6px 28px rgba(254,229,0,.55);
+  white-space:nowrap;cursor:pointer;min-height:50px;
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 6px 28px rgba(254,229,0,.55);}50%{box-shadow:0 10px 36px rgba(254,229,0,.75);}}
+@media(max-width:640px){.float-btn{display:flex;align-items:center;gap:6px;}}
+.float-btn.hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav class="nav">
+  <div class="nav-logo">METARICH <em>SIGNAL</em></div>
+  <div class="nav-acts">
+    <a href="https://open.kakao.com/me/metarich_joowan" target="_blank" rel="noopener">
+      <button class="nb nb-k">카카오 상담</button>
+    </a>
+    <a href="tel:010-2037-1035">
+      <button class="nb nb-t">전화 상담</button>
+    </a>
+    <a href="https://jinwoo8506.github.io/signalgroup">
+      <button class="nb nb-h">홈페이지</button>
+    </a>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero-wrap">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-in fu">
+    <p class="hero-pill">무료 보험 점검 서비스</p>
+    <h1 class="hero-h1">내 보험,<br><em>돈만 내고</em><br>계신 건 아닌가요?</h1>
+    <p class="hero-sub">아프고 힘들 때, 또는 소중한 자산을 지키기 위한 보험</p>
+    <p class="hero-body">단 10분 점검으로 불안함을 없애드립니다.<br>메타리치 시그널그룹 전문가가 직접 분석하고 연락드립니다.</p>
+    <div class="hero-btns">
+      <a href="https://open.kakao.com/me/metarich_joowan" target="_blank" rel="noopener">
+        <button class="btn-lg btn-ka">카카오톡으로 바로 상담하기</button>
+      </a>
+      <a href="tel:010-2037-1035">
+        <button class="btn-lg btn-te">전화 · 문자 &nbsp;|&nbsp; 010-2037-1035</button>
+      </a>
+      <button class="btn-lg btn-sc" onclick="scrollToForm()">무료 점검 신청서 작성하기</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TRUST STRIP ════ -->
+<div class="trust-strip">
+  <div class="trust-in">
+    <span class="trust-item">국내 <strong>30여개</strong> 보험사 제휴</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item">객관적이고 합리적인 제안을 약속드립니다</span>
+    <span class="trust-dot"></span>
+    <span class="trust-item"><strong>'26년 4월 기준</strong> 누적 상담신청 <strong>21,573건</strong></span>
+  </div>
+</div>
+
+<!-- ════ PAIN SECTION ════ -->
+<section class="pain-sec">
+  <div class="pain-inner">
+    <p class="sec-label fu">CHECK YOUR INSURANCE</p>
+    <h2 class="sec-title fu">혹시 이런 경험 있으신가요?</h2>
+    <div class="pain-grid">
+
+      <div class="pain-card fu">
+        <div class="pain-card-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80');"></div>
+        <div class="pain-card-ov"></div>
+        <div class="pain-card-body">
+          <span class="pain-tag">보험금 청구</span>
+          <p class="pain-q">보험금 청구했는데 거절당한 경험이 있으신가요?</p>
+          <p class="pain-a">약관 해석 차이로 정당한 보험금을 받지 못하는 경우가 생각보다 많습니다. 전문가의 도움으로 정확하게 청구하세요.</p>
+        </div>
+      </div>
+
+      <div class="pain-card fu d1">
+        <div class="pain-card-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80');"></div>
+        <div class="pain-card-ov"></div>
+        <div class="pain-card-body">
+          <span class="pain-tag">보험료 낭비</span>
+          <p class="pain-q">중복 보장에 보험료만 나가고 있지는 않으신가요?</p>
+          <p class="pain-a">비슷한 보장이 여러 개 겹쳐 있으면 실질 혜택 없이 보험료만 빠져나갑니다. 지금 바로 점검해보세요.</p>
+        </div>
+      </div>
+
+      <div class="pain-card fu d2">
+        <div class="pain-card-bg" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80');"></div>
+        <div class="pain-card-ov"></div>
+        <div class="pain-card-body">
+          <span class="pain-tag">보장 파악</span>
+          <p class="pain-q">가입한 보험 내용을 제대로 파악하지 못하면 필요할 때 제대로 쓸 수 없습니다</p>
+          <p class="pain-a">지금 내 보험이 어떤 내용인지, 전문가가 알기 쉽게 한 번에 정리해드립니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ NAVER + STATS ════ -->
+<section class="cred-sec">
+  <div class="cred-in">
+    <div class="cred-badge fu">
+      <div class="naver-n">N</div>
+      <div class="cred-badge-text">
+        <strong>네이버 등록 전문가</strong>
+        <span>보험 분석 · 청구 전문가 공식 등록</span>
+      </div>
+    </div>
+    <div class="cred-stat fu d1">
+      <div>
+        <div class="cred-stat-num">21,573<em>건</em></div>
+        <div class="cred-stat-label">'26년 4월 기준<br>누적 상담신청</div>
+      </div>
+    </div>
+    <div class="cred-stat fu d2">
+      <div>
+        <div class="cred-stat-num">30<em>여개+</em></div>
+        <div class="cred-stat-label">제휴 보험사<br>객관적 비교 분석</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ COMPANY ════ -->
+<section class="company-sec">
+  <div class="company-in">
+    <div class="company-grid">
+      <div class="fu">
+        <p class="sec-label">METARICH SIGNAL GROUP</p>
+        <h2 class="sec-title" style="margin-bottom:20px;">정확한 분석,<br>신속한 청구</h2>
+        <p class="company-desc">
+          메타리치 시그널그룹은 전국적인 센터를 운영하는 금융설계 전문 그룹입니다.
+          보험 분석부터 보험금 청구 지원까지, 가입 이후에도 끝까지 함께하는 전문가들이 여러분을 기다리고 있습니다.
+        </p>
+        <p class="company-desc" style="margin-bottom:36px;font-weight:700;color:var(--navy);">
+          국내 30여개의 보험사와 제휴하여<br>객관적이고 합리적인 제안을 약속드립니다.
+        </p>
+        <div class="metrics-row">
+          <div class="metric">
+            <div class="metric-num">24<em>h</em></div>
+            <div class="metric-label">전문가 배정<br>내 연락</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">30<em>여개+</em></div>
+            <div class="metric-label">제휴 보험사<br>비교 분석</div>
+          </div>
+        </div>
+      </div>
+      <div class="company-visual fu d1">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80" alt="전문 상담 장면">
+        <div class="company-visual-ov"></div>
+        <div class="company-visual-txt">
+          <strong>전국 센터 운영 중</strong>
+          원주 본부 · 성남 · 이천 · 춘천
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ BENEFIT ════ -->
+<section class="benefit-sec fu">
+  <div class="benefit-bg"></div>
+  <div class="benefit-ov"></div>
+  <div class="benefit-in">
+    <span class="benefit-chip">상담 신청 특별 혜택</span>
+    <h3 class="benefit-h">보장 점검 완료 고객께<br>건강검진 할인권을 드립니다</h3>
+    <p class="benefit-body">
+      무료 보험 분석 상담을 완료하신 분께 건강검진 할인권을 별도로 제공해드립니다.
+    </p>
+    <div class="benefit-notice">
+      <span class="benefit-notice-dot"></span>
+      상담 완료 후 별도로 안내드립니다
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS ════ -->
+<section class="review-sec">
+  <div class="review-in">
+    <p class="sec-label fu">CUSTOMER REVIEW</p>
+    <h2 class="sec-title fu">실제 상담 후기</h2>
+    <div class="review-grid">
+
+      <div class="review-card fu">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "보험금 청구를 혼자 시도하다 서류 문제로 두 번 반려됐어요. 전문가가 대신 처리해주셔서 결국 316만 원을 수령했습니다. 혼자 했으면 절대 못 받았을 금액이에요."
+        </p>
+        <div class="review-divider"></div>
+        <div class="review-author">
+          <div class="review-avatar">이</div>
+          <div>
+            <div class="review-name">이○○ 고객</div>
+            <div class="review-info">46세 · 직장인</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fu d1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "매달 보험료가 너무 부담됐는데, 점검 후 중복 가입된 항목을 정리해서 월 9만 4천 원을 줄이게 됐어요. 이렇게 빠르게 해결될 줄 몰랐네요."
+        </p>
+        <div class="review-divider"></div>
+        <div class="review-author">
+          <div class="review-avatar">김</div>
+          <div>
+            <div class="review-name">김○○ 고객</div>
+            <div class="review-info">34세 · 주부</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fu d2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          "가입한 보험이 많은데 어떤 내용인지 몰라 답답했어요. 한 번에 전부 정리해주시고 놓친 특약까지 안내해주셨습니다. 정말 든든합니다."
+        </p>
+        <div class="review-divider"></div>
+        <div class="review-author">
+          <div class="review-avatar">박</div>
+          <div>
+            <div class="review-name">박○○ 고객</div>
+            <div class="review-info">52세 · 자영업</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ FORM ════ -->
+<section class="form-sec" id="formSection">
+  <div class="form-card fu">
+    <div class="form-head">
+      <h2>무료 보험 점검 신청</h2>
+      <p>아래 정보를 입력해주시면 메타리치 시그널그룹의 전문가가 24시간 내 직접 연락드립니다.</p>
+    </div>
+    <div class="form-body">
+      <form id="landingForm" novalidate>
+        <div class="row2">
+          <div class="fg">
+            <label for="fname">성함<span class="req">*</span></label>
+            <input type="text" id="fname" name="name" placeholder="홍길동" autocomplete="name" required>
+          </div>
+          <div class="fg">
+            <label for="fphone">연락처<span class="req">*</span></label>
+            <input type="tel" id="fphone" name="phone" placeholder="010-0000-0000" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="ftype">관심 상담 유형<span class="req">*</span></label>
+          <select id="ftype" name="type" required>
+            <option value="">선택해주세요</option>
+            <option value="보험 보장 분석">보험 보장 분석 (내 보험 점검)</option>
+            <option value="보험금 청구 지원">보험금 청구 지원</option>
+            <option value="보험 리모델링">보험 리모델링 (보험료 절감)</option>
+            <option value="신규 보험 가입">신규 보험 가입 상담</option>
+            <option value="기타 문의">기타 문의</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="fage">연령대</label>
+          <select id="fage" name="age">
+            <option value="">선택해주세요 (선택사항)</option>
+            <option>20대</option><option>30대</option>
+            <option>40대</option><option>50대</option><option>60대 이상</option>
+          </select>
+        </div>
+        <div class="consent-box" id="consentBox">
+          <label class="consent-check" for="consentCheck">
+            <input type="checkbox" id="consentCheck">
+            <div>
+              <p class="consent-text">
+                메타리치 시그널그룹의 전문가가 미리 연락드려 상담 일정 및 내용을 확인드리는 것에 동의합니다.
+                <span class="consent-req">(필수)</span>
+              </p>
+              <p class="consent-sub">
+                수집 항목: 성명, 연락처 &nbsp;·&nbsp; 수집 목적: 보험 상담 서비스 제공 &nbsp;·&nbsp; 보유 기간: 상담 종료 후 즉시 파기
+              </p>
+            </div>
+          </label>
+        </div>
+        <button type="submit" class="btn-submit" id="sbtn">무료 보험 점검 신청하기</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="ft-logo">METARICH <em>SIGNAL GROUP</em></div>
+  <div class="ft-links">
+    <a href="https://jinwoo8506.github.io/signalgroup">홈페이지</a>
+    <a href="https://open.kakao.com/me/metarich_joowan" target="_blank" rel="noopener">카카오톡 상담</a>
+    <a href="tel:010-2037-1035">전화 상담</a>
+    <a href="https://jinwoo8506.github.io/signalgroup/consult.html">상담 신청</a>
+  </div>
+  <p class="ft-info">
+    원주본부: 강원특별자치도 원주시 능라동길 81, 3~6층 &nbsp;|&nbsp; 이천센터: 경기 이천시 경충대로 2723, 2~3층<br>
+    대표번호: 010-2037-1035
+  </p>
+</footer>
+
+<!-- FLOAT BTN -->
+<button class="float-btn" id="floatBtn" onclick="scrollToForm()">무료 점검 신청하기</button>
+
+<!-- MODAL -->
+<div class="modal-wrap" id="successModal">
+  <div class="modal">
+    <div class="modal-icon">🎉</div>
+    <h3>신청 완료!</h3>
+    <p>메타리치 시그널그룹 전문가가<br><strong>24시간 내</strong> 직접 연락드립니다.<br><br>건강검진 할인권은 상담 완료 후 별도 안내드립니다.</p>
+    <button class="modal-btn" onclick="closeModal()">확인</button>
+  </div>
+</div>
+
+<script>
+/* 스크롤 애니메이션 */
+var io = new IntersectionObserver(function(e){
+  e.forEach(function(x){ if(x.isIntersecting) x.target.classList.add('on'); });
+},{threshold:.08});
+document.querySelectorAll('.fu').forEach(function(el){ io.observe(el); });
+
+/* 폼 영역 진입 시 플로팅 버튼 숨김 */
+var floatBtn = document.getElementById('floatBtn');
+var fObs = new IntersectionObserver(function(e){
+  e.forEach(function(x){ floatBtn.classList.toggle('hidden',x.isIntersecting); });
+},{threshold:.1});
+fObs.observe(document.getElementById('formSection'));
+
+/* 폼으로 스크롤 */
+function scrollToForm(){ document.getElementById('formSection').scrollIntoView({behavior:'smooth',block:'start'}); }
+
+/* 전화번호 자동 포맷 */
+document.getElementById('fphone').addEventListener('input',function(){
+  var v=this.value.replace(/\D/g,'').slice(0,11);
+  if(v.length>7) v=v.slice(0,3)+'-'+v.slice(3,7)+'-'+v.slice(7);
+  else if(v.length>3) v=v.slice(0,3)+'-'+v.slice(3);
+  this.value=v;
+});
+
+/* 동의 체크 */
+document.getElementById('consentCheck').addEventListener('change',function(){
+  document.getElementById('consentBox').classList.toggle('err',!this.checked);
+});
+
+/* 전송 설정 */
+var GS='https://script.google.com/macros/s/AKfycbxfG3_3-BShzdr9x1dqZW9Pnh0bF4h54pGWH4s8A6yBXlMC_RnLcNtlmQt6IS7ECloX/exec';
+var TT='8652544241:AAEiwI3_qEnPGmgc8YluREw-LAjNBnXXaNo';
+var TC='8712434989';
+var E1='jw20371035@gmail.com';
+var E2='jinwoo8506@gmail.com';
+
+function sendTG(d){
+  var m=[
+    '\uD83D\uDD14 *[메타리치 시그널그룹] 무료 보험 점검 신청*','',
+    '\uD83D\uDC64 성함: '+d.name,
+    '\uD83D\uDCDE 연락처: '+d.phone,
+    '\uD83D\uDCCB 상담 유형: '+d.type,
+    '\uD83C\uDF82 연령대: '+(d.age||'미입력'),
+    '\uD83D\uDD50 신청 시각: '+d.timestamp
+  ].join('\n');
+  return fetch('https://api.telegram.org/bot'+TT+'/sendMessage',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:TC,text:m,parse_mode:'Markdown'})
+  }).catch(function(){});
+}
+function sendGS(d){
+  return fetch(GS,{method:'POST',body:JSON.stringify(d)}).catch(function(){});
+}
+
+document.getElementById('landingForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  var name=document.getElementById('fname').value.trim();
+  var phone=document.getElementById('fphone').value.trim();
+  var type=document.getElementById('ftype').value;
+  var ok=document.getElementById('consentCheck').checked;
+  if(!name||!phone||!type){alert('성함, 연락처, 상담 유형은 필수 입력 항목입니다.');return;}
+  if(!ok){
+    var box=document.getElementById('consentBox');
+    box.classList.add('err');
+    box.scrollIntoView({behavior:'smooth',block:'center'});return;
+  }
+  var btn=document.getElementById('sbtn');
+  btn.textContent='접수 중...';btn.disabled=true;
+  var data={
+    formType:'landing-free-check',name:name,phone:phone,type:type,
+    age:document.getElementById('fage').value,
+    timestamp:new Date().toLocaleString('ko-KR'),
+    extra_email:E1+', '+E2
+  };
+  await Promise.all([sendGS(data),sendTG(data)]);
+  document.getElementById('successModal').classList.add('show');
+  this.reset();
+  btn.textContent='무료 보험 점검 신청하기';btn.disabled=false;
+});
+
+function closeModal(){document.getElementById('successModal').classList.remove('show');}
+document.getElementById('successModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+</script>
+</body>
+</html>

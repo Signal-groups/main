@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시그널 오마주 원주당근 | 메타리치 시그널 그룹</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        }
+
+        :root {
+            --red: #d32222;
+            --red-bright: #f03a28;
+            --dark: #080b10;
+            --panel: #111820;
+            --ink: #f6f0e7;
+            --muted: #b7aca0;
+            --line: rgba(255, 255, 255, 0.12);
+            --paper: #efe1c5;
+            --kakao: #fee500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-width: 320px;
+            color: var(--ink);
+            background: var(--dark);
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            width: 100%;
+            background: rgba(8, 11, 16, 0.82);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px);
+        }
+
+        .topbar-inner {
+            max-width: 1080px;
+            min-height: 62px;
+            margin: 0 auto;
+            padding: 0 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.12;
+        }
+
+        .brand strong {
+            color: #fff;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .brand span {
+            margin-top: 4px;
+            color: var(--red-bright);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.3px;
+        }
+
+        .top-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 16px;
+            border-radius: 999px;
+            background: var(--red);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            padding: 92px 18px 116px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgba(8, 11, 16, 0.92) 0%, rgba(8, 11, 16, 0.74) 45%, rgba(8, 11, 16, 0.16) 100%),
+                linear-gradient(180deg, rgba(8, 11, 16, 0.18) 0%, rgba(8, 11, 16, 0.94) 92%),
+                url('../assets/embedded/dc9f8fb9e4187db7.webp') center/cover no-repeat;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mix-blend-mode: screen;
+            opacity: 0.18;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .warning {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 34px;
+            padding: 0 12px;
+            border: 1px solid rgba(240, 58, 40, 0.48);
+            border-radius: 999px;
+            background: rgba(8, 11, 16, 0.55);
+            color: #ffd7d1;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .warning::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red-bright);
+            box-shadow: 0 0 16px rgba(240, 58, 40, 0.9);
+        }
+
+        .hero h1 {
+            max-width: 720px;
+            margin-top: 18px;
+            color: #fff;
+            font-size: 58px;
+            line-height: 1.05;
+            font-weight: 950;
+            letter-spacing: 0;
+            text-shadow: 0 12px 34px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero h1 em {
+            display: block;
+            color: var(--red-bright);
+            font-style: normal;
+        }
+
+        .hero h1 span,
+        .hero h1 em span,
+        .mobile-line {
+            display: block;
+        }
+
+        .hero-copy {
+            max-width: 600px;
+            margin-top: 22px;
+            color: rgba(246, 240, 231, 0.86);
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .hero-copy span {
+            display: block;
+        }
+
+        .hero-copy strong {
+            color: #fff;
+            font-weight: 950;
+        }
+
+        .letter-strip {
+            max-width: 620px;
+            margin-top: 26px;
+            padding: 18px 20px;
+            border-left: 3px solid var(--red-bright);
+            background: rgba(8, 11, 16, 0.62);
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+        }
+
+        .letter-strip p {
+            color: #e8dccd;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+            padding: 0 24px;
+            border-radius: 999px;
+            font-size: 17px;
+            font-weight: 950;
+        }
+
+        .btn-red {
+            background: linear-gradient(180deg, #f04432 0%, #ba1717 100%);
+            color: #fff;
+            box-shadow: 0 18px 38px rgba(211, 34, 34, 0.36);
+        }
+
+        .btn-ghost {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .btn-kakao {
+            background: var(--kakao);
+            color: #181600;
+        }
+
+        .btn-phone {
+            background: #fff;
+            color: #121212;
+        }
+
+        section {
+            padding: 78px 18px;
+        }
+
+        .section-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            max-width: 720px;
+            margin-bottom: 34px;
+        }
+
+        .section-title.center {
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--red-bright);
+            font-size: 13px;
+            font-weight: 950;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            color: #fff;
+            font-size: 38px;
+            line-height: 1.24;
+            font-weight: 950;
+        }
+
+        .section-title p {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .problem-grid,
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .dark-card {
+            padding: 26px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
+        }
+
+        .dark-card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 16px;
+            border-radius: 50%;
+            background: rgba(211, 34, 34, 0.16);
+            color: #ff6b60;
+            font-size: 14px;
+            font-weight: 950;
+        }
+
+        .dark-card h3 {
+            color: #fff;
+            font-size: 22px;
+            line-height: 1.34;
+            margin-bottom: 10px;
+        }
+
+        .dark-card p {
+            color: var(--muted);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .letter-section {
+            background:
+                radial-gradient(circle at 12% 18%, rgba(211, 34, 34, 0.2), transparent 28%),
+                #0d1118;
+        }
+
+        .future-letter {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+        }
+
+        .future-letter img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .solution {
+            background: #090d13;
+        }
+
+        .step-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 58px 1fr;
+            gap: 16px;
+            padding: 22px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid var(--line);
+        }
+
+        .step strong {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            font-weight: 950;
+        }
+
+        .step h3 {
+            color: #fff;
+            font-size: 21px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .final-cta {
+            padding-bottom: 110px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(8,11,16,0.84), rgba(8,11,16,0.96)),
+                url('../assets/embedded/dc9f8fb9e4187db7.webp') center/cover no-repeat;
+        }
+
+        .final-cta h2 {
+            color: #fff;
+            font-size: 42px;
+            line-height: 1.24;
+            font-weight: 950;
+        }
+
+        .final-cta p {
+            max-width: 640px;
+            margin: 16px auto 0;
+            color: var(--muted);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .contact-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 680px;
+            margin: 30px auto 0;
+            padding: 18px;
+            border-radius: 22px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .notice {
+            margin-top: 14px;
+            color: rgba(246, 240, 231, 0.58);
+            font-size: 13px;
+        }
+
+        footer {
+            padding: 36px 18px;
+            background: #05070a;
+            color: #8c8985;
+            font-size: 13px;
+        }
+
+        .footer-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .footer-inner strong {
+            display: block;
+            color: #fff;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .floating-cta {
+            position: fixed;
+            left: 50%;
+            bottom: 14px;
+            z-index: 60;
+            width: min(520px, calc(100% - 24px));
+            transform: translateX(-50%);
+        }
+
+        .floating-cta-inner {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 8px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            background: rgba(8, 11, 16, 0.88);
+            box-shadow: 0 20px 42px rgba(0, 0, 0, 0.44);
+            backdrop-filter: blur(12px);
+        }
+
+        .floating-cta a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 950;
+        }
+
+        .float-phone {
+            background: #fff;
+            color: #111;
+        }
+
+        .float-kakao {
+            background: var(--kakao);
+            color: #181600;
+        }
+
+        @media (max-width: 760px) {
+            .hero {
+                align-items: flex-end;
+                min-height: 100svh;
+                padding: 86px 16px 116px;
+                background:
+                    linear-gradient(180deg, rgba(8, 11, 16, 0.26) 0%, rgba(8, 11, 16, 0.52) 42%, rgba(8, 11, 16, 0.98) 86%),
+                    url('../assets/embedded/dc9f8fb9e4187db7.webp') 63% top/cover no-repeat;
+            }
+
+            .hero h1 {
+                max-width: 360px;
+                font-size: 38px;
+                line-height: 1.08;
+            }
+
+            .hero-copy {
+                max-width: 350px;
+                margin-top: 18px;
+                font-size: 16px;
+                line-height: 1.72;
+            }
+
+            .letter-strip {
+                max-width: 360px;
+                margin-top: 20px;
+                padding: 16px 16px;
+            }
+
+            .letter-strip p {
+                font-size: 15px;
+                line-height: 1.75;
+            }
+
+            .warning {
+                font-size: 12px;
+            }
+
+            .hero-actions,
+            .contact-actions,
+            .problem-grid,
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                display: grid;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 64px 18px;
+            }
+
+            .section-title h2,
+            .final-cta h2 {
+                font-size: 31px;
+                line-height: 1.32;
+            }
+
+            .section-title p,
+            .dark-card p,
+            .step p,
+            .final-cta p {
+                font-size: 15px;
+                line-height: 1.78;
+            }
+
+            .dark-card {
+                padding: 23px 20px;
+            }
+
+            .dark-card h3,
+            .step h3 {
+                font-size: 20px;
+                line-height: 1.42;
+            }
+
+            .future-letter {
+                padding: 6px;
+                border-radius: 10px;
+            }
+
+            .future-letter img {
+                border-radius: 6px;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .brand strong {
+                font-size: 15px;
+            }
+
+            .top-cta {
+                min-height: 38px;
+                padding: 0 13px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                max-width: 320px;
+                font-size: 34px;
+            }
+
+            .hero-copy {
+                max-width: 320px;
+                font-size: 15px;
+            }
+
+            .letter-strip {
+                max-width: 320px;
+            }
+
+            .section-title h2,
+            .final-cta h2 {
+                font-size: 28px;
+            }
+
+            .floating-cta a {
+                font-size: 15px;
+            }
+        }
+    
+        .privacy-consent {
+            max-width: 680px;
+            margin: 16px auto 0;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.9);
+            text-align: left;
+        }
+
+        .privacy-consent label {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.45;
+        }
+
+        .privacy-consent input {
+            flex: 0 0 18px;
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: var(--red-bright);
+        }
+
+        .privacy-consent p {
+            margin-top: 7px;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        @media print {
+            @page { size: 430px 1400px; margin: 0; }
+            html, body { margin: 0 !important; padding: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .topbar, header, .floating-cta { display: none !important; }
+            main > section:not(:first-child), footer { break-before: page !important; page-break-before: always !important; }
+            main > section, footer, .dark-card, .case-card, .step, .contact-actions, .privacy-consent { break-inside: avoid !important; page-break-inside: avoid !important; }
+            .hero { min-height: auto !important; padding: 48px 18px !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="#" class="brand" aria-label="메타리치 시그널 그룹 보험 점검">
+                <strong>메타리치 시그널 그룹</strong>
+                <span>SIGNAL CHECK</span>
+            </a>
+            <a class="top-cta" href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener">카톡 상담</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <span class="warning">미래의 내가 보내는 경고</span>
+                <h1>
+                    <span>지금 보험,</span>
+                    <em>
+                        <span>그 증거를</span>
+                        <span>확인하세요</span>
+                    </em>
+                </h1>
+                <p class="hero-copy">
+                    <span>병원복을 입은 미래의 내가 말합니다.</span>
+                    <span><strong>“그때 보험 점검만 했어도</strong></span>
+                    <span><strong>이렇게 후회하진 않았을 텐데.”</strong></span>
+                </p>
+                <div class="letter-strip">
+                    <p>
+                        <span class="mobile-line">매달 보험료는 냈지만,</span>
+                        <span class="mobile-line">정작 병원에 갔을 때</span>
+                        <span class="mobile-line">어떤 보상이 되는지 몰랐다면</span>
+                        <span class="mobile-line">그 후회는 미래의 내 몫이 될 수 있습니다.</span>
+                    </p>
+                </div>
+                <div class="hero-actions">
+                    <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener" class="btn btn-red">지금 무료 점검하기</a>
+                    <a href="#letter" class="btn btn-ghost">미래의 편지 보기</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-inner">
+                <div class="section-title center">
+                    <span class="label">Regret Point</span>
+                    <h2>후회는 병원비가 나온 뒤에 시작됩니다</h2>
+                    <p>
+                        <span class="mobile-line">보험은 가입보다 확인이 먼저입니다.</span>
+                        <span class="mobile-line">내가 낸 보험료가 실제 상황에서</span>
+                        <span class="mobile-line">역할하는지 지금 봐야 합니다.</span>
+                    </p>
+                </div>
+                <div class="problem-grid">
+                    <article class="dark-card">
+                        <span class="num">01</span>
+                        <h3>보상되는 줄 알았는데 조건이 달랐던 경우</h3>
+                        <p>
+                            <span class="mobile-line">질병명, 수술 방식, 입원 여부에 따라</span>
+                            <span class="mobile-line">지급 조건이 달라질 수 있습니다.</span>
+                        </p>
+                    </article>
+                    <article class="dark-card">
+                        <span class="num">02</span>
+                        <h3>중복 특약으로 보험료만 커진 경우</h3>
+                        <p>
+                            <span class="mobile-line">비슷한 보장이 여러 개 있어도</span>
+                            <span class="mobile-line">실제 효율은 낮을 수 있습니다.</span>
+                        </p>
+                    </article>
+                    <article class="dark-card">
+                        <span class="num">03</span>
+                        <h3>정작 필요한 진단비가 부족한 경우</h3>
+                        <p>
+                            <span class="mobile-line">실비만 믿고 있다가</span>
+                            <span class="mobile-line">치료 기간의 생활비 공백을</span>
+                            <span class="mobile-line">놓칠 수 있습니다.</span>
+                        </p>
+                    </article>
+                    <article class="dark-card">
+                        <span class="num">04</span>
+                        <h3>담당자와 연락이 안 되는 경우</h3>
+                        <p>
+                            <span class="mobile-line">궁금한 순간에 설명을 듣지 못하면</span>
+                            <span class="mobile-line">청구와 판단이 계속 미뤄집니다.</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="letter-section" id="letter">
+            <div class="section-inner">
+                <article class="future-letter">
+                    <img src="../assets/embedded/619952ba06bd0934.webp" alt="미래의 내가 보내는 편지">
+                </article>
+            </div>
+        </section>
+
+        <section class="solution">
+            <div class="section-inner">
+                <div class="section-title">
+                    <span class="label">Signal Solution</span>
+                    <h2>메타리치 시그널 그룹은 보험의 현재 상태를 확인합니다</h2>
+                    <p>
+                        <span class="mobile-line">더 가입하라는 말보다 먼저,</span>
+                        <span class="mobile-line">지금 갖고 있는 보험이 실제로</span>
+                        <span class="mobile-line">무엇을 해줄 수 있는지 확인합니다.</span>
+                    </p>
+                </div>
+                <div class="step-list">
+                    <article class="step">
+                        <strong>01</strong>
+                        <div>
+                            <h3>현재 가입 내역 확인</h3>
+                            <p>
+                                <span class="mobile-line">보험료, 보장명, 납입 기간,</span>
+                                <span class="mobile-line">갱신 여부를 한눈에 정리합니다.</span>
+                            </p>
+                        </div>
+                    </article>
+                    <article class="step">
+                        <strong>02</strong>
+                        <div>
+                            <h3>중복보장과 부족보장 점검</h3>
+                            <p>
+                                <span class="mobile-line">새는 보험료와 비어있는 보장을</span>
+                                <span class="mobile-line">함께 확인합니다.</span>
+                            </p>
+                        </div>
+                    </article>
+                    <article class="step">
+                        <strong>03</strong>
+                        <div>
+                            <h3>쉬운 말로 결과 안내</h3>
+                            <p>
+                                <span class="mobile-line">유지할 것, 줄일 것, 보완할 것을</span>
+                                <span class="mobile-line">고객이 이해할 수 있게 설명합니다.</span>
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-inner">
+                <div class="section-title center">
+                    <span class="label">Case</span>
+                    <h2>진행사례</h2>
+                    <p>
+                        <span class="mobile-line">보험은 상황이 생긴 뒤가 아니라,</span>
+                        <span class="mobile-line">생기기 전에 확인해야 합니다.</span>
+                    </p>
+                </div>
+                <div class="case-grid">
+                    <article class="dark-card">
+                        <span class="num">01</span>
+                        <h3>실비만 있으면 충분하다고 생각한 경우</h3>
+                        <p>
+                            <span class="mobile-line">진단비와 수술비 공백을 확인하고</span>
+                            <span class="mobile-line">치료 기간의 부담 요소를 정리했습니다.</span>
+                        </p>
+                    </article>
+                    <article class="dark-card">
+                        <span class="num">02</span>
+                        <h3>갱신형 특약이 많아 보험료가 걱정된 경우</h3>
+                        <p>
+                            <span class="mobile-line">앞으로 변동될 수 있는</span>
+                            <span class="mobile-line">보험료 구조를 확인했습니다.</span>
+                        </p>
+                    </article>
+                    <article class="dark-card">
+                        <span class="num">03</span>
+                        <h3>가족 보험을 한 번도 비교하지 않은 경우</h3>
+                        <p>
+                            <span class="mobile-line">가족별 보장 차이와</span>
+                            <span class="mobile-line">부족한 부분을 정리했습니다.</span>
+                        </p>
+                    </article>
+                    <article class="dark-card">
+                        <span class="num">04</span>
+                        <h3>가입한 지 오래돼 내용을 잊은 경우</h3>
+                        <p>
+                            <span class="mobile-line">현재 기준으로 필요한 보장인지</span>
+                            <span class="mobile-line">다시 확인했습니다.</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta" id="consult">
+            <div class="section-inner">
+                <span class="warning">후회는 과거에, 선택은 지금부터</span>
+                <h2>지금 점검하지 않으면<br>미래의 내가 답답해질 수 있습니다</h2>
+                <p>
+                    <span class="mobile-line">상담비는 무료입니다.</span>
+                    <span class="mobile-line">카카오톡 또는 전화로 편하게</span>
+                    <span class="mobile-line">현재 보험 점검을 신청하세요.</span>
+                </p>
+                <div class="contact-actions">
+                    <a href="tel:010-3430-2565" class="btn btn-phone">전화 상담</a>
+                    <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener" class="btn btn-kakao">카카오톡 상담</a>
+                </div>
+                                <div class="privacy-consent">
+                    <label>
+                        <input type="checkbox" checked>
+                        <span>개인정보 수집 및 이용에 동의합니다.</span>
+                    </label>
+                    <p>입력하신 정보는 보험 상담 이외의 목적으로 활용되지 않으며, 상담 종료 후 최대 3개월까지 보관 후 삭제됩니다.</p>
+                </div><p class="notice">가입 강요 없이 현재 보장 상태를 먼저 확인합니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <strong>메타리치 시그널 그룹</strong>
+            <p>보험 보장분석 · 중복보장 체크 · 부족보장 점검</p>
+            <p>상담 문의: 010-3430-2565</p>
+        </div>
+    </footer>
+
+    <div class="floating-cta">
+        <div class="floating-cta-inner">
+            <a class="float-phone" href="tel:010-3430-2565">전화 상담</a>
+            <a class="float-kakao" href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener">카톡 상담</a>
+        </div>
+    </div>
+</body>
+</html>

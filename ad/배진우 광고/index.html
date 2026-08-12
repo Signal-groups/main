@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CJ 온스타일 GA · 보험설계사 모집 2026 | 박주완 본부장</title>
+
+<!-- 나눔스퀘어 라운드 (임팩트 있는 한글 디스플레이) -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nanumfont@1.0.0/NanumSquareRound.css">
+
+<style>
+/* ════════ ROOT ════════ */
+:root{
+  --cream:#FEFCF7; --cream2:#F7F3EC; --cream3:#E8E2D8;
+  --gold:#B8922A;  --gold-m:#D4A83A; --gold-l:#F0C84A; --gold-pale:#FDF6E3;
+  --cj:#6D28D9;    --cj-l:#8B5CF6;   --cj-pale:#F5F0FF;
+  --dark:#0F0E0C;  --text:#1A1714;   --text2:#4A4540;  --text3:#928D88;
+  --white:#FFFFFF; --red:#DC2626;    --green:#16A34A;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{background:var(--cream);color:var(--text);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ════════ 디스플레이 폰트 — 나눔스퀘어라운드 ExtraBold ════════ */
+.tt{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  letter-spacing:.01em;
+  line-height:1.12;
+  word-break:keep-all;
+}
+
+/* ════════ FULLPAGE ════════ */
+.fp{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;}
+@media(max-width:768px){.fp{scroll-snap-type:none;height:auto;overflow-y:visible;}}
+.sec{scroll-snap-align:start;min-height:100dvh;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+
+/* ════════ NAV ════════ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:15px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(254,252,247,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(184,146,42,.1);}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-cj{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.15em;background:linear-gradient(135deg,var(--cj),var(--cj-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-div{width:1px;height:14px;background:var(--cream3);}
+.nav-sub{font-size:12px;font-weight:500;color:var(--text3);letter-spacing:.04em;}
+.ndots{display:flex;gap:7px;}
+.nd{width:7px;height:7px;border-radius:50%;background:var(--cream3);cursor:pointer;transition:all .3s;border:1px solid rgba(0,0,0,.08);}
+.nd.on{background:var(--gold);transform:scale(1.45);border-color:var(--gold);}
+
+/* ════════ S1 HERO ════════ */
+.s1{background:var(--cream);}
+.s1-bg{position:absolute;inset:0;z-index:0;background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=85') center/cover;opacity:.09;}
+.s1-deco{position:absolute;top:-150px;right:-100px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(109,40,217,.07) 0%,transparent 70%);z-index:1;pointer-events:none;}
+.s1-in{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:108px 40px 60px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:end;}
+
+/* 날짜 — 크고 임팩트 있게 */
+.s1-date{margin-bottom:24px;animation:fu .6s ease both;}
+.s1-date-box{
+  display:inline-flex;align-items:center;gap:16px;
+  background:linear-gradient(135deg,var(--cj),var(--cj-l));
+  color:#fff;border-radius:14px;padding:16px 32px;
+}
+.s1-date-blink{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.7);animation:blink 1.4s ease-in-out infinite;flex-shrink:0;}
+.s1-date-body{display:flex;flex-direction:column;gap:4px;}
+.s1-date-tag{font-size:12px;font-weight:700;opacity:.78;letter-spacing:.14em;text-transform:uppercase;}
+.s1-date-num{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:.1em;line-height:1;}
+
+.s1-eye{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.38em;color:var(--gold);margin-bottom:14px;animation:fu .6s .05s ease both;text-transform:uppercase;}
+
+.s1-title{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(50px,8.5vw,112px);
+  line-height:1.06;
+  letter-spacing:.01em;
+  color:var(--text);
+  margin-bottom:22px;
+  animation:fu .7s .1s ease both;
+  word-break:keep-all;
+}
+.s1-title .l-cj{display:block;background:linear-gradient(135deg,var(--cj),var(--cj-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.s1-title .l-sm{display:block;font-size:.5em;color:var(--gold);letter-spacing:.03em;margin-top:8px;font-weight:800;}
+
+.s1-sub{font-family:'Noto Serif KR',serif;font-size:clamp(15px,1.7vw,18px);color:var(--text2);line-height:2;margin-bottom:32px;max-width:480px;animation:fu .7s .18s ease both;word-break:keep-all;}
+.s1-sub strong{color:var(--text);font-weight:700;}
+
+.s1-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;animation:fu .7s .24s ease both;}
+.s1-tag{font-size:13px;font-weight:600;padding:8px 18px;border-radius:100px;border:1.5px solid rgba(184,146,42,.28);background:rgba(184,146,42,.07);color:var(--gold);}
+.s1-tag.hl{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#111;border:none;box-shadow:0 4px 14px rgba(184,146,42,.26);}
+
+.s1-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fu .7s .3s ease both;}
+.btn-dark{display:inline-flex;align-items:center;gap:8px;background:var(--text);color:#fff;font-weight:700;font-size:15px;padding:16px 36px;border-radius:9px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;box-shadow:0 8px 24px rgba(15,14,12,.2);transition:transform .18s,box-shadow .18s;text-decoration:none;}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,14,12,.28);}
+.btn-line{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text2);font-weight:500;font-size:15px;padding:16px 24px;border-radius:9px;cursor:pointer;border:1.5px solid var(--cream3);font-family:'Noto Sans KR',sans-serif;transition:all .18s;text-decoration:none;}
+.btn-line:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-pale);}
+
+.s1-side{display:flex;flex-direction:column;gap:10px;padding-bottom:4px;animation:fu .7s .38s ease both;}
+.s1-kpi{background:var(--white);border:1px solid var(--cream3);border-radius:12px;padding:18px 22px;text-align:center;min-width:118px;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.s1-kpi-n{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.04em;background:linear-gradient(135deg,var(--cj),var(--cj-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;}
+.s1-kpi-l{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.04em;}
+
+.s1-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--text3);font-size:9px;letter-spacing:.2em;text-transform:uppercase;z-index:2;animation:bounce 2.2s ease-in-out infinite;}
+.s1-scroll::before{content:'';width:1px;height:26px;background:linear-gradient(to bottom,transparent,var(--cream3));}
+
+/* ════════ 섹션 공통 ════════ */
+.slbl{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.38em;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px;text-transform:uppercase;}
+.slbl::before{content:'';width:24px;height:2px;background:var(--gold);}
+.slbl.cj-c{color:var(--cj);}
+.slbl.cj-c::before{background:var(--cj);}
+.slbl.dim{color:rgba(255,255,255,.3);}
+.slbl.dim::before{background:rgba(255,255,255,.2);}
+
+/* 섹션 타이틀 */
+.stitle{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(30px,5vw,60px);
+  line-height:1.18;
+  letter-spacing:.01em;
+  color:var(--text);
+  margin-bottom:14px;
+  word-break:keep-all;
+}
+.stitle em{font-style:normal;color:var(--cj);}
+.stitle .gold{color:var(--gold);}
+.stitle .wh{color:#fff;}
+.stitle .red{color:#FF7070;}
+.stitle .dim2{display:block;font-size:.44em;color:rgba(255,255,255,.32);font-weight:600;margin-top:6px;letter-spacing:.02em;}
+
+.ssub{font-family:'Noto Serif KR',serif;font-size:clamp(15px,1.7vw,18px);color:var(--text2);line-height:1.95;max-width:520px;margin-bottom:40px;word-break:keep-all;}
+
+/* ════════ S2 하는 일 ════════ */
+.s2{background:var(--white);}
+.s2-in{max-width:1100px;margin:0 auto;padding:108px 40px 60px;}
+.s2-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.s2-item{background:var(--cream2);border:1px solid var(--cream3);padding:30px 24px;position:relative;transition:background .2s,transform .2s;}
+.s2-item:first-child{border-radius:16px 0 0 16px;}
+.s2-item:last-child{border-radius:0 16px 16px 0;}
+.s2-item:hover{background:var(--gold-pale);transform:translateY(-3px);}
+.s2-item+.s2-item::before{content:'→';position:absolute;left:-14px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--cream3);font-weight:700;z-index:1;background:var(--cream2);padding:0 2px;}
+.s2-step{font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:12px;text-transform:uppercase;}
+/* 플로우 제목 — 크고 선명 */
+.s2-name{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(17px,1.8vw,22px);
+  color:var(--text);
+  margin-bottom:12px;
+  line-height:1.3;
+  word-break:keep-all;
+}
+/* 플로우 설명 — 3번 이미지처럼 줄바꿈 */
+.s2-desc{
+  font-size:clamp(13px,1.2vw,15px);
+  color:var(--text3);
+  line-height:1.9;
+  word-break:keep-all;
+}
+.s2-note{margin-top:26px;background:var(--cj-pale);border:1.5px solid rgba(109,40,217,.12);border-radius:12px;padding:18px 22px;font-size:14px;color:var(--cj);line-height:1.8;word-break:keep-all;}
+
+/* ════════ S3 공감 ════════ */
+.s3{background:var(--dark);}
+.s3-bg{position:absolute;inset:0;z-index:0;background:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=70') center/cover;opacity:.08;}
+.s3-in{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:108px 40px 60px;}
+.s3-title{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(30px,5vw,58px);
+  line-height:1.18;
+  letter-spacing:.01em;
+  color:#fff;
+  margin-bottom:36px;
+  word-break:keep-all;
+}
+.s3-title .red{color:#FF7070;}
+.s3-title .dim2{display:block;font-size:.44em;color:rgba(255,255,255,.32);font-weight:600;margin-top:6px;}
+
+/* 공감 카드 — 이모티콘 없음, 제목/설명 크게 */
+.s3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;}
+.s3-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+  padding:30px 26px;
+  position:relative;overflow:hidden;
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.s3-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .3s;}
+.s3-card:hover{background:rgba(255,255,255,.09);border-color:rgba(184,146,42,.22);transform:translateY(-2px);}
+.s3-card:hover::before{opacity:1;}
+.s3-card-n{font-family:'Bebas Neue',sans-serif;font-size:44px;color:rgba(255,255,255,.04);line-height:1;margin-bottom:14px;}
+/* 제목 — 크고 굵게 */
+.s3-card-title{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(17px,1.8vw,21px);
+  color:#fff;
+  margin-bottom:12px;
+  line-height:1.35;
+  word-break:keep-all;
+}
+/* 설명 — 크게 + 줄바꿈 */
+.s3-card-desc{
+  font-size:clamp(13px,1.2vw,15px);
+  color:rgba(255,255,255,.55);
+  line-height:1.9;
+  word-break:keep-all;
+}
+
+.s3-hook{text-align:center;font-family:'Noto Serif KR',serif;font-size:clamp(16px,2vw,21px);color:rgba(255,255,255,.62);line-height:1.85;word-break:keep-all;}
+.s3-hook strong{color:#fff;font-weight:900;}
+.s3-hook em{font-style:normal;color:var(--gold-l);}
+
+/* ════════ S4 해결책 ════════ */
+.s4{background:var(--cream);}
+.s4-bg{position:absolute;inset:0;z-index:0;background:url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1600&q=70') center/cover;opacity:.04;}
+.s4-in{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:108px 40px 60px;}
+.s4-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.s4-card{background:var(--white);border:1.5px solid var(--cream3);border-radius:16px;padding:30px 24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.s4-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-l));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.s4-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.07);border-color:rgba(184,146,42,.26);}
+.s4-card:hover::after{transform:scaleX(1);}
+.s4-card-tag{font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.22em;color:var(--text3);margin-bottom:10px;}
+.s4-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,66px);line-height:1;margin-bottom:10px;background:linear-gradient(135deg,var(--gold),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.s4-card-title{font-family:'NanumSquareRound','Noto Sans KR',sans-serif;font-weight:800;font-size:clamp(14px,1.4vw,17px);color:var(--text);margin-bottom:8px;line-height:1.35;word-break:keep-all;}
+.s4-card-desc{font-size:clamp(12px,1.1vw,14px);color:var(--text3);line-height:1.85;word-break:keep-all;}
+.s4-bottom{background:var(--text);border-radius:14px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.s4-bottom-txt{font-family:'Noto Serif KR',serif;font-size:clamp(15px,1.7vw,19px);color:rgba(255,255,255,.76);line-height:1.8;word-break:keep-all;}
+.s4-bottom-txt strong{color:#fff;}
+.s4-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#111;font-weight:700;font-size:14px;padding:14px 28px;border-radius:8px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;white-space:nowrap;text-decoration:none;transition:transform .18s;}
+.s4-btn:hover{transform:translateY(-2px);}
+
+/* ════════ S5 신뢰 ════════ */
+.s5{background:var(--white);}
+.s5-in{max-width:1100px;margin:0 auto;padding:108px 40px 60px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.s5-big{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(36px,5.5vw,68px);
+  line-height:1.1;
+  letter-spacing:.01em;
+  color:var(--text);
+  margin-bottom:18px;
+  word-break:keep-all;
+}
+.s5-big .accent{color:var(--cj);}
+.s5-quote{font-family:'Noto Serif KR',serif;font-size:clamp(15px,1.6vw,18px);color:var(--text2);line-height:2;border-left:4px solid var(--gold);padding-left:20px;margin-bottom:26px;word-break:keep-all;}
+.s5-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;}
+.s5-tag{background:var(--cream2);border:1px solid var(--cream3);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;color:var(--text2);}
+.s5-reviews{display:flex;flex-direction:column;gap:11px;}
+.s5-rev{background:var(--cream2);border:1px solid var(--cream3);border-radius:12px;padding:18px 20px;}
+.s5-rev-star{color:var(--gold-m);font-size:12px;letter-spacing:1.5px;margin-bottom:7px;}
+.s5-rev-txt{font-size:clamp(12px,1.1vw,14px);color:var(--text2);line-height:1.9;margin-bottom:10px;word-break:keep-all;}
+.s5-rev-who{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text3);}
+.s5-rev-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;}
+.s5-photo-wrap{position:relative;}
+.s5-photo{width:100%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:var(--cream2);box-shadow:0 20px 52px rgba(0,0,0,.1);}
+.s5-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.s5-badge{position:absolute;bottom:-14px;left:-14px;background:var(--white);border:1.5px solid var(--cream3);border-radius:14px;padding:16px 20px;box-shadow:0 8px 24px rgba(0,0,0,.09);}
+.s5-badge-n{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--cj);line-height:1;margin-bottom:3px;}
+.s5-badge-l{font-size:11px;font-weight:600;color:var(--text3);}
+
+/* ════════ S6 감정 ════════ */
+.s6{background:var(--cream2);}
+.s6-bg{position:absolute;inset:0;z-index:0;background:url('https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1600&q=70') center/cover;opacity:.06;}
+.s6-in{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:108px 40px 60px;text-align:center;}
+.s6-pre{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.38em;color:var(--text3);margin-bottom:22px;text-transform:uppercase;}
+.s6-big{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(40px,8vw,100px);
+  line-height:1.05;
+  letter-spacing:.01em;
+  color:var(--text);
+  margin-bottom:20px;
+  word-break:keep-all;
+}
+.s6-big .gold{display:block;background:linear-gradient(135deg,var(--gold),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.s6-big .cj{display:block;background:linear-gradient(135deg,var(--cj),var(--cj-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:.52em;margin-top:4px;}
+.s6-msg{font-family:'Noto Serif KR',serif;font-size:clamp(16px,2vw,21px);color:var(--text2);line-height:1.95;max-width:580px;margin:0 auto 44px;word-break:keep-all;}
+.s6-msg strong{color:var(--text);}
+.s6-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:760px;margin:0 auto;background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--cream3);box-shadow:0 4px 20px rgba(0,0,0,.06);}
+.s6-stat{padding:28px 16px;text-align:center;border-right:1px solid var(--cream3);}
+.s6-stat:last-child{border-right:none;}
+.s6-stat-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,42px);color:var(--cj);line-height:1;margin-bottom:6px;}
+.s6-stat-l{font-size:12px;font-weight:600;color:var(--text3);}
+
+/* ════════ S7 CTA ════════ */
+.s7{background:var(--cream);}
+.s7-in{max-width:960px;margin:0 auto;padding:108px 40px 60px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.s7-lbl-red{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.38em;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px;text-transform:uppercase;}
+.s7-lbl-red::before{content:'';width:24px;height:2px;background:var(--red);}
+.s7-dl{background:var(--text);border-radius:16px;padding:26px 26px 22px;margin-bottom:18px;}
+.s7-dl-title{
+  font-family:'NanumSquareRound','Noto Sans KR',sans-serif;
+  font-weight:800;
+  font-size:clamp(26px,3.5vw,42px);
+  color:#fff;line-height:1.18;margin-bottom:16px;
+  letter-spacing:.01em;word-break:keep-all;
+}
+.s7-dl-title .red{color:#FF7070;}
+.s7-dl-date{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border-radius:10px;padding:14px 18px;margin-bottom:13px;}
+.s7-dl-dot{width:10px;height:10px;border-radius:50%;background:#FF7070;animation:blink 1.2s ease-in-out infinite;flex-shrink:0;}
+.s7-dl-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:.1em;}
+.s7-dl-sub{font-size:11px;color:rgba(255,255,255,.42);}
+.s7-dl-warn{font-size:13px;color:rgba(255,255,255,.48);line-height:1.8;word-break:keep-all;}
+.s7-dl-warn strong{color:#FF7070;}
+.s7-blist{display:flex;flex-direction:column;gap:9px;}
+.s7-bi{display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--cream3);border-radius:10px;padding:13px 16px;font-size:14px;color:var(--text);font-weight:500;word-break:keep-all;}
+.s7-bi-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.s7-bi span strong{color:var(--cj);font-weight:700;}
+.s7-fc{background:var(--white);border:1.5px solid var(--cream3);border-radius:20px;padding:32px 28px;box-shadow:0 8px 36px rgba(0,0,0,.07);}
+.s7-ft{font-family:'NanumSquareRound','Noto Sans KR',sans-serif;font-weight:800;font-size:clamp(20px,2.5vw,28px);color:var(--text);margin-bottom:6px;letter-spacing:.01em;}
+.s7-fs{font-size:13px;color:var(--text3);margin-bottom:22px;line-height:1.7;word-break:keep-all;}
+.fg{margin-bottom:11px;}
+.fg input,.fg select{width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:9px;padding:13px 16px;color:var(--text);font-size:16px;font-family:'Noto Sans KR',sans-serif;outline:none;transition:border-color .18s,background .18s;-webkit-appearance:none;appearance:none;}
+.fg input::placeholder{color:var(--text3);font-size:14px;}
+.fg input:focus,.fg select:focus{border-color:var(--gold);background:var(--gold-pale);}
+.fg select option{background:#fff;}
+.s7-sub{width:100%;background:var(--text);color:#fff;font-weight:700;font-size:16px;padding:17px;border-radius:9px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;box-shadow:0 6px 20px rgba(15,14,12,.2);margin-top:8px;transition:transform .18s,box-shadow .18s;letter-spacing:-.01em;}
+.s7-sub:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,14,12,.27);}
+.s7-or{display:flex;align-items:center;gap:10px;color:var(--text3);font-size:12px;margin:13px 0 4px;}
+.s7-or::before,.s7-or::after{content:'';flex:1;height:1px;background:var(--cream3);}
+.s7-clist{display:flex;flex-direction:column;gap:9px;}
+.c-kakao{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:#FEE500;color:#111;font-weight:700;font-size:14px;border:none;border-radius:9px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-decoration:none;transition:opacity .18s,transform .18s;}
+.c-kakao:hover{opacity:.9;transform:translateY(-1px);}
+.c-tel{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px;background:var(--cream2);color:var(--text);font-weight:700;font-size:14px;border:1.5px solid var(--cream3);border-radius:9px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-decoration:none;transition:border-color .18s;}
+.c-tel:hover{border-color:var(--gold);}
+.c-blog{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px;background:var(--cj-pale);color:var(--cj);font-weight:700;font-size:14px;border:1.5px solid rgba(109,40,217,.18);border-radius:9px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;text-decoration:none;transition:background .18s;}
+.c-blog:hover{background:rgba(109,40,217,.1);}
+.s7-hint{text-align:center;font-size:11px;color:var(--text3);margin-top:12px;line-height:1.7;}
+
+/* ════════ FLOATING ════════ */
+.float{position:fixed;bottom:24px;right:20px;z-index:998;display:flex;flex-direction:column;gap:9px;align-items:flex-end;}
+.fb{display:flex;align-items:center;gap:7px;font-family:'Noto Sans KR',sans-serif;font-weight:700;font-size:13px;padding:12px 18px;border-radius:100px;border:none;cursor:pointer;text-decoration:none;transition:transform .18s;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.1);}
+.fb:hover{transform:translateY(-2px) scale(1.03);}
+.fb-k{background:#FEE500;color:#111;animation:pu .5s 1.2s ease both;}
+.fb-p{background:var(--text);color:#fff;animation:pu .5s 1.4s ease both;}
+.fb-b{background:var(--cj-pale);color:var(--cj);border:1px solid rgba(109,40,217,.18);animation:pu .5s 1.6s ease both;}
+
+/* ════════ MODAL ════════ */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:24px;}
+.modal-bg.show{display:flex;}
+.mbox{background:#fff;border-radius:20px;padding:44px 30px;max-width:340px;width:100%;text-align:center;animation:fu .3s ease;box-shadow:0 20px 56px rgba(0,0,0,.18);}
+.mbox-ico{font-size:44px;margin-bottom:12px;}
+.mbox-title{font-family:'NanumSquareRound','Noto Sans KR',sans-serif;font-weight:800;font-size:22px;color:var(--text);margin-bottom:8px;}
+.mbox-desc{color:var(--text2);font-size:14px;line-height:1.8;margin-bottom:22px;word-break:keep-all;}
+.mbox-close{background:var(--text);color:#fff;font-weight:700;font-size:14px;padding:13px 36px;border-radius:9px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
+
+/* ════════ ANIMATIONS ════════ */
+@keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+@keyframes pu{from{opacity:0;transform:scale(.75) translateY(12px);}to{opacity:1;transform:scale(1) translateY(0);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.rv.on{opacity:1;transform:translateY(0);}
+
+/* ════════ RESPONSIVE ════════ */
+@media(max-width:960px){
+  .s1-in{grid-template-columns:1fr;}
+  .s1-side{flex-direction:row;flex-wrap:wrap;}
+  .s1-kpi{flex:1;min-width:90px;}
+  .s2-flow{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .s2-item{border-radius:12px!important;}
+  .s2-item+.s2-item::before{display:none;}
+  .s3-grid{grid-template-columns:repeat(2,1fr);}
+  .s4-grid{grid-template-columns:repeat(2,1fr);}
+  .s5-in{grid-template-columns:1fr;gap:36px;}
+  .s5-photo{max-width:300px;margin:0 auto;}
+  .s6-stats{grid-template-columns:repeat(2,1fr);}
+  .s6-stat:nth-child(2){border-right:none;}
+  .s6-stat:nth-child(1),.s6-stat:nth-child(2){border-bottom:1px solid var(--cream3);}
+  .s7-in{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .nav{padding:13px 16px;}
+  .nav-sub{display:none;}
+  .s1-in,.s2-in,.s3-in,.s4-in,.s5-in,.s6-in,.s7-in{padding:78px 18px 44px;}
+  .s1-title{font-size:clamp(44px,12vw,72px);}
+  .s1-btns{flex-direction:column;align-items:stretch;}
+  .s1-btns .btn-dark,.s1-btns .btn-line{width:100%;justify-content:center;}
+  .s3-grid{grid-template-columns:1fr;}
+  .s4-grid{grid-template-columns:1fr;}
+  .s4-bottom{flex-direction:column;align-items:stretch;}
+  .s4-btn{justify-content:center;}
+  .s6-big{font-size:clamp(36px,10vw,64px);}
+  .float{bottom:14px;right:12px;gap:7px;}
+  .fb{font-size:12px;padding:10px 14px;}
+  .s7-fc{padding:22px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <span class="nav-cj">CJ ONSTYLE</span>
+    <span class="nav-div"></span>
+    <span class="nav-sub">GA 채널 · 설계사 모집 2026 | 박주완 본부장</span>
+  </div>
+  <div class="ndots" id="ndots">
+    <div class="nd on" onclick="gt(0)"></div>
+    <div class="nd" onclick="gt(1)"></div>
+    <div class="nd" onclick="gt(2)"></div>
+    <div class="nd" onclick="gt(3)"></div>
+    <div class="nd" onclick="gt(4)"></div>
+    <div class="nd" onclick="gt(5)"></div>
+    <div class="nd" onclick="gt(6)"></div>
+  </div>
+</nav>
+
+<div class="fp" id="fp">
+
+<!-- ── S1 HERO ── -->
+<section class="sec s1" id="s0">
+  <div class="s1-bg"></div>
+  <div class="s1-deco"></div>
+  <div class="s1-in">
+    <div>
+      <!-- 날짜 배지 — 크고 임팩트 -->
+      <div class="s1-date">
+        <div class="s1-date-box">
+          <span class="s1-date-blink"></span>
+          <div class="s1-date-body">
+            <span class="s1-date-tag">2026 공개채용</span>
+            <span class="s1-date-num">04.14 – 06.22</span>
+          </div>
+        </div>
+      </div>
+      <div class="s1-eye">CJ ONSTYLE GA CHANNEL</div>
+      <h1 class="s1-title">
+        새로운<br>
+        <span class="l-cj">시작의</span>
+        <span class="l-sm">조건이 다릅니다</span>
+      </h1>
+      <p class="s1-sub">
+        홈쇼핑 1등 브랜드, CJ 온스타일 GA 채널.<br>
+        <strong>경기 이천 · 강원 원주</strong> 기반으로<br>
+        <strong>전국단위 모집</strong>합니다.<br>
+        신입은 물론 경력도 제대로.
+      </p>
+      <div class="s1-tags">
+        <span class="s1-tag hl"># 수수료 2배</span>
+        <span class="s1-tag"># 무료 DB 30개</span>
+        <span class="s1-tag"># 정착지원금</span>
+        <span class="s1-tag"># 신입·경력 모두</span>
+      </div>
+      <div class="s1-btns">
+        <a href="#" onclick="gt(6);return false;" class="btn-dark">지금 바로 지원하기 →</a>
+        <a href="https://m.blog.naver.com/metarichsignal?tab=1" target="_blank" class="btn-line">블로그 더 알아보기</a>
+      </div>
+    </div>
+    <div class="s1-side">
+      <div class="s1-kpi"><div class="s1-kpi-n">2400%</div><div class="s1-kpi-l">수수료 총량</div></div>
+      <div class="s1-kpi"><div class="s1-kpi-n">30개+</div><div class="s1-kpi-l">무료 DB</div></div>
+      <div class="s1-kpi"><div class="s1-kpi-n">0원</div><div class="s1-kpi-l">임차·총무비</div></div>
+    </div>
+  </div>
+  <div class="s1-scroll">SCROLL</div>
+</section>
+
+<!-- ── S2 하는 일 ── -->
+<section class="sec s2" id="s1">
+  <div class="s2-in rv">
+    <div class="slbl">What We Do</div>
+    <h2 class="stitle">CJ 온스타일 GA 채널,<br><em>어떤 일을 하나요?</em></h2>
+    <p class="ssub">
+      홈쇼핑 방송을 통해 보험에 관심을 가진<br>
+      고객에게 연락해 재무설계와<br>
+      보험 솔루션을 제공하는 전문 영업 채널입니다.
+    </p>
+    <div class="s2-flow">
+      <div class="s2-item">
+        <div class="s2-step">STEP 01</div>
+        <div class="s2-name">CJ 방송<br>DB 확보</div>
+        <div class="s2-desc">홈쇼핑 라이브 방송을 통해<br>보험 관심 고객 DB를<br>무료로 지원받습니다</div>
+      </div>
+      <div class="s2-item">
+        <div class="s2-step">STEP 02</div>
+        <div class="s2-name">고객 컨택<br>&amp; 상담</div>
+        <div class="s2-desc">관심 고객에게 연락해<br>현재 보험 상황을<br>파악하고 니즈를 발굴합니다</div>
+      </div>
+      <div class="s2-item">
+        <div class="s2-step">STEP 03</div>
+        <div class="s2-name">재무설계<br>제안</div>
+        <div class="s2-desc">고객 맞춤 보험 설계와<br>재무 솔루션을<br>전문적으로 제안합니다</div>
+      </div>
+      <div class="s2-item">
+        <div class="s2-step">STEP 04</div>
+        <div class="s2-name">계약 &amp;<br>수수료 수령</div>
+        <div class="s2-desc">계약 성사 시<br>업계 최고 수준의<br>수수료를 지급받습니다</div>
+      </div>
+    </div>
+    <div class="s2-note">
+      💡 <strong>검증된 DB로 시작하는 영업</strong> — CJ 온스타일의 브랜드 신뢰도를 바탕으로<br>
+      고객 컨택 성공률이 높습니다. DB 구매 비용도 0원입니다.
+    </div>
+  </div>
+</section>
+
+<!-- ── S3 공감 ── -->
+<section class="sec s3" id="s2">
+  <div class="s3-bg"></div>
+  <div class="s3-in rv">
+    <div class="slbl dim">지금 당신이 느끼는 것</div>
+    <h2 class="s3-title">
+      이 답답함,<br>
+      <span class="red">정확히 알고 있습니다</span>
+      <span class="dim2">혼자만 이런 게 아닙니다</span>
+    </h2>
+    <div class="s3-grid">
+      <div class="s3-card">
+        <div class="s3-card-n">01</div>
+        <div class="s3-card-title">DB 사느라<br>남는 게 없다</div>
+        <div class="s3-card-desc">월급처럼 나가는 DB 구매 비용.<br>열심히 일해도 결국<br>DB값에 다 쓰고 있진 않나요?</div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-n">02</div>
+        <div class="s3-card-title">실적 올려도<br>수수료가 그대로</div>
+        <div class="s3-card-desc">열심히 해서 실적이 3배가 됐는데,<br>수수료 체계는 신입 때와<br>똑같다면?</div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-n">03</div>
+        <div class="s3-card-title">이직하고 싶은데<br>어디가 좋은지 모른다</div>
+        <div class="s3-card-desc">말만 좋고 실제로는 다른 곳들이<br>너무 많아서.<br>어디를 믿어야 할지 모르겠다.</div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-n">04</div>
+        <div class="s3-card-title">관리비·자리비에<br>치이는 현실</div>
+        <div class="s3-card-desc">자리비, 임차료, 총무비...<br>수수료 받아도 각종 비용에<br>실제 손에 쥐는 건 얼마?</div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-n">05</div>
+        <div class="s3-card-title">처음 시작이<br>너무 막막하다</div>
+        <div class="s3-card-desc">보험에 관심은 있는데<br>어디서 시작해야 할지,<br>누가 제대로 가르쳐 줄지 모르겠다.</div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-n">06</div>
+        <div class="s3-card-title">성장이 보이지<br>않는 구조</div>
+        <div class="s3-card-desc">명확한 직급 체계도 없고,<br>열심히 해도 커리어가<br>어떻게 되는지 그림이 안 그려진다.</div>
+      </div>
+    </div>
+    <div class="s3-hook">
+      이 중 하나라도 해당된다면<br>
+      <strong>지금 읽고 계신 이 페이지가 정답일 수 있습니다.</strong><br>
+      <em>CJ 온스타일 GA는 이 모든 문제를 해결합니다.</em>
+    </div>
+  </div>
+</section>
+
+<!-- ── S4 해결책 ── -->
+<section class="sec s4" id="s3">
+  <div class="s4-bg"></div>
+  <div class="s4-in rv">
+    <div class="slbl">Our Solution</div>
+    <h2 class="stitle">우리는<br><span class="gold">이렇게</span> <span style="color:var(--cj)">해결합니다</span></h2>
+    <p class="ssub">말이 아닌 숫자로 보여드립니다.<br>CJ 온스타일 GA 채널의 실제 조건입니다.</p>
+    <div class="s4-grid">
+      <div class="s4-card">
+        <div class="s4-card-tag">COMMISSION</div>
+        <div class="s4-num">2400%</div>
+        <div class="s4-card-title">수수료 총량<br>H사 대비 2배</div>
+        <div class="s4-card-desc">같은 실적에 2배의 수익.<br>5단계 직급 체계로<br>성장할수록 더 높은 수수료.</div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-tag">FREE DB</div>
+        <div class="s4-num">30개+</div>
+        <div class="s4-card-title">홈쇼핑 검증<br>DB 무료 지원</div>
+        <div class="s4-card-desc">DB 구매 비용 0원.<br>CJ 온스타일 방송 DB를<br>무료로 제공합니다.</div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-tag">ZERO COST</div>
+        <div class="s4-num">0원</div>
+        <div class="s4-card-title">자리비·임차료<br>·총무비</div>
+        <div class="s4-card-desc">모든 비용 부담 제로.<br>시작부터<br>수익에만 집중하세요.</div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-tag">SUPPORT</div>
+        <div class="s4-num">별도</div>
+        <div class="s4-card-title">정착지원금<br>지급</div>
+        <div class="s4-card-desc">초기 안정적 정착을 위한<br>지원금으로<br>경제적 부담을 줄여드립니다.</div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-tag">MANAGEMENT</div>
+        <div class="s4-num">3배</div>
+        <div class="s4-card-title">관리수수료<br>H사 대비 3배</div>
+        <div class="s4-card-desc">장기 수익 구조가 다릅니다.<br>쌓일수록<br>더 커지는 수익.</div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-tag">CAREER</div>
+        <div class="s4-num">5단계</div>
+        <div class="s4-card-title">명확한<br>직급 체계</div>
+        <div class="s4-card-desc">입문부터 마스터까지.<br>성장 로드맵이<br>보이는 커리어.</div>
+      </div>
+    </div>
+    <div class="s4-bottom">
+      <p class="s4-bottom-txt"><strong>경기 이천 · 강원 원주</strong> 기반 전국단위 모집.<br>비대면 상담도 적극 지원합니다.</p>
+      <a href="#" onclick="gt(6);return false;" class="s4-btn">지금 바로 지원하기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── S5 신뢰 ── -->
+<section class="sec s5" id="s4">
+  <div class="s5-in rv">
+    <div>
+      <div class="slbl cj-c">Team Leader</div>
+      <div class="s5-big">함께할<br><span class="accent">사람이</span><br>중요합니다</div>
+      <p class="s5-quote">
+        "현장을 떠나지 않는 관리자가<br>
+        되겠다고 다짐했습니다.<br>
+        10년 넘게 DB 영업 현장에서 쌓은 경험으로<br>
+        여러분의 성장을 직접 함께 만들어가겠습니다."
+      </p>
+      <div class="s5-tags">
+        <span class="s5-tag">보험경력 10년+</span>
+        <span class="s5-tag">DB영업 전문가</span>
+        <span class="s5-tag">CJ 온스타일 총괄본부장</span>
+        <span class="s5-tag">메타리치 시그널 본부장</span>
+        <span class="s5-tag">현장감 살아있는 관리자</span>
+      </div>
+      <!-- 경력 하이라이트 카드 -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="background:var(--cj-pale);border:1.5px solid rgba(109,40,217,.15);border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--cj),var(--cj-l));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🏆</div>
+          <div>
+            <div style="font-family:'NanumSquareRound','Noto Sans KR',sans-serif;font-weight:800;font-size:14px;color:var(--cj);margin-bottom:4px;">CJ 온스타일 GA 총괄본부장</div>
+            <div style="font-size:13px;color:var(--text3);line-height:1.7;word-break:keep-all;">현재 CJ 온스타일 GA 채널 프로젝트를 직접 진두지휘하고 있습니다. 채용부터 육성까지 전 과정을 총괄합니다.</div>
+          </div>
+        </div>
+        <div style="background:var(--gold-pale);border:1.5px solid rgba(184,146,42,.18);border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold-l));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">💼</div>
+          <div>
+            <div style="font-family:'NanumSquareRound','Noto Sans KR',sans-serif;font-weight:800;font-size:14px;color:var(--gold);margin-bottom:4px;">보험경력 10년+ · DB영업 현장 전문가</div>
+            <div style="font-size:13px;color:var(--text3);line-height:1.7;word-break:keep-all;">책상이 아닌 현장에서 직접 뛰는 관리자입니다. 이론이 아닌 실전 경험으로 팀원들과 함께 성장합니다.</div>
+          </div>
+        </div>
+        <div style="background:var(--cream2);border:1.5px solid var(--cream3);border-radius:12px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--text);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📍</div>
+          <div>
+            <div style="font-family:'NanumSquareRound','Noto Sans KR',sans-serif;font-weight:800;font-size:14px;color:var(--text);margin-bottom:4px;">메타리치 시그널그룹 본부장</div>
+            <div style="font-size:13px;color:var(--text3);line-height:1.7;word-break:keep-all;">경기 이천 · 강원 원주 기반으로 전국 팀을 운영 중입니다. 비대면 상담도 적극 지원합니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s5-photo-wrap">
+      <div class="s5-photo"><img src="profile.jpg" alt="박주완 본부장"></div>
+      <div class="s5-badge">
+        <div class="s5-badge-n">10년+</div>
+        <div class="s5-badge-l">보험 DB영업 경력</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── S6 감정 ── -->
+<section class="sec s6" id="s5">
+  <div class="s6-bg"></div>
+  <div class="s6-in rv">
+    <div class="s6-pre">THE MOMENT TO DECIDE</div>
+    <h2 class="s6-big">
+      지금이<br>
+      <span class="gold">바꿀 수 있는</span>
+      <span class="cj">가장 좋은 타이밍입니다</span>
+    </h2>
+    <p class="s6-msg">
+      6개월 뒤에도 지금과 똑같은 고민을 하고 있을 건가요?<br>
+      <strong>조건이 달라지면 결과도 달라집니다.</strong><br>
+      지금 이 환경을 선택하는 것이 시작입니다.
+    </p>
+    <div class="s6-stats">
+      <div class="s6-stat"><div class="s6-stat-n">2400%</div><div class="s6-stat-l">수수료 총량</div></div>
+      <div class="s6-stat"><div class="s6-stat-n">30개+</div><div class="s6-stat-l">무료 DB 지원</div></div>
+      <div class="s6-stat"><div class="s6-stat-n">0원</div><div class="s6-stat-l">각종 비용</div></div>
+      <div class="s6-stat"><div class="s6-stat-n">5단계</div><div class="s6-stat-l">직급 체계</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── S7 CTA ── -->
+<section class="sec s7" id="s6">
+  <div class="s7-in rv">
+    <div>
+      <div class="s7-lbl-red">마감 임박</div>
+      <div class="s7-dl">
+        <h3 class="s7-dl-title">이 기회,<br><span class="red">기간 안에</span> 잡으세요</h3>
+        <div class="s7-dl-date">
+          <div class="s7-dl-dot"></div>
+          <div>
+            <div class="s7-dl-num">2026.04.14 – 06.22</div>
+            <div class="s7-dl-sub">공개채용 접수 기간</div>
+          </div>
+        </div>
+        <div class="s7-dl-warn">마감 후에는 동일한 조건으로 지원이 어려울 수 있습니다.<br><strong>지금 바로 상담 신청하세요.</strong></div>
+      </div>
+      <div class="s7-blist">
+        <div class="s7-bi"><div class="s7-bi-dot"></div><span>수수료 총량 <strong>2400%</strong> (H사 대비 2배)</span></div>
+        <div class="s7-bi"><div class="s7-bi-dot"></div><span>홈쇼핑 검증 DB <strong>30개 무료</strong> 지원</span></div>
+        <div class="s7-bi"><div class="s7-bi-dot"></div><span>정착지원금 <strong>별도 지급</strong></span></div>
+        <div class="s7-bi"><div class="s7-bi-dot"></div><span>자리비·임차료·총무비 <strong>0원</strong></span></div>
+        <div class="s7-bi"><div class="s7-bi-dot"></div><span>관리수수료 H사 대비 <strong>3배</strong></span></div>
+        <div class="s7-bi"><div class="s7-bi-dot"></div><span>본부장 <strong>현장 밀착 멘토링</strong></span></div>
+      </div>
+    </div>
+    <div>
+      <div class="s7-fc">
+        <h3 class="s7-ft">입사 상담 신청</h3>
+        <p class="s7-fs">부담 없이 신청하세요.<br>박주완 본부장이 직접 연락드립니다.</p>
+        <form id="cf">
+          <div class="fg"><input type="text" name="name" id="fn" placeholder="이름" required></div>
+          <div class="fg"><input type="tel" name="phone" id="fp" placeholder="연락처 (010-0000-0000)" required></div>
+          <div class="fg">
+            <select name="career">
+              <option value="">경력 구분 선택</option>
+              <option>보험 입문 (신입)</option>
+              <option>타사 경력 설계사 (이직)</option>
+              <option>부업·파트타임 희망</option>
+              <option>기타</option>
+            </select>
+          </div>
+          <div class="fg"><input type="text" name="memo" placeholder="문의 내용 (선택)"></div>
+          <button type="submit" class="s7-sub" id="sbtn">상담 신청하기 — 박주완 본부장에게 바로 접수</button>
+        </form>
+        <div class="s7-or">또는 직접 연락하기</div>
+        <div class="s7-clist">
+          <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" class="c-kakao">💬 카카오톡으로 문의하기</a>
+          <a href="tel:01020371035" class="c-tel">📞 전화·문자 &nbsp; 010-2037-1035</a>
+          <a href="https://m.blog.naver.com/metarichsignal?tab=1" target="_blank" class="c-blog">📝 블로그 더 알아보기</a>
+        </div>
+        <p class="s7-hint">상담 후 진행 여부 결정 가능 · 계약 강요 없음</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /fp -->
+
+<!-- FLOATING -->
+<div class="float">
+  <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" class="fb fb-k">💬 카톡 문의</a>
+  <a href="tel:01020371035" class="fb fb-p">📞 전화 상담</a>
+  <a href="https://m.blog.naver.com/metarichsignal?tab=1" target="_blank" class="fb fb-b">📝 블로그</a>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="mbox">
+    <div class="mbox-ico">✅</div>
+    <h3 class="mbox-title">신청 완료!</h3>
+    <p class="mbox-desc">박주완 본부장에게 접수되었습니다.<br>24시간 내 직접 연락드리겠습니다.</p>
+    <button class="mbox-close" onclick="document.getElementById('modal').classList.remove('show')">확인</button>
+  </div>
+</div>
+
+<script>
+if(history.scrollRestoration) history.scrollRestoration='manual';
+const fp=document.getElementById('fp');
+const secs=document.querySelectorAll('.sec');
+const dots=document.querySelectorAll('.nd');
+function gt(i){secs[i].scrollIntoView({behavior:'smooth',block:'start'});}
+function upd(){
+  let c=0;
+  secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<=window.innerHeight*.5)c=i;});
+  dots.forEach((d,i)=>d.classList.toggle('on',i===c));
+}
+fp.addEventListener('scroll',upd,{passive:true});
+window.addEventListener('scroll',upd,{passive:true});
+const ob=new IntersectionObserver(es=>{es.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*50);});},{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+document.getElementById('fp').addEventListener('input',function(){
+  let v=this.value.replace(/\D/g,'').slice(0,11);
+  if(v.length>7)v=v.slice(0,3)+'-'+v.slice(3,7)+'-'+v.slice(7);
+  else if(v.length>3)v=v.slice(0,3)+'-'+v.slice(3);
+  this.value=v;
+});
+document.getElementById('cf').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const b=document.getElementById('sbtn');
+  b.disabled=true;b.textContent='접수 중...';
+  const d={type:'CJ GA 입사문의',name:document.getElementById('fn').value,phone:document.getElementById('fp').value,career:document.querySelector('[name="career"]').value,memo:document.querySelector('[name="memo"]').value,date:new Date().toLocaleString('ko-KR'),extra_email:'jw20371035@gmail.com'};
+  try{await fetch('https://script.google.com/macros/s/AKfycbyTNexrJjDSMhVQCRCAU3uVtXtMuASQgfXXMw_CyicLG7pvI9XhDUCnN2-cTp2MjsMS/exec',{method:'POST',mode:'no-cors',body:JSON.stringify(d),headers:{'Content-Type':'text/plain'}});}catch(e){}
+  document.getElementById('modal').classList.add('show');
+  this.reset();b.disabled=false;b.textContent='상담 신청하기 — 박주완 본부장에게 바로 접수';
+});
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
+let cs=0;
+document.addEventListener('keydown',function(e){
+  if(window.innerWidth<=768)return;
+  if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();cs=Math.min(cs+1,secs.length-1);gt(cs);}
+  else if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();cs=Math.max(cs-1,0);gt(cs);}
+});
+</script>
+</body>
+</html>
