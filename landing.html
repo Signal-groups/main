@@ -763,27 +763,11 @@ document.getElementById('consentCheck').addEventListener('change',function(){
 });
 
 /* 전송 설정 */
-var GS='https://script.google.com/macros/s/AKfycbxfG3_3-BShzdr9x1dqZW9Pnh0bF4h54pGWH4s8A6yBXlMC_RnLcNtlmQt6IS7ECloX/exec';
-var TT='8652544241:AAEiwI3_qEnPGmgc8YluREw-LAjNBnXXaNo';
-var TC='8712434989';
+var GS='https://script.google.com/macros/s/AKfycbxSI6a82YhBdLoE3lekYihAt2B-MU0bwFUQM5qOb9Lwn8IquOjpa2sdn9SahPjkEics/exec';
 var E1='jw20371035@gmail.com';
 var E2='jinwoo8506@gmail.com';
 var E3='kye1004s7@gmail.com';
 
-function sendTG(d){
-  var m=[
-    '\uD83D\uDD14 *[메타리치 시그널그룹] 무료 보험 점검 신청*','',
-    '\uD83D\uDC64 성함: '+d.name,
-    '\uD83D\uDCDE 연락처: '+d.phone,
-    '\uD83D\uDCCB 상담 유형: '+d.type,
-    '\uD83C\uDF82 연령대: '+(d.age||'미입력'),
-    '\uD83D\uDD50 신청 시각: '+d.timestamp
-  ].join('\n');
-  return fetch('https://api.telegram.org/bot'+TT+'/sendMessage',{
-    method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({chat_id:TC,text:m,parse_mode:'Markdown'})
-  }).catch(function(){});
-}
 function sendGS(d){
   return fetch(GS,{method:'POST',body:JSON.stringify(d)}).catch(function(){});
 }
@@ -803,12 +787,21 @@ document.getElementById('landingForm').addEventListener('submit',async function(
   var btn=document.getElementById('sbtn');
   btn.textContent='접수 중...';btn.disabled=true;
   var data={
+    source_code: 'COMMON-CONSULT-001',
+    page_id: 'signal-main-landing',
+    page_type: 'LANDING',
+    platform: 'website',
+    request_type: 'consult',
+    privacy_agreed: true,
+    landing_page: location.pathname,
+    landing_url: location.href,
+    region: '미입력',
     formType:'landing-free-check',name:name,phone:phone,type:type,
     age:document.getElementById('fage').value,
     timestamp:new Date().toLocaleString('ko-KR'),
     extra_email:E1+', '+E2+', '+E3
   };
-  await Promise.all([sendGS(data),sendTG(data)]);
+  await sendGS(data);
   document.getElementById('successModal').classList.add('show');
   this.reset();
   btn.textContent='무료 보험 점검 신청하기';btn.disabled=false;
