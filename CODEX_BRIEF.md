@@ -1,4 +1,4 @@
-# 메타리치 시그널그룹 — signal-homepage 개선 브리핑
+# 보험의 기준 — signal-homepage 개선 브리핑
 # Codex 협업용 공유 문서
 
 > 작성일: 2026-05-07  
@@ -24,7 +24,6 @@ signal-homepage/
 │   ├── hk0203.html (채홍교 팀장)
 │   ├── jw1035.html (박주완 총괄본부장)
 │   ├── jw2565.html (배진우 팀장)
-│   └── yk1873.html (김연경 센터장)
 └── assets/images/      ← 실제 사진 파일
     ├── members/        ← 임직원 사진 (jpg/png)
     ├── chuncheonmain.png
@@ -157,10 +156,10 @@ document.querySelectorAll('.fu').forEach(el => io.observe(el));
 
 ## 5. 변경하면 안 되는 것들
 
-- 실제 임직원 이름, 직함 (박주완/총괄본부장, 김연경/센터장, 배진우/팀장, 채홍교/팀장 등)
+- 현재 공개 중인 임직원 이름과 직함 (박주완/총괄본부장, 배진우/팀장, 채홍교/팀장 등)
 - 실제 연락처, 주소 정보
 - 제휴 보험사 목록 (생명보험 17개 + 손해보험 12개)
-- 임직원 사진 파일 경로 (`./assets/images/members/`)
+- 공개 중인 임직원 사진 파일 경로 (`./assets/images/members/`)
 - 지점 페이지 링크 구조 (`./wonju/index.html` 등)
 - `consult.html`, `recruit.html` 폼 필드 구조 (DB 연동 가능성)
 - 임직원 로그인 링크: `https://metarich-signal.vercel.app/login`
@@ -188,3 +187,5 @@ document.querySelectorAll('.fu').forEach(el => io.observe(el));
 
 *이 문서는 Claude가 기획·분석하고 Codex가 실행하는 협업 기준 문서입니다.*
 *변경사항 확정 후 Claude에게 공유하면 검토·피드백 진행합니다.*
+
+> 2026-09-23 브랜드 변경: 공개 브랜드명을 `보험의 기준`으로 통일하고 김연경 센터장 프로필 및 노출을 제거함.
