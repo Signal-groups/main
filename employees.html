@@ -6,32 +6,43 @@
   <title>임직원소개 | 보험의 기준</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/standard.css">
   <style>
     body{margin:0;font-family:'Pretendard Variable','Pretendard',-apple-system,sans-serif;background:#FAFAF8;color:#111;word-break:keep-all}
     .font-display-serif{font-family:'Noto Serif KR',serif}.font-display-bold{font-family:'Black Han Sans',sans-serif;font-weight:400}
-    .nav-link{font-size:13px;font-weight:800;color:#333;white-space:nowrap}.nav-link:hover{color:#2D4A8A}
-    .nav-links-all{display:flex;align-items:center;gap:18px;overflow-x:auto;white-space:nowrap;max-width:100%}.nav-links-all::-webkit-scrollbar{display:none}
-    @media(max-width:760px){.topbar{height:auto;min-height:72px;align-items:flex-start;flex-direction:column;padding-top:18px;padding-bottom:14px}.nav-links-all{width:100%;padding-top:10px}}
     .member{background:#fff;border:1px solid rgba(26,39,68,.08);border-radius:8px;overflow:hidden;box-shadow:0 16px 42px rgba(26,39,68,.06)}
     .member img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(100%);transition:.3s}.member:hover img{filter:grayscale(0);transform:scale(1.03)}
   </style>
 </head>
 <body>
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-100"><div class="topbar max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between"><a href="./index.html" class="font-black text-xl">보험의 <span class="text-blue-600">기준</span></a><div class="nav-links-all"><a href="./employees.html" class="nav-link">임직원소개</a><a href="./support.html" class="nav-link">지원 시스템</a><a href="./partners.html" class="nav-link">제휴보험사</a><a href="./financial-consumer-protection.html" class="nav-link">금융소비자보호</a><a href="./recruit.html" class="nav-link">입사지원</a><a href="./consult.html" class="nav-link text-blue-600">보험상담</a></div></div></nav>
-  <main class="py-24 md:py-32">
+  <nav class="site-nav"><div class="site-nav-in"><a href="./index.html" class="site-logo"><span class="logo-word">STANDARD</span><span class="logo-sub">보험의 기준</span></a><div class="site-links"><a href="./employees.html" aria-current="page">임직원소개</a><a href="./support.html">지원 시스템</a><a href="./partners.html">제휴보험사</a><a href="./financial-consumer-protection.html">금융소비자보호</a><a href="./recruit.html">입사지원</a><a href="./consult.html" class="consult">보험상담</a></div><a class="site-login" href="https://metarich-signal.vercel.app/login" target="_blank">임직원 로그인</a></div></nav>
+  <header class="page-hero">
+    <div class="max-w-7xl mx-auto">
+      <div class="word" role="img" aria-label="PEOPLE"><span><i style="--n:0">P</i></span><span><i style="--n:1">E</i></span><span><i style="--n:2">O</i></span><span><i style="--n:3">P</i></span><span><i style="--n:4">L</i></span><span><i style="--n:5">E</i></span></div>
+      <div class="rule"></div>
+      <div class="meta">
+        <div><h1>각 분야별 전문가를 소개합니다</h1><p>보장 분석부터 리모델링, 보험금 청구까지 — 보험의 기준</p></div>
+        <a class="go" href="./consult.html">전문가 상담 신청 ↗</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-24 md:pb-32 pt-4">
     <div class="max-w-7xl mx-auto px-6">
-      <p class="text-[#C9A96E] font-black tracking-[.14em] text-xs mb-4">EXPERT GROUP</p>
-      <h1 class="font-display-serif font-black text-4xl md:text-6xl mb-12">전체 임직원 소개</h1>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <a href="./experts/jw1035.html" class="member"><img src="./assets/images/members/jw1035.jpg" alt="박주완 총괄본부장"><div class="p-5"><strong class="text-xl">박주완</strong><p class="text-blue-600 text-sm font-black mt-1">총괄본부장</p></div></a>
-        <a href="./experts/jl5017.html" class="member"><img src="./assets/images/members/jl5017.png" alt="최정림 본부장"><div class="p-5"><strong class="text-xl">최정림</strong><p class="text-blue-600 text-sm font-black mt-1">본부장</p></div></a>
-        <a href="./experts/jw2565.html" class="member"><img src="./assets/images/members/jw2565.png" alt="배진우 팀장"><div class="p-5"><strong class="text-xl">배진우</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/hk0203.html" class="member"><img src="./assets/images/members/hk0203.jpg" alt="채홍교 팀장"><div class="p-5"><strong class="text-xl">채홍교</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/jy3512.html" class="member"><img src="./assets/images/members/jy3512.jpg" alt="고정윤 팀장"><div class="p-5"><strong class="text-xl">고정윤</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/ye2357.html" class="member"><img src="./assets/images/members/ye2357.png" alt="김영은 팀장"><div class="p-5"><strong class="text-xl">김영은</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+        <a href="./experts/jw1035.html" class="member"><img src="./assets/images/members/jw1035.jpg" alt="박주완 총괄본부장"><div class="p-4 md:p-5"><strong class="text-lg md:text-xl">박주완</strong><p class="text-sm font-black mt-1" style="color:var(--accent)">총괄본부장</p></div></a>
+        <a href="./experts/jl5017.html" class="member"><img src="./assets/images/members/jl5017.png" alt="최정림 본부장"><div class="p-4 md:p-5"><strong class="text-lg md:text-xl">최정림</strong><p class="text-sm font-black mt-1" style="color:var(--accent)">본부장</p></div></a>
+        <a href="./experts/jw2565.html" class="member"><img src="./assets/images/members/jw2565.png" alt="배진우 팀장"><div class="p-4 md:p-5"><strong class="text-lg md:text-xl">배진우</strong><p class="text-sm font-black mt-1" style="color:var(--accent)">팀장</p></div></a>
+        <a href="./experts/hk0203.html" class="member"><img src="./assets/images/members/hk0203.jpg" alt="채홍교 팀장"><div class="p-4 md:p-5"><strong class="text-lg md:text-xl">채홍교</strong><p class="text-sm font-black mt-1" style="color:var(--accent)">팀장</p></div></a>
+        <a href="./experts/jy3512.html" class="member"><img src="./assets/images/members/jy3512.jpg" alt="고정윤 팀장"><div class="p-4 md:p-5"><strong class="text-lg md:text-xl">고정윤</strong><p class="text-sm font-black mt-1" style="color:var(--accent)">팀장</p></div></a>
+        <a href="./experts/ye2357.html" class="member"><img src="./assets/images/members/ye2357.png" alt="김영은 팀장"><div class="p-4 md:p-5"><strong class="text-lg md:text-xl">김영은</strong><p class="text-sm font-black mt-1" style="color:var(--accent)">팀장</p></div></a>
       </div>
     </div>
   </main>
+  <section class="bg-[#1A2744] text-white py-20 px-6 text-center">
+    <p class="text-[#C9A96E] font-black tracking-[.14em] text-xs mb-4">CONSULT</p>
+    <h2 class="text-2xl md:text-4xl font-black mb-8">내 상황에 맞는 전문가와 상담하세요</h2>
+    <a href="./consult.html" class="inline-flex items-center gap-2 bg-white text-[#1A2744] font-black rounded-full px-7 py-4">보험 상담 신청 ↗</a>
+  </section>
 </body>
 </html>

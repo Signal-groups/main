@@ -4,45 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>보험 상담 신청 | 보험의 기준</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/standard.css">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <style>
 :root {
-  --blue:#1d4ed8; --blue-dark:#1e3a8a; --blue-light:#eff6ff;
-  --dark:#0f172a; --mid:#64748b; --border:#e2e8f0; --bg:#f8fafc;
+  --blue:#1A2744; --blue-dark:#1A2744; --blue-light:#F5F2ED;
+  --dark:#1A2744; --mid:#64748b; --border:#e2e8f0; --bg:#FAFAF8;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--dark);}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;word-break:keep-all;background:var(--bg);color:var(--dark);}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
-  padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-size:15px;font-weight:900;letter-spacing:.05em;color:var(--dark);text-decoration:none;}
-.nav-logo span{color:var(--blue);}
-.nav-links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;}
-.nav-links::-webkit-scrollbar{display:none;}
-.nav-links a{font-size:13px;color:var(--mid);text-decoration:none;transition:color .2s;white-space:nowrap;}
-.nav-links a:hover{color:var(--dark);}
-.nav-cta{background:var(--blue);color:#fff;border:none;border-radius:6px;
-  padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
 
-.hero{padding-top:64px;background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 60%,#1d4ed8 100%);
-  color:#fff;text-align:center;padding-bottom:72px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 25% 50%,rgba(59,130,246,.25) 0%,transparent 55%),
-             radial-gradient(circle at 75% 30%,rgba(96,165,250,.15) 0%,transparent 50%);}
-.hero-inner{position:relative;z-index:1;padding:80px 24px 40px;}
-.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
-  border-radius:100px;padding:6px 20px;font-size:11px;letter-spacing:.12em;margin-bottom:24px;}
-.hero h1{font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1.25;
-  margin-bottom:14px;letter-spacing:-.02em;}
-.hero p{font-size:14px;font-weight:300;color:rgba(255,255,255,.72);line-height:1.9;max-width:440px;margin:0 auto;}
 
 .steps-bar{background:#fff;border-bottom:1px solid var(--border);}
 .steps-inner{max-width:760px;margin:0 auto;padding:28px 24px;
   display:flex;align-items:center;justify-content:center;gap:0;}
 .step{display:flex;align-items:center;gap:10px;flex:1;min-width:0;}
-.step-num{width:28px;height:28px;background:var(--blue);color:#fff;border-radius:50%;
+.step-num{width:28px;height:28px;background:#C9A96E;color:#fff;border-radius:50%;
   display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
 .step strong{display:block;font-size:12px;font-weight:700;}
 .step span{font-size:11px;color:var(--mid);}
@@ -66,9 +46,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   padding:12px 16px;font-size:14px;font-family:inherit;
   background:#fff;transition:border-color .2s,box-shadow .2s;outline:none;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{
-  border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,78,216,.08);}
+  border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,39,68,.1);}
 .fg textarea{resize:vertical;min-height:110px;}
-.privacy{background:var(--blue-light);border:1px solid #bfdbfe;border-radius:8px;
+.privacy{background:var(--blue-light);border:1px solid #E8DCC4;border-radius:8px;
   padding:16px;margin-bottom:24px;}
 .privacy p{font-size:11px;color:var(--mid);line-height:1.7;margin-bottom:10px;}
 .privacy label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;cursor:pointer;}
@@ -88,18 +68,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .modal-icon{font-size:48px;margin-bottom:16px;}
 .modal h3{font-size:20px;font-weight:900;margin-bottom:12px;}
 .modal p{font-size:14px;color:var(--mid);line-height:1.8;margin-bottom:24px;}
-.modal-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;
+.modal-btn{background:#1A2744;color:#fff;border:none;border-radius:8px;
   padding:12px 28px;font-size:14px;font-weight:700;cursor:pointer;}
 
-footer{background:#fff;border-top:1px solid var(--border);padding:40px 48px;text-align:center;}
-.ft-logo{font-size:14px;font-weight:900;letter-spacing:.06em;margin-bottom:10px;}
-.ft-logo span{color:var(--blue);}
-footer p{font-size:12px;color:var(--mid);line-height:2;}
 
 @media(max-width:600px){
-  nav{height:auto;min-height:64px;padding:14px 20px;align-items:flex-start;flex-direction:column;gap:10px;}
-  .nav-links{display:flex;width:100%;}
-  .nav-cta{display:none;}
   .card-head,.card-body{padding:24px 20px;}
   .row2{grid-template-columns:1fr;}
   .steps-inner{gap:4px;}
@@ -109,26 +82,18 @@ footer p{font-size:12px;color:var(--mid);line-height:2;}
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">보험의 <span>기준</span></a>
-  <div class="nav-links">
-    <a href="employees.html">임직원소개</a>
-    <a href="support.html">지원 시스템</a>
-    <a href="partners.html">제휴보험사</a>
-    <a href="financial-consumer-protection.html">금융소비자보호</a>
-    <a href="recruit.html">입사지원</a>
-    <a href="consult.html">보험상담</a>
-  </div>
-  <a href="index.html" class="nav-cta">홈</a>
-</nav>
+<nav class="site-nav"><div class="site-nav-in"><a href="./index.html" class="site-logo"><span class="logo-word">STANDARD</span><span class="logo-sub">보험의 기준</span></a><div class="site-links"><a href="./employees.html">임직원소개</a><a href="./support.html">지원 시스템</a><a href="./partners.html">제휴보험사</a><a href="./financial-consumer-protection.html">금융소비자보호</a><a href="./recruit.html">입사지원</a><a href="./consult.html" class="consult" aria-current="page">보험상담</a></div><a class="site-login" href="https://metarich-signal.vercel.app/login" target="_blank">임직원 로그인</a></div></nav>
 
-<div class="hero">
-  <div class="hero-inner" data-aos="fade-up">
-    <div class="hero-badge">INSURANCE CONSULTING</div>
-    <h1>보험 분석부터 청구까지<br>전문가가 함께합니다</h1>
-    <p>국내외 33개 보험사 제휴 · 24시간 내 전문가 연락<br>정확한 분석, 신속한 청구 — 보험의 기준</p>
+<header class="page-hero">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="word" role="img" aria-label="CONSULT"><span><i style="--n:0">C</i></span><span><i style="--n:1">O</i></span><span><i style="--n:2">N</i></span><span><i style="--n:3">S</i></span><span><i style="--n:4">U</i></span><span><i style="--n:5">L</i></span><span><i style="--n:6">T</i></span></div>
+    <div class="rule"></div>
+    <div class="meta">
+      <div><h1>분야별 전문가가 직접 상담합니다</h1><p>보장 분석부터 리모델링, 보험금 청구까지 — 보험의 기준</p></div>
+      <a class="go" href="#apply">상담 신청서 작성 ↓</a>
+    </div>
   </div>
-</div>
+</header>
 
 <div class="steps-bar">
   <div class="steps-inner">
@@ -149,7 +114,7 @@ footer p{font-size:12px;color:var(--mid);line-height:2;}
   </div>
 </div>
 
-<div class="wrap">
+<div class="wrap" id="apply">
   <div class="card" data-aos="fade-up" data-aos-delay="100">
     <div class="card-head">
       <h2>보험 상담 신청</h2>
@@ -227,8 +192,8 @@ footer p{font-size:12px;color:var(--mid);line-height:2;}
   </div>
 </div>
 
-<footer>
-  <div class="ft-logo">보험의 <span>기준</span></div>
+<footer class="site-foot">
+  <span class="logo-word">STANDARD</span><span class="logo-sub">보험의 기준</span>
   <p>원주본부 : 강원특별자치도 원주시 능라동길 81, 3~6층<br>
      이천센터 : 경기 이천시 경충대로 2723, 2~3층</p>
 </footer>
