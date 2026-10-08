@@ -8,8 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nanum+Myeongjo:wght@700;800&family=Black+Han+Sans&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nanumfont@1.0.0/NanumSquareRound.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/standard.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
@@ -39,10 +39,6 @@
       max-width: 100%;
     }
     a { color: inherit; text-decoration: none; }
-    .font-display-serif { font-family: 'Noto Serif KR', serif; }
-    .font-display-bold { font-family: 'Black Han Sans', sans-serif; font-weight: 400; }
-    .font-display-myeongjo { font-family: 'Nanum Myeongjo', serif; }
-    .font-body-round { font-family: 'NanumSquareRound', sans-serif; }
 
     .nav-link {
       position: relative;
@@ -91,8 +87,12 @@
       padding-bottom: 6px; border-bottom: 2px solid currentColor; }
     .hero-go:hover { color: var(--primary-light); }
     @media (prefers-reduced-motion: reduce) { .hero *, .hero *::after { animation: none !important; } }
-    .section-label { font-size: 12px; font-weight: 900; letter-spacing: .14em; color: var(--accent); text-transform: uppercase; }
-    .section-title { font-size: clamp(32px, 4.8vw, 58px); line-height: 1.12; letter-spacing: 0; }
+    .section-label { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--accent); text-transform: uppercase; }
+    .section-label::before { content: ""; width: 36px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 1s cubic-bezier(.16,1,.3,1) .2s; }
+    .aos-animate .section-label::before { transform: scaleX(1); }
+    .text-center .section-label { justify-content: center; }
+    .news-card .section-label::before { display: none; }
+    .section-title { font-size: clamp(30px, 4.2vw, 52px); font-weight: 800; line-height: 1.22; letter-spacing: -.025em; }
     .btn-main {
       min-height: 54px;
       display: inline-flex;
@@ -106,7 +106,7 @@
       white-space: nowrap;
     }
     .btn-main:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--primary-light); color: #fff; box-shadow: 0 18px 34px rgba(45,74,138,.25); }
+    .btn-primary { background: var(--primary); color: #fff; }
     .btn-dark { background: var(--bg-dark); color: #fff; }
     .btn-light { background: #fff; color: var(--primary); border: 1px solid rgba(26,39,68,.12); }
 
@@ -174,7 +174,7 @@
       position: relative;
       background:
         radial-gradient(circle at 48% 32%, rgba(232,168,75,.24), transparent 20%),
-        radial-gradient(circle at 50% 45%, rgba(59,130,246,.18), transparent 40%),
+        radial-gradient(circle at 50% 45%, rgba(201,169,110,.12), transparent 40%),
         #111827;
       overflow: hidden;
       border-radius: 8px;
@@ -199,8 +199,8 @@
       height: var(--size, 10px);
       z-index: 2;
       border-radius: 999px;
-      background: #3b82f6;
-      box-shadow: 0 0 10px rgba(59,130,246,.95), 0 0 20px rgba(59,130,246,.62);
+      background: #C9A96E;
+      box-shadow: 0 0 10px rgba(201,169,110,.95), 0 0 20px rgba(201,169,110,.6);
       opacity: .28;
       transform: translate(-50%, -50%) scale(.82);
       animation: network-twinkle var(--duration, 4.8s) ease-in-out infinite;
@@ -226,9 +226,9 @@
       padding: 14px 20px;
       text-align: center;
       background: rgba(15,23,42,.58);
-      border: 1px solid rgba(96,165,250,.2);
+      border: 1px solid rgba(201,169,110,.35);
       border-radius: 8px;
-      color: #60a5fa;
+      color: #C9A96E;
       font-weight: 900;
     }
     @keyframes map-breathe { 0%,100% { transform: scale(1.015); filter: saturate(1); } 50% { transform: scale(1.045); filter: saturate(1.15) brightness(1.04); } }
@@ -319,11 +319,30 @@
       left: 0;
       top: -6px;
       color: #C9A96E;
-      font-family: 'Nanum Myeongjo', serif;
+      font-family: Georgia, serif;
       font-size: 30px;
       line-height: 1;
       font-weight: 800;
     }
+    /* 마무리 영역: 히어로와 짝 (STANDARD + 금색 기준선) */
+    .closing { background: var(--bg-light); padding: clamp(72px, 10vw, 140px) 24px clamp(64px, 8vw, 110px); overflow: hidden; }
+    .closing-in { max-width: 1280px; margin: 0 auto; }
+    .closing-word { font-family: 'Anton', sans-serif; font-size: clamp(72px, 17vw, 270px); line-height: .9; margin-top: 18px;
+      color: transparent; -webkit-text-stroke: 1.5px var(--primary); white-space: nowrap; }
+    .closing-rule { height: 2px; margin-top: 12px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 1.4s cubic-bezier(.16,1,.3,1) .3s; }
+    .aos-animate .closing-rule { transform: scaleX(1); }
+    .closing-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-top: 36px; }
+    .closing-row .section-title { color: var(--primary); }
+    .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .closing-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 26px; border-radius: 999px;
+      border: 1.5px solid var(--primary); color: var(--primary); font-weight: 800; transition: background .25s, color .25s, transform .25s; }
+    .closing-btn span { transition: transform .25s; }
+    .closing-btn:hover { transform: translateY(-2px); }
+    .closing-btn:hover span { transform: translate(2px, -2px); }
+    .closing-btn.primary { background: var(--primary); color: #fff; }
+    .closing-btn.primary:hover { background: var(--primary-light); border-color: var(--primary-light); }
+    .closing-btn:not(.primary):hover { background: var(--primary); color: #fff; }
+    @media (prefers-reduced-motion: reduce) { .section-label::before, .closing-rule { transform: none; transition: none; } }
     .story-tab { display: none !important; }
     .story-tab.active { display: grid !important; }
     .tab-button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
@@ -348,7 +367,7 @@
         <a href="./partners.html" class="nav-link">제휴보험사</a>
         <a href="./financial-consumer-protection.html" class="nav-link">금융소비자보호</a>
         <a href="./recruit.html" class="nav-link">입사지원</a>
-        <a href="./consult.html" class="nav-link text-blue-600">보험상담</a>
+        <a href="./consult.html" class="nav-link" style="color:var(--primary-light)">보험상담</a>
       </div>
       <a href="https://metarich-signal.vercel.app/login" target="_blank" class="hidden md:inline-flex border border-stone-900 rounded-full px-5 py-2 text-xs font-black hover:bg-stone-900 hover:text-white transition">임직원 로그인</a>
     </div>
@@ -359,7 +378,7 @@
         <a href="./partners.html" class="p-3 rounded-lg bg-stone-50 text-center">제휴보험사</a>
         <a href="./financial-consumer-protection.html" class="p-3 rounded-lg bg-stone-50 text-center">금융소비자보호</a>
         <a href="./recruit.html" class="p-3 rounded-lg bg-stone-900 text-white text-center">입사지원</a>
-        <a href="./consult.html" class="p-3 rounded-lg bg-blue-600 text-white text-center">보험상담</a>
+        <a href="./consult.html" class="p-3 rounded-lg bg-[#1A2744] text-white text-center">보험상담</a>
       </div>
     </div>
   </nav>
@@ -378,7 +397,7 @@
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
         <div data-aos="fade-up">
           <p class="section-label mb-4">Expert Group</p>
-          <h2 class="section-title font-display-serif font-black">사람이 곧<br>보험의 기준입니다.</h2>
+          <h2 class="section-title">사람이 곧<br>보험의 기준입니다.</h2>
         </div>
         <p class="text-stone-500 max-w-xl leading-relaxed" data-aos="fade-up" data-aos-delay="80">
           박주완 본부장을 중심으로 각 분야의 전문가가 보장 분석, 리모델링, 청구 상담을 연결합니다. 사진을 선택하면 기존 상세 프로필로 이동합니다.
@@ -386,19 +405,19 @@
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-6 member-layout">
-    <a href="./experts/jw1035.html" class="member-card fixed"><img src="./assets/images/members/jw1035.jpg" alt="박주완 총괄본부장"><div class="p-6"><strong class="text-2xl">박주완</strong><p class="text-blue-600 text-sm font-black mt-1">총괄본부장</p><p class="text-stone-500 text-sm leading-relaxed mt-4">전국 네트워크 구축과 현장 지원을 총괄합니다.</p></div></a>
+    <a href="./experts/jw1035.html" class="member-card fixed"><img src="./assets/images/members/jw1035.jpg" alt="박주완 총괄본부장"><div class="p-6"><strong class="text-2xl">박주완</strong><p class="text-[#C9A96E] text-sm font-black mt-1">총괄본부장</p><p class="text-stone-500 text-sm leading-relaxed mt-4">전국 네트워크 구축과 현장 지원을 총괄합니다.</p></div></a>
     <div class="member-strip">
       <div class="member-track">
-        <a href="./experts/jl5017.html" class="member-card"><img src="./assets/images/members/jl5017.png" alt="최정림 본부장"><div class="p-5"><strong class="text-xl">최정림</strong><p class="text-blue-600 text-sm font-black mt-1">본부장</p></div></a>
-        <a href="./experts/jw2565.html" class="member-card"><img src="./assets/images/members/jw2565.png" alt="배진우 팀장"><div class="p-5"><strong class="text-xl">배진우</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/hk0203.html" class="member-card"><img src="./assets/images/members/hk0203.jpg" alt="채홍교 팀장"><div class="p-5"><strong class="text-xl">채홍교</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/jy3512.html" class="member-card"><img src="./assets/images/members/jy3512.jpg" alt="고정윤 팀장"><div class="p-5"><strong class="text-xl">고정윤</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/ye2357.html" class="member-card"><img src="./assets/images/members/ye2357.png" alt="김영은 팀장"><div class="p-5"><strong class="text-xl">김영은</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/jl5017.html" class="member-card"><img src="./assets/images/members/jl5017.png" alt="최정림 본부장"><div class="p-5"><strong class="text-xl">최정림</strong><p class="text-blue-600 text-sm font-black mt-1">본부장</p></div></a>
-        <a href="./experts/jw2565.html" class="member-card"><img src="./assets/images/members/jw2565.png" alt="배진우 팀장"><div class="p-5"><strong class="text-xl">배진우</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/hk0203.html" class="member-card"><img src="./assets/images/members/hk0203.jpg" alt="채홍교 팀장"><div class="p-5"><strong class="text-xl">채홍교</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/jy3512.html" class="member-card"><img src="./assets/images/members/jy3512.jpg" alt="고정윤 팀장"><div class="p-5"><strong class="text-xl">고정윤</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
-        <a href="./experts/ye2357.html" class="member-card"><img src="./assets/images/members/ye2357.png" alt="김영은 팀장"><div class="p-5"><strong class="text-xl">김영은</strong><p class="text-blue-600 text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/jl5017.html" class="member-card"><img src="./assets/images/members/jl5017.png" alt="최정림 본부장"><div class="p-5"><strong class="text-xl">최정림</strong><p class="text-[#C9A96E] text-sm font-black mt-1">본부장</p></div></a>
+        <a href="./experts/jw2565.html" class="member-card"><img src="./assets/images/members/jw2565.png" alt="배진우 팀장"><div class="p-5"><strong class="text-xl">배진우</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/hk0203.html" class="member-card"><img src="./assets/images/members/hk0203.jpg" alt="채홍교 팀장"><div class="p-5"><strong class="text-xl">채홍교</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/jy3512.html" class="member-card"><img src="./assets/images/members/jy3512.jpg" alt="고정윤 팀장"><div class="p-5"><strong class="text-xl">고정윤</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/ye2357.html" class="member-card"><img src="./assets/images/members/ye2357.png" alt="김영은 팀장"><div class="p-5"><strong class="text-xl">김영은</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/jl5017.html" class="member-card"><img src="./assets/images/members/jl5017.png" alt="최정림 본부장"><div class="p-5"><strong class="text-xl">최정림</strong><p class="text-[#C9A96E] text-sm font-black mt-1">본부장</p></div></a>
+        <a href="./experts/jw2565.html" class="member-card"><img src="./assets/images/members/jw2565.png" alt="배진우 팀장"><div class="p-5"><strong class="text-xl">배진우</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/hk0203.html" class="member-card"><img src="./assets/images/members/hk0203.jpg" alt="채홍교 팀장"><div class="p-5"><strong class="text-xl">채홍교</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/jy3512.html" class="member-card"><img src="./assets/images/members/jy3512.jpg" alt="고정윤 팀장"><div class="p-5"><strong class="text-xl">고정윤</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
+        <a href="./experts/ye2357.html" class="member-card"><img src="./assets/images/members/ye2357.png" alt="김영은 팀장"><div class="p-5"><strong class="text-xl">김영은</strong><p class="text-[#C9A96E] text-sm font-black mt-1">팀장</p></div></a>
       </div>
     </div>
     </div>
@@ -408,28 +427,28 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="mb-16" data-aos="fade-up">
         <p class="section-label mb-4">Brand Identity</p>
-        <h2 class="section-title font-display-bold">보험의 기준을 움직이는 6가지 기준</h2>
+        <h2 class="section-title">보험의 기준을 움직이는 6가지 기준</h2>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="brand-tab" data-aos="fade-up"><div class="brand-icon"><iconify-icon icon="solar:document-add-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-blue-700 mb-3">대한민국 대표 GA</h3><p class="font-bold mb-4">여러 보험사의 상품을 비교 분석하는 독립 금융 파트너</p><p class="text-stone-500 text-sm leading-relaxed">33개 외 보험사의 상품을 살펴 고객에게 필요한 보장과 보험료 균형을 제안합니다.</p></div>
-        <div class="brand-tab" data-aos="fade-up" data-aos-delay="70"><div class="brand-icon"><iconify-icon icon="solar:heart-hand-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-blue-700 mb-3">고객 중심 경영</h3><p class="font-bold mb-4">보험의 중요도는 높아지고, 만족도는 낮아졌습니다.</p><p class="text-stone-500 text-sm leading-relaxed">고객 정보에 기초한 분석과 사후관리로 만족할 수 있는 보험 경험을 설계합니다.</p></div>
-        <div class="brand-tab" data-aos="fade-up" data-aos-delay="140"><div class="brand-icon"><iconify-icon icon="solar:home-heart-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-blue-700 mb-3">사회적 책임</h3><p class="font-bold mb-4">보험은 미래입니다.</p><p class="text-stone-500 text-sm leading-relaxed">건강한 금융 문화와 사회공헌 활동으로 더 나은 미래를 함께 만들어갑니다.</p></div>
-        <div class="brand-tab" data-aos="fade-up"><div class="brand-icon"><iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-blue-700 mb-3">소비자 보호</h3><p class="font-bold mb-4">권리 안내와 민원 예방을 먼저 생각합니다.</p><p class="text-stone-500 text-sm leading-relaxed">금융소비자가 이해하기 쉬운 설명과 투명한 절차를 기준으로 상담합니다.</p></div>
-        <div class="brand-tab" data-aos="fade-up" data-aos-delay="70"><div class="brand-icon"><iconify-icon icon="solar:bolt-circle-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-blue-700 mb-3">신속한 청구</h3><p class="font-bold mb-4">청구는 빠르게, 확인은 꼼꼼하게.</p><p class="text-stone-500 text-sm leading-relaxed">보험금 청구에 필요한 서류와 절차를 안내하고 누락 없이 진행되도록 돕습니다.</p></div>
-        <div class="brand-tab" data-aos="fade-up" data-aos-delay="140"><div class="brand-icon"><iconify-icon icon="solar:graph-new-up-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-blue-700 mb-3">데이터 기반 분석</h3><p class="font-bold mb-4">감이 아닌 근거로 설계합니다.</p><p class="text-stone-500 text-sm leading-relaxed">보장 분석, 비교 견적, 고객관리 데이터를 연결해 설계 품질을 높입니다.</p></div>
+        <div class="brand-tab" data-aos="fade-up"><div class="brand-icon"><iconify-icon icon="solar:document-add-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-[#1A2744] mb-3">대한민국 대표 GA</h3><p class="font-bold mb-4">여러 보험사의 상품을 비교 분석하는 독립 금융 파트너</p><p class="text-stone-500 text-sm leading-relaxed">33개 외 보험사의 상품을 살펴 고객에게 필요한 보장과 보험료 균형을 제안합니다.</p></div>
+        <div class="brand-tab" data-aos="fade-up" data-aos-delay="70"><div class="brand-icon"><iconify-icon icon="solar:heart-hand-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-[#1A2744] mb-3">고객 중심 경영</h3><p class="font-bold mb-4">보험의 중요도는 높아지고, 만족도는 낮아졌습니다.</p><p class="text-stone-500 text-sm leading-relaxed">고객 정보에 기초한 분석과 사후관리로 만족할 수 있는 보험 경험을 설계합니다.</p></div>
+        <div class="brand-tab" data-aos="fade-up" data-aos-delay="140"><div class="brand-icon"><iconify-icon icon="solar:home-heart-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-[#1A2744] mb-3">사회적 책임</h3><p class="font-bold mb-4">보험은 미래입니다.</p><p class="text-stone-500 text-sm leading-relaxed">건강한 금융 문화와 사회공헌 활동으로 더 나은 미래를 함께 만들어갑니다.</p></div>
+        <div class="brand-tab" data-aos="fade-up"><div class="brand-icon"><iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-[#1A2744] mb-3">소비자 보호</h3><p class="font-bold mb-4">권리 안내와 민원 예방을 먼저 생각합니다.</p><p class="text-stone-500 text-sm leading-relaxed">금융소비자가 이해하기 쉬운 설명과 투명한 절차를 기준으로 상담합니다.</p></div>
+        <div class="brand-tab" data-aos="fade-up" data-aos-delay="70"><div class="brand-icon"><iconify-icon icon="solar:bolt-circle-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-[#1A2744] mb-3">신속한 청구</h3><p class="font-bold mb-4">청구는 빠르게, 확인은 꼼꼼하게.</p><p class="text-stone-500 text-sm leading-relaxed">보험금 청구에 필요한 서류와 절차를 안내하고 누락 없이 진행되도록 돕습니다.</p></div>
+        <div class="brand-tab" data-aos="fade-up" data-aos-delay="140"><div class="brand-icon"><iconify-icon icon="solar:graph-new-up-bold-duotone"></iconify-icon></div><h3 class="text-2xl font-black text-[#1A2744] mb-3">데이터 기반 분석</h3><p class="font-bold mb-4">감이 아닌 근거로 설계합니다.</p><p class="text-stone-500 text-sm leading-relaxed">보장 분석, 비교 견적, 고객관리 데이터를 연결해 설계 품질을 높입니다.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="network" class="py-24 md:py-32 bg-slate-950">
+  <section id="network" class="py-24 md:py-32 bg-[#0F1A30]">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-      <div data-aos="fade-right">
+      <div data-aos="fade-up">
         <p class="section-label mb-5">STANDARD NETWORK</p>
-        <h2 class="section-title font-display-serif font-black text-white mb-8">전국 설계사를 위한<br><span class="text-blue-500 font-display-bold">커뮤니티</span></h2>
+        <h2 class="section-title text-white mb-8">전국 설계사를 위한<br><span class="text-[#C9A96E]">커뮤니티</span></h2>
         <p class="text-slate-400 text-lg leading-relaxed">전국의 설계사가 경험과 정보를 나누고 함께 성장할 수 있도록 연결합니다.<br>지역을 넘어 같은 기준과 실무 노하우를 공유하는 커뮤니티입니다.</p>
         <div class="network-badge">INSURANCE STANDARD NETWORK</div>
       </div>
-      <div class="map-base" data-aos="zoom-in">
+      <div class="map-base" data-aos="fade-up">
         <img src="./assets/images/signal-network-map.png" alt="원주를 중심으로 전국으로 확산되는 보험의 기준 네트워크 지도" class="network-map-img">
         <span class="spark-point origin" style="--x:66%;--y:36%;--size:12px;"></span>
         <span class="spark-point" style="--x:34%;--y:27%;--delay:.2s;--duration:4.6s;"></span>
@@ -449,8 +468,8 @@
   <section class="py-24 md:py-32 bg-[#F5F2ED]">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
-        <div data-aos="fade-up"><p class="section-label mb-4">News · Volunteer · PR</p><h2 class="section-title font-display-bold">보험의 기준의 소식과 지원</h2></div>
-        <p class="text-stone-500 max-w-xl">행사, 기부, 본사 뉴스, 부트캠프, 스카우터 프로그램까지 보험의 기준의 활동을 한 곳에서 전합니다.</p>
+        <div data-aos="fade-up"><p class="section-label mb-4">News · Volunteer · PR</p><h2 class="section-title">보험의 기준의 소식과 지원</h2></div>
+        <p class="text-stone-500 max-w-xl leading-relaxed" data-aos="fade-up" data-aos-delay="80">행사, 기부, 본사 뉴스, 부트캠프, 스카우터 프로그램까지 보험의 기준의 활동을 한 곳에서 전합니다.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-5">
         <article class="news-card" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=900" alt="회사 행사" class="w-full h-56 object-cover"><div class="p-7"><span class="section-label">Standard Event</span><h3 class="text-2xl font-black mt-3 mb-3">보험의 기준 행사</h3><p class="text-stone-500 text-sm leading-relaxed">교육, 성과 공유, 리더십 워크숍 등 현장을 성장시키는 내부 행사를 소개합니다.</p></div></article>
@@ -464,7 +483,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12" data-aos="fade-up">
         <p class="section-label mb-4">Reviews · Interviews</p>
-        <h2 class="section-title font-display-serif font-black">고객의 만족과 설계사의 성장</h2>
+        <h2 class="section-title">고객의 만족과 설계사의 성장</h2>
       </div>
       <div class="flex justify-center gap-3 mb-10">
         <button class="tab-button active btn-main btn-light" data-tab="customers">고객 만족 후기</button>
@@ -489,23 +508,43 @@
     </div>
   </section>
 
-  <section class="py-24 px-6 bg-slate-950 text-center">
-    <div class="max-w-4xl mx-auto" data-aos="zoom-in">
-      <h2 class="text-3xl md:text-5xl font-display-serif font-black text-white mb-8">지금 필요한 상담과<br>새로운 커리어를 시작하세요.</h2>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="./consult.html" class="btn-main btn-primary">보험 상담</a>
-        <a href="./recruit.html" class="btn-main bg-white text-slate-950">신입/경력 입사지원</a>
+  <section class="closing">
+    <div class="closing-in" data-aos="fade-up">
+      <p class="section-label">Let's Start</p>
+      <div class="closing-word" aria-hidden="true">STANDARD</div>
+      <div class="closing-rule"></div>
+      <div class="closing-row">
+        <h2 class="section-title">지금 필요한 상담과<br>새로운 커리어를 시작하세요.</h2>
+        <div class="closing-actions">
+          <a href="./consult.html" class="closing-btn primary">보험 상담 신청 <span>↗</span></a>
+          <a href="./recruit.html" class="closing-btn">신입·경력 입사지원 <span>↗</span></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-white py-14 border-t border-stone-100 text-center">
-    <p class="text-stone-500 text-sm mb-5">정확한 분석, 신속한 청구를 기준으로 고객에게 필요한 보험·금융 서비스를 제공합니다.</p>
-    <p class="text-stone-400 text-[11px] font-display-myeongjo tracking-widest uppercase italic">INSURANCE STANDARD</p>
-  </footer>
+<footer class="site-foot">
+  <div class="site-foot-in">
+    <div class="foot-brand">
+      <a href="./index.html"><span class="logo-word">STANDARD</span><span class="logo-sub">보험의 기준</span></a>
+      <p>일상에서 미래까지, 금융에 대한 모든 것<br>각 분야별 전문가 상담</p>
+    </div>
+    <div class="foot-col">
+      <b>바로가기</b>
+      <a href="./employees.html">임직원소개</a><a href="./support.html">지원 시스템</a><a href="./partners.html">제휴보험사</a>
+      <a href="./financial-consumer-protection.html">금융소비자보호</a><a href="./recruit.html">입사지원</a><a href="./consult.html">보험상담</a>
+    </div>
+    <div class="foot-col">
+      <b>센터</b>
+      <p>원주본부 · 강원특별자치도 원주시 능라동길 81, 3~6층</p>
+      <p>이천센터 · 경기 이천시 경충대로 2723, 2~3층</p>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 보험의 기준. 정확한 분석, 신속한 청구.</div>
+</footer>
 
   <script>
-    AOS.init({ duration: 800, once: false, mirror: true });
+    AOS.init({ duration: 900, easing: 'ease-out-cubic', once: true, offset: 80 });
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
     menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
