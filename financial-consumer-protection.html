@@ -7,17 +7,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=Black+Han+Sans&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/standard.css">
   <style>
     :root{--primary:#1A2744;--primary-light:#2D4A8A;--accent:#C9A96E;--bg-light:#FAFAF8;--text:#111111;}
     body{margin:0;font-family:'Pretendard Variable','Pretendard',-apple-system,sans-serif;background:var(--bg-light);color:var(--text);word-break:keep-all;overflow-wrap:break-word;}
-    .font-display-serif{font-family:'Noto Serif KR',serif}.font-display-bold{font-family:'Black Han Sans',sans-serif;font-weight:400}
-    .hero{min-height:560px;background:linear-gradient(90deg,rgba(10,10,10,.84),rgba(10,10,10,.56),rgba(10,10,10,.3)),url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=2200') center/cover;display:flex;align-items:center;position:relative;overflow:hidden;}
-    .hero::after{content:"";position:absolute;right:8%;bottom:12%;width:150px;height:150px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(26,39,68,.1);box-shadow:0 0 80px rgba(201,169,110,.13);z-index:1;}
-    .hero > div{position:relative;z-index:2;}
-    .nav-link{font-size:13px;font-weight:800;color:#333;white-space:nowrap}.nav-link:hover{color:var(--primary-light)}
-    .nav-links-all{display:flex;align-items:center;gap:18px;overflow-x:auto;white-space:nowrap;max-width:100%}.nav-links-all::-webkit-scrollbar{display:none}
-    @media(max-width:760px){.topbar{height:auto;min-height:72px;align-items:flex-start;flex-direction:column;padding-top:18px;padding-bottom:14px}.nav-links-all{width:100%;padding-top:10px}.hero::after{display:none}}
+
+
     .rule-card{background:#fff;border:1px solid rgba(26,39,68,.08);border-radius:8px;padding:28px;box-shadow:0 16px 42px rgba(26,39,68,.06)}
     .icon-box{width:56px;height:56px;border-radius:8px;background:#F5F2ED;color:var(--primary-light);display:grid;place-items:center;font-size:30px;margin-bottom:22px}
     .rule-paper{background:#fff;border:1px solid rgba(26,39,68,.1);border-radius:8px;box-shadow:0 18px 52px rgba(26,39,68,.08);padding:44px}
@@ -28,38 +24,24 @@
   </style>
 </head>
 <body>
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-100">
-    <div class="topbar max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
-      <a href="./index.html" class="font-black text-xl tracking-tight">보험의 <span class="text-blue-600">기준</span></a>
-      <div class="nav-links-all">
-        <a href="./employees.html" class="nav-link">임직원소개</a>
-        <a href="./support.html" class="nav-link">지원 시스템</a>
-        <a href="./partners.html" class="nav-link">제휴보험사</a>
-        <a href="./financial-consumer-protection.html" class="nav-link">금융소비자보호</a>
-        <a href="./recruit.html" class="nav-link">입사지원</a>
-        <a href="./consult.html" class="nav-link text-blue-600">보험상담</a>
-      </div>
-    </div>
-  </nav>
+  <nav class="site-nav"><div class="site-nav-in"><a href="./index.html" class="site-logo"><span class="logo-word">STANDARD</span><span class="logo-sub">보험의 기준</span></a><div class="site-links"><a href="./employees.html">임직원소개</a><a href="./support.html">지원 시스템</a><a href="./partners.html">제휴보험사</a><a href="./financial-consumer-protection.html" aria-current="page">금융소비자보호</a><a href="./recruit.html">입사지원</a><a href="./consult.html" class="consult">보험상담</a></div><a class="site-login" href="https://metarich-signal.vercel.app/login" target="_blank">임직원 로그인</a></div></nav>
 
-  <header class="hero">
-    <div class="max-w-7xl mx-auto px-6">
-      <p class="text-[#C9A96E] font-black tracking-[.14em] text-xs mb-5">FINANCIAL CONSUMER PROTECTION</p>
-      <h1 class="font-display-serif font-black text-white text-4xl md:text-7xl leading-tight">
-        보험의 기준 홈페이지에<br>
-        오신 것을 환영합니다.
-      </h1>
-      <p class="text-xl md:text-2xl mt-8 leading-relaxed" style="color:rgba(255,255,255,.78);">
-        보험의 기준은 금융소비자 보호에<br class="hidden md:block">앞장서겠습니다.
-      </p>
+  <header class="page-hero">
+    <div style="max-width:1280px;margin:0 auto">
+      <div class="word" role="img" aria-label="PROTECTION"><span><i style="--n:0">P</i></span><span><i style="--n:1">R</i></span><span><i style="--n:2">O</i></span><span><i style="--n:3">T</i></span><span><i style="--n:4">E</i></span><span><i style="--n:5">C</i></span><span><i style="--n:6">T</i></span><span><i style="--n:7">I</i></span><span><i style="--n:8">O</i></span><span><i style="--n:9">N</i></span></div>
+      <div class="rule"></div>
+      <div class="meta">
+        <div><h1>금융소비자 보호에 앞장서겠습니다</h1><p>권리 안내와 민원 예방, 투명한 상담을 기준으로 합니다.</p></div>
+        <a class="go" href="#rules">기준 전문 보기 ↓</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="py-24 md:py-32">
+    <section class="py-24 md:py-32" id="rules">
       <div class="max-w-5xl mx-auto px-6">
         <article class="rule-paper">
-          <h2 class="font-display-serif font-black text-3xl md:text-4xl mb-2">| 금융소비자보호기준</h2>
+          <h2 class="font-extrabold tracking-tight text-3xl md:text-4xl mb-2">| 금융소비자보호기준</h2>
           <p class="text-stone-500 font-bold mb-10">21.9.24. 제정</p>
           <div class="rule-text">제1장 총 칙
 
@@ -278,8 +260,24 @@
     </section>
   </main>
 
-  <footer class="bg-white py-12 text-center border-t border-stone-100">
-    <p class="text-stone-500 text-sm">보험의 기준은 금융소비자 보호와 투명한 상담 문화를 지향합니다.</p>
-  </footer>
+  <footer class="site-foot">
+  <div class="site-foot-in">
+    <div class="foot-brand">
+      <a href="./index.html"><span class="logo-word">STANDARD</span><span class="logo-sub">보험의 기준</span></a>
+      <p>일상에서 미래까지, 금융에 대한 모든 것<br>각 분야별 전문가 상담</p>
+    </div>
+    <div class="foot-col">
+      <b>바로가기</b>
+      <a href="./employees.html">임직원소개</a><a href="./support.html">지원 시스템</a><a href="./partners.html">제휴보험사</a>
+      <a href="./financial-consumer-protection.html">금융소비자보호</a><a href="./recruit.html">입사지원</a><a href="./consult.html">보험상담</a>
+    </div>
+    <div class="foot-col">
+      <b>센터</b>
+      <p>원주본부 · 강원특별자치도 원주시 능라동길 81, 3~6층</p>
+      <p>이천센터 · 경기 이천시 경충대로 2723, 2~3층</p>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 보험의 기준. 정확한 분석, 신속한 청구.</div>
+</footer>
 </body>
 </html>
